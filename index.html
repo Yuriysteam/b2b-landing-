@@ -176,17 +176,15 @@
       <div class="container">
         <div class="benefits-dual-grid">
           <div class="benefit-dual-card">
-            <h5 class="benefit-dual-card__label">В чём выгода</h5>
             <h3 class="benefit-dual-card__title">Бизнес-счёт</h3>
-            <p class="benefit-dual-card__subtitle">Больше, чем скидки.</p>
-            <p class="benefit-dual-card__text">Оплачивайте поездки со&nbsp;счёта организации&nbsp;— все расходы под вашим контролем, а&nbsp;документооборот становится простым и&nbsp;быстрым. Вы&nbsp;можете гибко настроить как оплачивать и&nbsp;как ездить сотрудникам: самостоятельно или с&nbsp;бизнес-счёта.</p>
+            <p class="benefit-dual-card__text">Оплачивайте поездки со&nbsp;счёта организации&nbsp;— все расходы под вашим контролем, а&nbsp;документооборот становится простым и&nbsp;быстрым.</p>
+            <p class="benefit-dual-card__text">Вы&nbsp;можете гибко настроить как оплачивать и&nbsp;как ездить сотрудникам: самостоятельно или с&nbsp;бизнес-счёта.</p>
             <div class="benefit-dual-card__image">
               <img src="assets/images/plus.png" alt="Бизнес-счёт">
             </div>
           </div>
 
           <div class="benefit-dual-card">
-            <h5 class="benefit-dual-card__label">В чём выгода</h5>
             <h3 class="benefit-dual-card__title">Отсрочка платежей</h3>
             <p class="benefit-dual-card__subtitle">Сохраняйте гибкость бюджета и&nbsp;оплачивайте поездки в&nbsp;удобный для бизнеса период.</p>
             <p class="benefit-dual-card__text">Стоимость обслуживания — 0&nbsp;₽. Не&nbsp;берём комиссии за&nbsp;использование средств.</p>
@@ -201,7 +199,6 @@
     <!-- Секция закрывающих документов -->
     <section class="documents-section">
       <div class="container">
-        <h5 class="documents-section__label">В ЧЁМ ВЫГОДА</h5>
         <h2 class="documents-section__title">Закрывающие документы</h2>
         <p class="documents-section__subtitle">Счета, акты, чеки загружаются автоматически в&nbsp;кабинете или по&nbsp;ЭДО.</p>
         <p class="documents-section__text">Ваучер, акт о&nbsp;проживании, ЭДО, настройка правил. Бухгалтерия получает всё вовремя.</p>
@@ -215,7 +212,6 @@
     <section class="support-section">
       <div class="container">
         <div class="transport-card">
-          <h5 class="transport-card__label">В чём выгода</h5>
           <h3 class="transport-card__title">Транспорт</h3>
           <p class="transport-card__subtitle">Цены напрямую от&nbsp;поставщиков и&nbsp;прозрачный сервисный сбор.</p>
           <p class="transport-card__text">Получайте кэшбэк баллами Плюс за&nbsp;бронирование ЖД-билетов.</p>
@@ -223,7 +219,6 @@
       </div>
       <div class="container">
         <div class="support-card">
-          <h5 class="support-card__label">В чём выгода</h5>
           <h3 class="support-card__title">Заботливая поддержка 24/7</h3>
           <p class="support-card__subtitle">Менеджеры на&nbsp;связи и&nbsp;готовы помочь в&nbsp;чате или&nbsp;по&nbsp;телефону.</p>
           <p class="support-card__text">Помогаем с&nbsp;бронированиями, изменениями и&nbsp;возвратами в&nbsp;любое время без выходных, чтобы поездки проходили спокойно.</p>
@@ -295,79 +290,94 @@
     <section id="steps" class="steps-section">
       <div class="steps-background"></div>
       <div class="container">
-        <h2>Узнайте свою выгоду по&nbsp;корпоративным тарифам</h2>
         <div class="quiz-screens">
 
-          <!-- Экран 1: Hook (GIVE) -->
+          <!-- Экран 1: Hook -->
           <div class="screen active" id="quiz-hook">
-            <div class="quiz-give">
+            <div class="quiz-col quiz-col--left">
+              <h2 class="quiz-section-title">Узнайте свою выгоду по&nbsp;корпоративным тарифам</h2>
+            </div>
+            <div class="quiz-col quiz-col--right">
               <p class="quiz-give__text">Покажем за&nbsp;1&nbsp;минуту, где у&nbsp;вас в&nbsp;командировках уходят деньги и&nbsp;время, и&nbsp;что можно улучшить без лишней ручной работы. 3&nbsp;вопроса.</p>
-              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Показать мой сценарий</button>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Узнать</button>
             </div>
           </div>
 
-          <!-- Экран 2: Шаг 1/3 (ASK) -->
+          <!-- Экран 2: Шаг 1/3 -->
           <div class="screen" id="quiz-step1">
-            <p class="quiz-step-counter">Шаг 1 из 3</p>
-            <p class="quiz-question">Что для вас командировки?</p>
-            <div class="quiz-options">
-              <button type="button" class="quiz-option" data-segment="0">Сам организую поездки: поиск, бронь, документы</button>
-              <button type="button" class="quiz-option" data-segment="1">Координирую поездки команды: заявки, брони, документы</button>
-              <button type="button" class="quiz-option" data-segment="2">Работаем по&nbsp;процессу: есть согласования, лимиты и&nbsp;тревел-политика</button>
+            <div class="quiz-col quiz-col--left">
+              <p class="quiz-step-counter">Шаг 1 из 3</p>
+              <p class="quiz-question">Что для вас командировки?</p>
             </div>
-            <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
+            <div class="quiz-col quiz-col--right">
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-segment="0">Сам организую поездки: поиск, бронь, документы</button>
+                <button type="button" class="quiz-option" data-segment="1">Координирую поездки команды: заявки, брони, документы</button>
+                <button type="button" class="quiz-option" data-segment="2">Работаем по&nbsp;процессу: есть согласования, лимиты и&nbsp;тревел-политика</button>
+              </div>
+            </div>
           </div>
 
-          <!-- Экран 3: Delight (GIVE) -->
+          <!-- Экран 3: Delight -->
           <div class="screen" id="quiz-delight">
-            <div class="quiz-give">
-              <p class="quiz-give__text">Уже видим картину. Ещё 2&nbsp;ответа, и&nbsp;покажем расчёт экономии и&nbsp;следующий шаг именно под&nbsp;ваш формат работы.</p>
+            <div class="quiz-col quiz-col--left">
+              <p class="quiz-question">Уже видим картину.</p>
+            </div>
+            <div class="quiz-col quiz-col--right">
+              <p class="quiz-give__text">Ещё 2&nbsp;ответа — покажем расчёт экономии и&nbsp;следующий шаг именно под&nbsp;ваш формат работы.</p>
               <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Продолжить</button>
             </div>
           </div>
 
-          <!-- Экран 4: Шаг 2/3 (ASK) -->
+          <!-- Экран 4: Шаг 2/3 -->
           <div class="screen" id="quiz-step2">
-            <p class="quiz-step-counter">Шаг 2 из 3</p>
-            <p class="quiz-question">Сколько командировок у&nbsp;вас в&nbsp;месяц?</p>
-            <div class="quiz-options">
-              <button type="button" class="quiz-option" data-segment="0">До&nbsp;10</button>
-              <button type="button" class="quiz-option" data-segment="1">10–50</button>
-              <button type="button" class="quiz-option" data-segment="2">50+</button>
+            <div class="quiz-col quiz-col--left">
+              <p class="quiz-step-counter">Шаг 2 из 3</p>
+              <p class="quiz-question">Сколько командировок у&nbsp;вас в&nbsp;месяц?</p>
             </div>
-            <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
+            <div class="quiz-col quiz-col--right">
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-segment="0">До&nbsp;10</button>
+                <button type="button" class="quiz-option" data-segment="1">10–50</button>
+                <button type="button" class="quiz-option" data-segment="2">50+</button>
+              </div>
+            </div>
           </div>
 
-          <!-- Экран 5: Шаг 3/3 (ASK) -->
+          <!-- Экран 5: Шаг 3/3 -->
           <div class="screen" id="quiz-step3">
-            <p class="quiz-step-counter">Шаг 3 из 3</p>
-            <p class="quiz-question">Насколько срочно хотите навести порядок?</p>
-            <div class="quiz-options">
-              <button type="button" class="quiz-option" data-segment="0">В&nbsp;ближайшие 1–2&nbsp;недели</button>
-              <button type="button" class="quiz-option" data-segment="1">В&nbsp;этом месяце</button>
-              <button type="button" class="quiz-option" data-segment="2">Пока изучаю, как это работает</button>
+            <div class="quiz-col quiz-col--left">
+              <p class="quiz-step-counter">Шаг 3 из 3</p>
+              <p class="quiz-question">Насколько срочно хотите навести порядок?</p>
             </div>
-            <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
+            <div class="quiz-col quiz-col--right">
+              <div class="quiz-options">
+                <button type="button" class="quiz-option" data-segment="0">В&nbsp;ближайшие 1–2&nbsp;недели</button>
+                <button type="button" class="quiz-option" data-segment="1">В&nbsp;этом месяце</button>
+                <button type="button" class="quiz-option" data-segment="2">Пока изучаю, как это работает</button>
+              </div>
+            </div>
           </div>
 
-          <!-- Экран 6: Transition (GIVE, автопереход) -->
+          <!-- Экран 6: Transition (автопереход) -->
           <div class="screen" id="quiz-transition">
-            <div class="quiz-give quiz-give--transition">
-              <div class="quiz-loader"><span></span><span></span><span></span></div>
-              <p class="quiz-give__text">Считаем ваш сценарий: экономию бюджета, времени команды и&nbsp;количество ручных шагов…</p>
+            <div class="quiz-col quiz-col--full">
+              <div class="quiz-give--transition">
+                <div class="quiz-loader"><span></span><span></span><span></span></div>
+                <p class="quiz-give__text">Считаем ваш сценарий: экономию бюджета, времени команды и&nbsp;количество ручных шагов…</p>
+              </div>
             </div>
           </div>
 
           <!-- Экран 7: Result -->
           <div class="screen" id="quiz-result">
-            <div class="result-block" id="result-content">
-              <div class="result-diagnosis" id="result-diagnosis"></div>
-              <div class="result-insight" id="result-insight"></div>
-              <h3 class="result-benefits-title">Ваши выгоды</h3>
-              <ul class="benefit-list" id="result-benefits"></ul>
-              <div class="result-social-proof" id="result-social-proof"></div>
+            <div class="quiz-col quiz-col--full">
+              <div class="result-block">
+                <h5 class="result-benefits-title">Ваши выгоды</h5>
+                <div class="benefit-cards" id="result-benefits"></div>
+                <div class="result-cta-row" id="result-cta"></div>
+              </div>
             </div>
-            <div class="cta-block" id="result-cta"></div>
           </div>
 
         </div>

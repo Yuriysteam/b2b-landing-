@@ -72,9 +72,7 @@
         });
       } else {
         var CustomPinLayout = createPinLayout();
-        var BlackDotLayout = createBlackDotLayout();
         var HotelBalloonLayout = createBalloonContentLayout();
-        var placemarkRefs = [];
         placemarks.forEach(function(pm) {
           var placemark = new ymaps.Placemark(
             pm.coords,
@@ -92,55 +90,8 @@
               openBalloonOnClick: false
             }
           );
-          placemarkRefs.push(placemark);
           map.geoObjects.add(placemark);
         });
-        var OVERLAP_PX = 20;
-        function updateBlackDots() {
-          var projection = map.options.get('projection');
-          var zoomLevel = map.getZoom();
-          var size = map.container.getSize();
-          if (!projection || !size) return;
-          var centerCoord = map.getCenter();
-          var globalCenter = projection.toGlobalPixels(centerCoord, zoomLevel);
-          if (!globalCenter) return;
-          function coordToPixel(coord) {
-            var g = projection.toGlobalPixels(coord, zoomLevel);
-            return [g[0] - globalCenter[0] + size[0] / 2, g[1] - globalCenter[1] + size[1] / 2];
-          }
-          var pixels = [];
-          for (var i = 0; i < placemarkRefs.length; i++) {
-            pixels.push(coordToPixel(placemarks[i].coords));
-          }
-          var toBlack = {};
-          for (var i = 0; i < placemarkRefs.length; i++) {
-            for (var j = i + 1; j < placemarkRefs.length; j++) {
-              var dx = pixels[i][0] - pixels[j][0];
-              var dy = pixels[i][1] - pixels[j][1];
-              if (Math.sqrt(dx * dx + dy * dy) < OVERLAP_PX) {
-                var di = placemarks[i].discount !== undefined ? placemarks[i].discount : 10;
-                var dj = placemarks[j].discount !== undefined ? placemarks[j].discount : 10;
-                if (di <= dj) toBlack[i] = true; else toBlack[j] = true;
-              }
-            }
-          }
-          for (var k = 0; k < placemarkRefs.length; k++) {
-            var pm = placemarkRefs[k];
-            if (toBlack[k]) {
-              pm.options.set('iconLayout', BlackDotLayout);
-              pm.options.set('iconShape', { type: 'Rectangle', coordinates: [[-4, -4], [4, 4]] });
-            } else {
-              pm.options.set('iconLayout', CustomPinLayout);
-              pm.options.set('iconShape', { type: 'Rectangle', coordinates: [[-44, -18], [44, 18]] });
-            }
-          }
-        }
-        var boundsTimer;
-        map.events.add('boundschange', function() {
-          if (boundsTimer) clearTimeout(boundsTimer);
-          boundsTimer = setTimeout(function() { boundsTimer = null; updateBlackDots(); }, 150);
-        });
-        updateBlackDots();
       }
     }
     var mapEl = document.getElementById(containerId);
