@@ -112,11 +112,13 @@
 
   .hero__content {
     padding: 120px 20px 80px;
+    width: auto;
+    max-width: 100%;
   }
 
   .hero__title {
-    font-size: 60px;
-    line-height: 100%;
+    font-size: 42px;
+    line-height: 110%;
   }
 
   .hero__subtitle {

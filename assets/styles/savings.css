@@ -93,13 +93,13 @@
   }
 
   .savings-section .container {
-    padding: 0 20px;
+    padding: 0;
   }
 
   .savings-section__header {
     margin-bottom: 24px;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .savings-section__label {
@@ -117,8 +117,13 @@
     line-height: 140%;
   }
 
+  .savings-section__map-widget {
+    height: auto;
+  }
+
   .savings-section__map-widget .map-content {
-    height: 400px;
+    height: 70vh;
+    max-width: 100%;
     border-radius: 0;
   }
 
@@ -130,6 +135,8 @@
     justify-content: flex-start;
     overflow-x: auto;
     flex-wrap: nowrap;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 8px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
