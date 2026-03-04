@@ -42,7 +42,7 @@
   min-width: 220px;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 760px) {
   .share-card {
     padding: 8px;
   }

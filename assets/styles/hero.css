@@ -87,10 +87,10 @@
 }
 
 /* ============================================
-   Hero — адаптация (≤ 840px)
+   Hero — адаптация (≤ 760px)
    ============================================ */
 
-@media (max-width: 840px) {
+@media (max-width: 760px) {
   .hero__wrapper {
     border-radius: 0;
   }
@@ -102,8 +102,8 @@
   }
 
   .hero__title {
-    font-size: 42px;
-    line-height: 110%;
+    font-size: 52px;
+    line-height: 1.1;
   }
 
   .hero__subtitle {

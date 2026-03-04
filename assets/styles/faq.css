@@ -52,10 +52,10 @@
 }
 
 /* ============================================
-   FAQ — адаптация (≤ 840px)
+   FAQ — адаптация (≤ 760px)
    ============================================ */
 
-@media (max-width: 840px) {
+@media (max-width: 760px) {
   .faq-section {
     grid-template-columns: 1fr;
     gap: 32px;

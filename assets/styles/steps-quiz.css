@@ -282,7 +282,6 @@
 .steps-section .quiz-nav { margin-top: 24px; }
 .steps-section .quiz-nav button {
   padding: 12px 20px;
-  font: inherit;
   font-size: 14px;
   color: var(--text-muted);
   background: none;
@@ -377,10 +376,10 @@
 .steps-section .cta-block .btn { width: 100%; }
 
 /* ============================================
-   Steps + Quiz — адаптация (≤ 840px)
+   Steps + Quiz — адаптация (≤ 760px)
    ============================================ */
 
-@media (max-width: 840px) {
+@media (max-width: 760px) {
   .steps-background {
     margin: 0 20px;
     border-radius: 24px;

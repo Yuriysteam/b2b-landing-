@@ -30,10 +30,10 @@ footer .footer__text {
 }
 
 /* ============================================
-   Footer — адаптация (≤ 840px)
+   Footer — адаптация (≤ 760px)
    ============================================ */
 
-@media (max-width: 840px) {
+@media (max-width: 760px) {
   footer .container {
     flex-direction: column;
     gap: 24px;

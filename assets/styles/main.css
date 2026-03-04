@@ -422,10 +422,10 @@ section:not(.hero) .cta-note {
 }
 
 /* ============================================
-   Глобальная адаптация (≤ 840px)
+   Глобальная адаптация (≤ 760px)
    ============================================ */
 
-@media (max-width: 840px) {
+@media (max-width: 760px) {
   .container {
     padding: 0 20px;
     max-width: 100%;
@@ -492,7 +492,7 @@ section:not(.hero) .cta-note {
   }
 }
 
-@media (min-width: 841px) {
+@media (min-width: 761px) {
   section:not(.delay-section):not(.hero) {
     padding: 100px 0;
   }

@@ -210,7 +210,7 @@
 }
 
 /* На десктопе drawer тоже показываем (снизу) */
-@media (min-width: 841px) {
+@media (min-width: 761px) {
   .consultation-drawer .drawer__content {
     max-width: 480px;
     margin: 0 auto;
@@ -293,7 +293,7 @@
 }
 
 /* Мобилка: тултип скрыт, drawer показан */
-@media (max-width: 840px) {
+@media (max-width: 760px) {
   .documents-tooltip { display: none; }
   .documents-drawer  { display: block; }
 
@@ -306,7 +306,7 @@
 }
 
 /* Десктоп: drawer скрыт, тултип показан */
-@media (min-width: 841px) {
+@media (min-width: 761px) {
   .documents-drawer  { display: none; }
   .documents-tooltip { display: block; }
 }
