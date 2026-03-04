@@ -63,7 +63,7 @@
   <link rel="stylesheet" href="assets/styles/share.css">
 
   <!-- Yandex Maps API -->
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=ee841c90-****-****-****-397a31f4f806&lang=ru_RU" type="text/javascript"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ee841c90-5da8-424a-ab9a-397a31f4f806&lang=ru_RU" type="text/javascript"></script>
 
   <!-- Structured data (JSON-LD) -->
   <script type="application/ld+json">
@@ -301,8 +301,8 @@
           <!-- Экран 1: Hook (GIVE) -->
           <div class="screen active" id="quiz-hook">
             <div class="quiz-give">
-              <p class="quiz-give__text">Покажем, сколько времени и&nbsp;денег вы&nbsp;теряете на&nbsp;командировках&nbsp;— и&nbsp;как это исправить. 3&nbsp;вопроса, 1&nbsp;минута.</p>
-              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Узнать</button>
+              <p class="quiz-give__text">Покажем за&nbsp;1&nbsp;минуту, где у&nbsp;вас в&nbsp;командировках уходят деньги и&nbsp;время, и&nbsp;что можно улучшить без лишней ручной работы. 3&nbsp;вопроса.</p>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Показать мой сценарий</button>
             </div>
           </div>
 
@@ -311,9 +311,9 @@
             <p class="quiz-step-counter">Шаг 1 из 3</p>
             <p class="quiz-question">Что для вас командировки?</p>
             <div class="quiz-options">
-              <button type="button" class="quiz-option" data-segment="0">Бронирую и&nbsp;отчитываюсь сам&nbsp;— хочу тратить меньше времени</button>
-              <button type="button" class="quiz-option" data-segment="1">Организую поездки за&nbsp;команду&nbsp;— хочу всё в&nbsp;одном месте</button>
-              <button type="button" class="quiz-option" data-segment="2">У&nbsp;нас процесс и&nbsp;политика&nbsp;— хочу, чтобы работали сами</button>
+              <button type="button" class="quiz-option" data-segment="0">Сам организую поездки: поиск, бронь, документы</button>
+              <button type="button" class="quiz-option" data-segment="1">Координирую поездки команды: заявки, брони, документы</button>
+              <button type="button" class="quiz-option" data-segment="2">Работаем по&nbsp;процессу: есть согласования, лимиты и&nbsp;тревел-политика</button>
             </div>
             <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
           </div>
@@ -321,15 +321,15 @@
           <!-- Экран 3: Delight (GIVE) -->
           <div class="screen" id="quiz-delight">
             <div class="quiz-give">
-              <p class="quiz-give__text">Уже видим ситуацию. Ещё 2&nbsp;вопроса — и&nbsp;покажем конкретные цифры экономии.</p>
-              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Давайте &rarr;</button>
+              <p class="quiz-give__text">Уже видим картину. Ещё 2&nbsp;ответа, и&nbsp;покажем расчёт экономии и&nbsp;следующий шаг именно под&nbsp;ваш формат работы.</p>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Продолжить</button>
             </div>
           </div>
 
           <!-- Экран 4: Шаг 2/3 (ASK) -->
           <div class="screen" id="quiz-step2">
             <p class="quiz-step-counter">Шаг 2 из 3</p>
-            <p class="quiz-question">Сколько поездок в&nbsp;месяц?</p>
+            <p class="quiz-question">Сколько командировок у&nbsp;вас в&nbsp;месяц?</p>
             <div class="quiz-options">
               <button type="button" class="quiz-option" data-segment="0">До&nbsp;10</button>
               <button type="button" class="quiz-option" data-segment="1">10–50</button>
@@ -341,11 +341,11 @@
           <!-- Экран 5: Шаг 3/3 (ASK) -->
           <div class="screen" id="quiz-step3">
             <p class="quiz-step-counter">Шаг 3 из 3</p>
-            <p class="quiz-question">Когда хотите упростить процесс?</p>
+            <p class="quiz-question">Насколько срочно хотите навести порядок?</p>
             <div class="quiz-options">
-              <button type="button" class="quiz-option" data-segment="0">В&nbsp;ближайшие дни&nbsp;— уже ищу решение</button>
-              <button type="button" class="quiz-option" data-segment="1">В&nbsp;этом месяце&nbsp;— сравниваю варианты</button>
-              <button type="button" class="quiz-option" data-segment="2">Пока изучаю&nbsp;— хочу понять, что есть</button>
+              <button type="button" class="quiz-option" data-segment="0">В&nbsp;ближайшие 1–2&nbsp;недели</button>
+              <button type="button" class="quiz-option" data-segment="1">В&nbsp;этом месяце</button>
+              <button type="button" class="quiz-option" data-segment="2">Пока изучаю, как это работает</button>
             </div>
             <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
           </div>
@@ -354,7 +354,7 @@
           <div class="screen" id="quiz-transition">
             <div class="quiz-give quiz-give--transition">
               <div class="quiz-loader"><span></span><span></span><span></span></div>
-              <p class="quiz-give__text">Считаем вашу экономию...</p>
+              <p class="quiz-give__text">Считаем ваш сценарий: экономию бюджета, времени команды и&nbsp;количество ручных шагов…</p>
             </div>
           </div>
 
