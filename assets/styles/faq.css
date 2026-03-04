@@ -38,8 +38,8 @@
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 22px;
-  line-height: 28px;
+  font-size: 20px;
+  line-height: 26px;
   font-feature-settings: 'pnum' on, 'lnum' on;
   margin-bottom: 12px;
   color: var(--text-primary);
@@ -49,8 +49,8 @@
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 22px;
-  line-height: 28px;
+  font-size: 20px;
+  line-height: 26px;
   font-feature-settings: 'pnum' on, 'lnum' on;
   color: var(--text-primary);
 }

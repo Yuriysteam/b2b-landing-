@@ -150,130 +150,107 @@
     return map;
   }
 
-  // Москва: 31 отель с реальной привязкой (координаты)
+  // Москва: 31 отель с реальными координатами
   var MOSCOW_PLACEMARKS_REAL = [
-    { coords: [55.758485, 37.620864], hint: 'Отель Метрополь', balloonTitle: 'Отель Метрополь', balloonBody: 'Скидка: −10%', discount: 10 },
-    { coords: [55.682, 37.6176], hint: 'Palmira Business Club', balloonTitle: 'Palmira Business Club', balloonBody: 'Скидка: −20%', discount: 20 },
+    { coords: [55.7585, 37.6209], hint: 'Отель Метрополь', balloonTitle: 'Отель Метрополь', balloonBody: 'Скидка: −10%', discount: 10 },
+    { coords: [55.7297, 37.6558], hint: 'Palmira Business Club', balloonTitle: 'Palmira Business Club', balloonBody: 'Скидка: −20%', discount: 20 },
     { coords: [55.7477, 37.5835], hint: 'AZIMUT Сити Смоленская', balloonTitle: 'AZIMUT Сити Смоленская', balloonBody: 'Скидка: −15%', discount: 15 },
     { coords: [55.7439, 37.5652], hint: 'ibis Киевская', balloonTitle: 'ibis Москва Киевская', balloonBody: 'Скидка: −50%', discount: 50 },
-    { coords: [55.782032, 37.601504], hint: 'AZIMUT Олимпик', balloonTitle: 'AZIMUT Отель Олимпик Москва', balloonBody: 'Скидка: −18%', discount: 18 },
-    { coords: [55.764902, 37.604878], hint: 'Novotel Центр', balloonTitle: 'Novotel Москва Центр', balloonBody: 'Скидка: −22%', discount: 22 },
-    { coords: [55.823051, 37.641144], hint: 'Космос', balloonTitle: 'Космос', balloonBody: 'Скидка: −12%', discount: 12 },
-    { coords: [55.750446, 37.568341], hint: 'Украина', balloonTitle: 'Украина', balloonBody: 'Скидка: −20%', discount: 20 },
-    { coords: [55.791489, 37.604878], hint: 'Холидей Инн Сущёвский', balloonTitle: 'Холидей Инн Сущёвский', balloonBody: 'Скидка: −15%', discount: 15 },
-    { coords: [55.729542, 37.640654], hint: 'Ибис Павелецкая', balloonTitle: 'Ибис Павелецкая', balloonBody: 'Скидка: −10%', discount: 10 },
-    { coords: [55.756993, 37.619024], hint: 'Мариотт Гранд', balloonTitle: 'Мариотт Гранд', balloonBody: 'Скидка: −28%', discount: 28 },
-    { coords: [55.724, 37.624], hint: 'Park Inn Садовая', balloonTitle: 'Park Inn Садовая', balloonBody: 'Скидка: −14%', discount: 14 },
-    { coords: [55.748, 37.626], hint: 'Балчуг Кемпински', balloonTitle: 'Балчуг Кемпински', balloonBody: 'Скидка: −18%', discount: 18 },
-    { coords: [55.756, 37.616], hint: 'Националь', balloonTitle: 'Националь', balloonBody: 'Скидка: −22%', discount: 22 },
-    { coords: [55.761, 37.576], hint: 'Золотое кольцо', balloonTitle: 'Золотое кольцо', balloonBody: 'Скидка: −12%', discount: 12 },
-    { coords: [55.801, 37.532], hint: 'Аэростар', balloonTitle: 'Аэростар', balloonBody: 'Скидка: −16%', discount: 16 },
-    { coords: [55.790, 37.795], hint: 'Вега Измайлово', balloonTitle: 'Вега Измайлово', balloonBody: 'Скидка: −14%', discount: 14 },
-    { coords: [55.776, 37.652], hint: 'Hilton Ленинградская', balloonTitle: 'Hilton Ленинградская', balloonBody: 'Скидка: −20%', discount: 20 },
-    { coords: [55.729, 37.565], hint: 'Radisson Славянская', balloonTitle: 'Radisson Славянская', balloonBody: 'Скидка: −17%', discount: 17 },
-    { coords: [55.769, 37.588], hint: 'Пекин', balloonTitle: 'Пекин', balloonBody: 'Скидка: −13%', discount: 13 },
-    { coords: [55.767, 37.579], hint: 'Lotte Hotel Moscow', balloonTitle: 'Lotte Hotel Moscow', balloonBody: 'Скидка: −24%', discount: 24 },
-    { coords: [55.741, 37.628], hint: 'Crowne Plaza Москва', balloonTitle: 'Crowne Plaza Москва', balloonBody: 'Скидка: −15%', discount: 15 },
-    { coords: [55.760, 37.605], hint: 'Шератон Палас', balloonTitle: 'Шератон Палас', balloonBody: 'Скидка: −19%', discount: 19 },
-    { coords: [55.766, 37.605], hint: 'Марриотт Тверская', balloonTitle: 'Марриотт Тверская', balloonBody: 'Скидка: −21%', discount: 21 },
-    { coords: [55.749, 37.541], hint: 'Novotel Москва Сити', balloonTitle: 'Novotel Москва Сити', balloonBody: 'Скидка: −18%', discount: 18 },
-    { coords: [55.751, 37.534], hint: 'DoubleTree Москва Сити', balloonTitle: 'DoubleTree Москва Сити', balloonBody: 'Скидка: −16%', discount: 16 },
-    { coords: [55.796, 37.508], hint: 'Ибис Бюджет Панфиловская', balloonTitle: 'Ибис Бюджет Панфиловская', balloonBody: 'Скидка: −11%', discount: 11 },
-    { coords: [55.752, 37.591], hint: 'Арбат Хаятт', balloonTitle: 'Арбат Хаятт', balloonBody: 'Скидка: −23%', discount: 23 },
-    { coords: [55.758, 37.615], hint: 'Савой', balloonTitle: 'Савой', balloonBody: 'Скидка: −20%', discount: 20 },
-    { coords: [55.755, 37.619], hint: 'Four Seasons Москва', balloonTitle: 'Four Seasons Москва', balloonBody: 'Скидка: −28%', discount: 28 },
-    { coords: [55.877, 37.425], hint: 'Холидей Инн Виноградово', balloonTitle: 'Холидей Инн Виноградово', balloonBody: 'Скидка: −12%', discount: 12 }
+    { coords: [55.7820, 37.6015], hint: 'AZIMUT Олимпик', balloonTitle: 'AZIMUT Отель Олимпик Москва', balloonBody: 'Скидка: −18%', discount: 18 },
+    { coords: [55.7649, 37.6049], hint: 'Novotel Центр', balloonTitle: 'Novotel Москва Центр', balloonBody: 'Скидка: −22%', discount: 22 },
+    { coords: [55.8231, 37.6411], hint: 'Космос', balloonTitle: 'Космос', balloonBody: 'Скидка: −12%', discount: 12 },
+    { coords: [55.7504, 37.5683], hint: 'Radisson Royal (Украина)', balloonTitle: 'Radisson Royal (Украина)', balloonBody: 'Скидка: −20%', discount: 20 },
+    { coords: [55.7915, 37.6049], hint: 'Холидей Инн Сущёвский', balloonTitle: 'Холидей Инн Сущёвский', balloonBody: 'Скидка: −15%', discount: 15 },
+    { coords: [55.7295, 37.6407], hint: 'Ибис Павелецкая', balloonTitle: 'Ибис Павелецкая', balloonBody: 'Скидка: −10%', discount: 10 },
+    { coords: [55.7670, 37.6003], hint: 'Мариотт Гранд', balloonTitle: 'Мариотт Гранд', balloonBody: 'Скидка: −28%', discount: 28 },
+    { coords: [55.7362, 37.6338], hint: 'Park Inn Садовая', balloonTitle: 'Park Inn Садовая', balloonBody: 'Скидка: −14%', discount: 14 },
+    { coords: [55.7468, 37.6262], hint: 'Балчуг Кемпински', balloonTitle: 'Балчуг Кемпински', balloonBody: 'Скидка: −18%', discount: 18 },
+    { coords: [55.7565, 37.6160], hint: 'Националь', balloonTitle: 'Националь', balloonBody: 'Скидка: −22%', discount: 22 },
+    { coords: [55.7469, 37.5871], hint: 'Золотое кольцо', balloonTitle: 'Золотое кольцо', balloonBody: 'Скидка: −12%', discount: 12 },
+    { coords: [55.7893, 37.5362], hint: 'Аэростар', balloonTitle: 'Аэростар', balloonBody: 'Скидка: −16%', discount: 16 },
+    { coords: [55.7894, 37.7484], hint: 'Вега Измайлово', balloonTitle: 'Вега Измайлово', balloonBody: 'Скидка: −14%', discount: 14 },
+    { coords: [55.7764, 37.6530], hint: 'Hilton Ленинградская', balloonTitle: 'Hilton Ленинградская', balloonBody: 'Скидка: −20%', discount: 20 },
+    { coords: [55.7432, 37.5668], hint: 'Radisson Славянская', balloonTitle: 'Radisson Славянская', balloonBody: 'Скидка: −17%', discount: 17 },
+    { coords: [55.7692, 37.5954], hint: 'Пекин', balloonTitle: 'Пекин', balloonBody: 'Скидка: −13%', discount: 13 },
+    { coords: [55.7536, 37.5814], hint: 'Lotte Hotel Moscow', balloonTitle: 'Lotte Hotel Moscow', balloonBody: 'Скидка: −24%', discount: 24 },
+    { coords: [55.7383, 37.6322], hint: 'Crowne Plaza Москва', balloonTitle: 'Crowne Plaza Москва', balloonBody: 'Скидка: −15%', discount: 15 },
+    { coords: [55.7700, 37.5951], hint: 'Шератон Палас', balloonTitle: 'Шератон Палас', balloonBody: 'Скидка: −19%', discount: 19 },
+    { coords: [55.7673, 37.6043], hint: 'Марриотт Тверская', balloonTitle: 'Марриотт Тверская', balloonBody: 'Скидка: −21%', discount: 21 },
+    { coords: [55.7491, 37.5373], hint: 'Novotel Москва Сити', balloonTitle: 'Novotel Москва Сити', balloonBody: 'Скидка: −18%', discount: 18 },
+    { coords: [55.7497, 37.5364], hint: 'DoubleTree Москва Сити', balloonTitle: 'DoubleTree Москва Сити', balloonBody: 'Скидка: −16%', discount: 16 },
+    { coords: [55.8033, 37.5220], hint: 'Ибис Бюджет Панфиловская', balloonTitle: 'Ибис Бюджет Панфиловская', balloonBody: 'Скидка: −11%', discount: 11 },
+    { coords: [55.7527, 37.5870], hint: 'Арбат Хаятт', balloonTitle: 'Арбат Хаятт', balloonBody: 'Скидка: −23%', discount: 23 },
+    { coords: [55.7622, 37.6260], hint: 'Савой', balloonTitle: 'Савой', balloonBody: 'Скидка: −20%', discount: 20 },
+    { coords: [55.7573, 37.6160], hint: 'Four Seasons Москва', balloonTitle: 'Four Seasons Москва', balloonBody: 'Скидка: −28%', discount: 28 },
+    { coords: [55.8770, 37.4250], hint: 'Холидей Инн Виноградово', balloonTitle: 'Холидей Инн Виноградово', balloonBody: 'Скидка: −12%', discount: 12 }
   ];
 
-  // Названия для СПб/Казань (legacy)
-  var MOSCOW_HOTELS = [
-    'Отель Метрополь', 'Palmira Business Club', 'Four Seasons Hotel Moscow', 'The Carlton Moscow', 'Lotte Hotel Moscow',
-    'Hyatt Moscow', 'St. Regis Moscow', 'Marriott Imperial Plaza', 'Рихтер', 'Mövenpick Москва', 'Page 20', 'Twelve Reasons',
-    'Apeiron Space', 'Marco Polo', 'Garden Embassy', 'Arrat Park', 'DoubleTree Moscow', 'Chekhoff Moscow Curio by Hilton',
-    'AZIMUT Сити Смоленская', 'ibis Москва Киевская', 'Националь', 'Балчуг', 'Савой', 'Гранд Мандарин', 'Гостиница Арбат',
-    'Аквамарин', 'Амбассадори', 'Даймонд Москва-Сити', 'Ариум', 'Аэростар', 'Байкал City Hotel', 'Борис Годунов', 'Будапешт',
-    'Дом на Маяковке', 'Елисеефф Арбат', 'Арбат Хаус', 'Аструс', 'Брайтон', 'Альянс Бородино', 'Апельсин',
-    'Отель Пушкин', 'СтандАрт', 'Кортъярд Марриотт', 'Новотель Москва Сити', 'Холидей Инн Лесная', 'Ибис Павелецкая',
-    'Парк Инн Садур', 'Азимут Отель Олимпик', 'Введенский', 'Золотой колос', 'Метрополь Панорама', 'Славянка', 'Арарат Парк Хаятт'
-  ];
-
-  // Санкт-Петербург: свои отели с привязкой к реальной геолокации (адреса в центре СПб)
+  // Санкт-Петербург: 30 отелей с реальными координатами
   var SPB_HOTELS_GEO = [
     { name: 'Астория', coords: [59.9328, 30.3089], discount: 18 },
+    { name: 'Англетер', coords: [59.9322, 30.3075], discount: 14 },
     { name: 'Гранд Отель Европа', coords: [59.9358, 30.3312], discount: 22 },
-    { name: 'Невский Палас', coords: [59.9337, 30.3603], discount: 20 },
-    { name: 'Рэдиссон Ройал', coords: [59.9340, 30.3555], discount: 25 },
-    { name: 'Лотте Отель Санкт-Петербург', coords: [59.9286, 30.3102], discount: 15 },
-    { name: 'Wawelberg', coords: [59.9345, 30.3505], discount: 12 },
-    { name: 'AZIMUT Отель Санкт-Петербург', coords: [59.9248, 30.2922], discount: 28 },
-    { name: 'Октябрьская', coords: [59.9282, 30.3608], discount: 14 },
-    { name: 'Пулковская', coords: [59.8412, 30.3212], discount: 10 },
-    { name: 'Хаятт Ридженси', coords: [59.9255, 30.3108], discount: 24 },
-    { name: 'Ибис Центр', coords: [59.9278, 30.3585], discount: 16 },
-    { name: 'Новотель Санкт-Петербург Центр', coords: [59.9325, 30.3145], discount: 19 },
-    { name: 'Холидей Инн Невский', coords: [59.9348, 30.3512], discount: 21 },
-    { name: 'Kravt Nevsky Hotel & Spa', coords: [59.9340, 30.3520], discount: 17 },
-    { name: 'Kentron Boutique на Невском', coords: [59.9350, 30.3480], discount: 13 },
-    { name: 'Бутик-отель Росси', coords: [59.9410, 30.3220], discount: 26 },
-    { name: 'Отель Санкт-Петербург на Пироговской', coords: [59.9580, 30.3120], discount: 11 },
-    { name: 'Мариотт Воронцовский', coords: [59.9230, 30.3180], discount: 23 },
-    { name: 'Кемпински Мойка 22', coords: [59.9412, 30.3215], discount: 27 },
-    { name: 'Гранд Отель Мойка 22', coords: [59.9410, 30.3220], discount: 20 },
-    { name: 'Англетер', coords: [59.9340, 30.3085], discount: 18 },
-    { name: 'Tsar Palace Luxury Hotel & SPA', coords: [59.9360, 30.3180], discount: 25 },
-    { name: 'Ренартисс Исаакий', coords: [59.9330, 30.3080], discount: 14 },
-    { name: 'Калейдоскоп GOLD на Малой Морской', coords: [59.9328, 30.3150], discount: 16 },
-    { name: 'Harbor Club Hotel', coords: [59.9280, 30.3000], discount: 12 },
+    { name: 'Лотте Отель', coords: [59.9286, 30.3102], discount: 15 },
+    { name: 'Кемпински Мойка 22', coords: [59.9403, 30.3226], discount: 27 },
+    { name: 'Tsar Palace', coords: [59.9425, 30.3267], discount: 25 },
+    { name: 'Wawelberg', coords: [59.9378, 30.3155], discount: 12 },
+    { name: 'Kravt Nevsky', coords: [59.9381, 30.3187], discount: 17 },
+    { name: 'Невский Палас', coords: [59.9327, 30.3586], discount: 20 },
+    { name: 'Коринтия', coords: [59.9329, 30.3594], discount: 22 },
+    { name: 'Холидей Инн Невский', coords: [59.9312, 30.3620], discount: 21 },
+    { name: 'Рэдиссон Ройал', coords: [59.9316, 30.3460], discount: 25 },
     { name: 'Достоевский', coords: [59.9275, 30.3480], discount: 19 },
-    { name: 'Катарина Отель', coords: [59.9300, 30.3600], discount: 15 },
-    { name: 'Коринтия Санкт-Петербург', coords: [59.9335, 30.3590], discount: 22 },
-    { name: 'Парк Инн Прибалтийская', coords: [59.8580, 30.2180], discount: 10 },
-    { name: 'Форум', coords: [59.9380, 30.3550], discount: 17 },
-    { name: 'Амбассадор', coords: [59.9355, 30.3320], discount: 21 },
-    { name: 'Англетер Бутик', coords: [59.9342, 30.3088], discount: 13 },
-    { name: 'Арт Отель Ассамблея', coords: [59.9290, 30.3620], discount: 24 },
-    { name: 'Бизнес-отель Триумф', coords: [59.9200, 30.3500], discount: 11 },
-    { name: 'Комфитель Пулковская', coords: [59.8410, 30.3210], discount: 16 }
+    { name: 'Октябрьская', coords: [59.9262, 30.3608], discount: 14 },
+    { name: 'Ибис Центр', coords: [59.9248, 30.3580], discount: 16 },
+    { name: 'Новотель Центр', coords: [59.9360, 30.3540], discount: 19 },
+    { name: 'AZIMUT', coords: [59.9206, 30.2968], discount: 28 },
+    { name: 'Хаятт Ридженси', coords: [59.9203, 30.3530], discount: 24 },
+    { name: 'Амбассадор', coords: [59.9231, 30.2997], discount: 21 },
+    { name: 'Бутик-отель Росси', coords: [59.9306, 30.3400], discount: 26 },
+    { name: 'Форум', coords: [59.9358, 30.3395], discount: 17 },
+    { name: 'Harbor Club Hotel', coords: [59.9300, 30.2950], discount: 12 },
+    { name: 'Катарина', coords: [59.9280, 30.3740], discount: 15 },
+    { name: 'Kentron Boutique', coords: [59.9265, 30.3760], discount: 13 },
+    { name: 'Отель на Пироговской', coords: [59.9578, 30.3140], discount: 11 },
+    { name: 'Парк Инн Прибалтийская', coords: [59.8780, 30.2130], discount: 10 },
+    { name: 'Пулковская', coords: [59.8386, 30.3214], discount: 10 },
+    { name: 'Арт Отель Ассамблея', coords: [59.9490, 30.3550], discount: 24 },
+    { name: 'Мариотт Воронцовский', coords: [59.9268, 30.3140], discount: 23 },
+    { name: 'Калейдоскоп GOLD', coords: [59.9330, 30.3150], discount: 16 }
   ];
 
-  // Казань: свои отели с привязкой к реальной геолокации
+  // Казань: 30 отелей с реальными координатами (широкий разброс по городу)
   var KAZAN_HOTELS_GEO = [
-    { name: 'Korston Tower', coords: [55.7874, 49.1243], discount: 18 },
-    { name: 'Гранд Отель Казань', coords: [55.7892, 49.1225], discount: 22 },
-    { name: 'Ривьера', coords: [55.8012, 49.1065], discount: 20 },
-    { name: 'Мираж', coords: [55.7885, 49.1210], discount: 15 },
-    { name: 'Ибис Казань Центр', coords: [55.7880, 49.1150], discount: 28 },
-    { name: 'Новотель Казань', coords: [55.7875, 49.1145], discount: 14 },
-    { name: 'Шаляпин Палас', coords: [55.7910, 49.1220], discount: 24 },
-    { name: 'Регина', coords: [55.7920, 49.1180], discount: 12 },
-    { name: 'Отель Биляр Палас', coords: [55.7950, 49.1120], discount: 19 },
-    { name: 'Sweet Йорт', coords: [55.7900, 49.1100], discount: 16 },
-    { name: 'Rushouse', coords: [55.7890, 49.1160], discount: 10 },
-    { name: 'Пилигрим', coords: [55.7860, 49.1200], discount: 13 },
-    { name: 'Венера', coords: [55.7930, 49.1150], discount: 21 },
-    { name: 'Park hotel', coords: [55.7940, 49.1080], discount: 17 },
-    { name: 'Кристалл', coords: [55.7870, 49.1190], discount: 11 },
-    { name: 'Джузеппе', coords: [55.7905, 49.1210], discount: 25 },
-    { name: 'Сулейман Палас', coords: [55.7915, 49.1230], discount: 23 },
-    { name: 'Республика', coords: [55.7888, 49.1170], discount: 14 },
-    { name: 'Отель Казань', coords: [55.7895, 49.1165], discount: 16 },
-    { name: 'Булгар', coords: [55.7935, 49.1140], discount: 20 },
-    { name: 'Татарстан', coords: [55.7908, 49.1200], discount: 12 },
-    { name: 'Холидей Инн', coords: [55.7872, 49.1215], discount: 26 },
-    { name: 'Ривьера Отель', coords: [55.8010, 49.1068], discount: 19 },
-    { name: 'Индиго', coords: [55.7898, 49.1155], discount: 15 },
-    { name: 'Сафар', coords: [55.7928, 49.1175], discount: 11 },
-    { name: 'Азимут', coords: [55.7865, 49.1185], discount: 27 },
-    { name: 'Отель на Баумана', coords: [55.7882, 49.1235], discount: 18 },
-    { name: 'Ногай', coords: [55.7912, 49.1240], discount: 14 },
-    { name: 'NEO Kazan Palace by TASIGO', coords: [55.7890, 49.1220], discount: 22 },
-    { name: 'Cosmos Kazan Hotel', coords: [55.7878, 49.1195], discount: 16 },
-    { name: 'Ramada by Wyndham Kazan City Centre', coords: [55.7880, 49.1175], discount: 21 },
-    { name: 'Capslock', coords: [55.7902, 49.1110], discount: 10 },
-    { name: 'Дуслык', coords: [55.7932, 49.1160], discount: 13 },
-    { name: 'Ак Барс Отель', coords: [55.7922, 49.1188], discount: 24 },
-    { name: 'Ногай Палас', coords: [55.7918, 49.1235], discount: 20 },
-    { name: 'Регина Палас', coords: [55.7925, 49.1185], discount: 17 }
+    { name: 'Korston Tower', coords: [55.7906, 49.1816], discount: 18 },
+    { name: 'Cosmos Kazan Hotel', coords: [55.7903, 49.1810], discount: 16 },
+    { name: 'Холидей Инн', coords: [55.7910, 49.1800], discount: 26 },
+    { name: 'Ривьера', coords: [55.8198, 49.1032], discount: 20 },
+    { name: 'Мираж', coords: [55.7913, 49.1082], discount: 15 },
+    { name: 'Ногай', coords: [55.7972, 49.1050], discount: 14 },
+    { name: 'Венера', coords: [55.7935, 49.1070], discount: 21 },
+    { name: 'Булгар', coords: [55.7955, 49.1090], discount: 20 },
+    { name: 'Ибис Казань Центр', coords: [55.7867, 49.1122], discount: 28 },
+    { name: 'Новотель Казань', coords: [55.7873, 49.1140], discount: 14 },
+    { name: 'Capslock', coords: [55.7905, 49.1180], discount: 10 },
+    { name: 'Шаляпин Палас', coords: [55.7920, 49.1196], discount: 24 },
+    { name: 'Татарстан', coords: [55.7950, 49.1200], discount: 12 },
+    { name: 'Регина', coords: [55.7887, 49.1218], discount: 12 },
+    { name: 'Индиго', coords: [55.7893, 49.1215], discount: 15 },
+    { name: 'Джузеппе', coords: [55.7890, 49.1223], discount: 25 },
+    { name: 'Отель на Баумана', coords: [55.7878, 49.1240], discount: 18 },
+    { name: 'Биляр Палас', coords: [55.7840, 49.1250], discount: 19 },
+    { name: 'Республика', coords: [55.7945, 49.1250], discount: 14 },
+    { name: 'Ramada', coords: [55.7948, 49.1245], discount: 21 },
+    { name: 'Дуслык', coords: [55.7840, 49.1300], discount: 13 },
+    { name: 'Гранд Отель Казань', coords: [55.7928, 49.1330], discount: 22 },
+    { name: 'Сулейман Палас', coords: [55.7918, 49.1338], discount: 23 },
+    { name: 'NEO Kazan Palace', coords: [55.7935, 49.1325], discount: 22 },
+    { name: 'Park hotel', coords: [55.7828, 49.1390], discount: 17 },
+    { name: 'Сафар', coords: [55.7965, 49.1550], discount: 11 },
+    { name: 'Азимут', coords: [55.7808, 49.1255], discount: 27 },
+    { name: 'Кристалл', coords: [55.7855, 49.1185], discount: 11 },
+    { name: 'Ак Барс Отель', coords: [55.8205, 49.1590], discount: 24 },
+    { name: 'Регина Палас', coords: [55.7885, 49.1225], discount: 17 }
   ];
 
   function geoPlacemarksToPlacemarks(geoList) {
@@ -287,171 +264,6 @@
       };
     });
   }
-
-  // Адреса для геокодирования через ymaps.geocode (реальные координаты с карты)
-  var MOSCOW_HOTELS_ADDRESSES = [
-    { name: 'Отель Метрополь', address: 'Москва, Театральный проезд, 2' },
-    { name: 'Националь', address: 'Москва, Моховая улица, 15/1' },
-    { name: 'The Ritz-Carlton Moscow', address: 'Москва, Тверская улица, 3' },
-    { name: 'Савой', address: 'Москва, Рождественка, 3/6' },
-    { name: 'St. Regis Николаевская', address: 'Москва, Никольская улица, 12' },
-    { name: 'Арарат Парк Хаятт', address: 'Москва, Неглинная улица, 4' },
-    { name: 'Марриотт Москва Гранд Отель', address: 'Москва, Тверская улица, 26/1' },
-    { name: 'InterContinental Москва Тверская', address: 'Москва, Тверская улица, 22' },
-    { name: 'Four Seasons Hotel Moscow', address: 'Москва, Охотный Ряд, 2' },
-    { name: 'Palmira Business Club', address: 'Москва, ул. Воронцовская, 35' },
-    { name: 'AZIMUT Сити Отель Смоленская', address: 'Москва, Смоленская площадь, 6' },
-    { name: 'ibis Москва Киевская', address: 'Москва, Киевская улица, 2' },
-    { name: 'Балчуг Кемпински', address: 'Москва, ул. Балчуг, 1' },
-    { name: 'Лотте Отель Москва', address: 'Москва, Новинский бульвар, 8' },
-    { name: 'Хаятт Ридженси Москва', address: 'Москва, ул. Новый Арбат, 36' },
-    { name: 'DoubleTree by Hilton Москва', address: 'Москва, ул. Тверская, 12' },
-    { name: 'Новотель Москва Сити', address: 'Москва, Пресненская набережная, 2' },
-    { name: 'Ибис Павелецкая', address: 'Москва, ул. Кожевническая, 10' },
-    { name: 'Холидей Инн Лесная', address: 'Москва, ул. Лесная, 15' },
-    { name: 'Парк Инн Садур', address: 'Москва, ул. Юрловский проезд, 14' },
-    { name: 'Гостиница Арбат', address: 'Москва, ул. Арбат, 12' },
-    { name: 'Отель Арбат Хаус', address: 'Москва, ул. Арбат, 11' },
-    { name: 'Амбассадор', address: 'Москва, ул. Рождественка, 5' },
-    { name: 'Аэростар Отель', address: 'Москва, Ленинградский проспект, 37к9' },
-    { name: 'Борис Годунов', address: 'Москва, ул. Малая Дмитровка, 4' },
-    { name: 'Будапешт', address: 'Москва, ул. Петровские линии, 2' },
-    { name: 'Введенский', address: 'Москва, ул. Введенского, 1' },
-    { name: 'Дом на Маяковке', address: 'Москва, ул. Красносельская Верхняя, 2' },
-    { name: 'Золотой колос', address: 'Москва, ул. Тверская, 12' },
-    { name: 'Кортъярд Марриотт Павелецкая', address: 'Москва, ул. Кожевническая, 8' },
-    { name: 'Метрополь Панорама', address: 'Москва, Театральный проезд, 1' },
-    { name: 'Отель Пушкин', address: 'Москва, ул. Тверская, 26' },
-    { name: 'Славянка', address: 'Москва, ул. Берзарина, 5' },
-    { name: 'Азимут Отель Олимпик', address: 'Москва, Олимпийский проспект, 18/1' },
-    { name: 'Аквамарин Отель', address: 'Москва, ул. Азовская, 24' },
-    { name: 'Ариум Отель', address: 'Москва, ул. Сретенка, 15' },
-    { name: 'Аструс Отель', address: 'Москва, ул. Петровка, 17' },
-    { name: 'Байкал Сити Отель', address: 'Москва, ул. Сретенка, 2' },
-    { name: 'Брайтон Отель', address: 'Москва, ул. Братиславская, 6' },
-    { name: 'Гранд Отель Мандарин', address: 'Москва, ул. Тверская, 15' },
-    { name: 'Даймонд Москва-Сити', address: 'Москва, Пресненская наб., 8' },
-    { name: 'Елисеефф Арбат Отель', address: 'Москва, ул. Арбат, 16' },
-    { name: 'Марриотт Империал Плаза', address: 'Москва, ул. Тверская, 10' },
-    { name: 'Мёвенпик Москва', address: 'Москва, ул. Таганская, 17' },
-    { name: 'Рихтер Отель', address: 'Москва, ул. Большая Ордынка, 72' },
-    { name: 'Чехов Москва Кьюрио', address: 'Москва, ул. Малая Дмитровка, 11' },
-    { name: 'Page 20 Отель', address: 'Москва, ул. Арбат, 20' },
-    { name: 'Twelve Reasons', address: 'Москва, ул. Малая Бронная, 2' },
-    { name: 'Radisson Славянская', address: 'Москва, Берзарина, 5' },
-    { name: 'Космос', address: 'Москва, проспект Мира, 150' },
-    { name: 'Украина', address: 'Москва, Кутузовский проспект, 2/1' },
-    { name: 'Пекин', address: 'Москва, ул. Большая Садовая, 5' }
-  ];
-
-  var SPB_HOTELS_ADDRESSES = [
-    { name: 'Астория', address: 'Санкт-Петербург, Большая Морская улица, 39' },
-    { name: 'Гранд Отель Европа', address: 'Санкт-Петербург, Михайловская улица, 1/7' },
-    { name: 'Лотте Отель Санкт-Петербург', address: 'Санкт-Петербург, Антоненко переулок, 2' },
-    { name: 'Гранд Отель Мойка 22', address: 'Санкт-Петербург, набережная реки Мойки, 22' },
-    { name: 'Англетер', address: 'Санкт-Петербург, Малая Морская улица, 24' },
-    { name: 'Невский Палас', address: 'Санкт-Петербург, Невский проспект, 57' },
-    { name: 'Коринтия Санкт-Петербург', address: 'Санкт-Петербург, Невский проспект, 57' },
-    { name: 'Рэдиссон Ройал', address: 'Санкт-Петербург, ул. Ломоносова, 1' },
-    { name: 'AZIMUT Отель Санкт-Петербург', address: 'Санкт-Петербург, Лермонтовский проспект, 43/1' },
-    { name: 'Калейдоскоп GOLD Малая Морская', address: 'Санкт-Петербург, Малая Морская улица, 24' },
-    { name: 'Harbor Club Hotel', address: 'Санкт-Петербург, наб. реки Мойки, 88' },
-    { name: 'Kentron Boutique Невский', address: 'Санкт-Петербург, Невский проспект, 91' },
-    { name: 'Kravt Nevsky Hotel', address: 'Санкт-Петербург, Невский проспект, 16' },
-    { name: 'Бутик-отель Росси', address: 'Санкт-Петербург, набережная реки Фонтанки, 55' },
-    { name: 'Отель Санкт-Петербург', address: 'Санкт-Петербург, Пироговская набережная, 5/2' },
-    { name: 'Tsar Palace Luxury Hotel', address: 'Санкт-Петербург, ул. Миллионная, 19' },
-    { name: 'Wawelberg', address: 'Санкт-Петербург, Невский проспект, 7' },
-    { name: 'Ренартисс Исаакий', address: 'Санкт-Петербург, переулок Антоненко, 2' },
-    { name: 'Мариотт Воронцовский', address: 'Санкт-Петербург, Воронцовский переулок, 2' },
-    { name: 'Кемпински Мойка 22', address: 'Санкт-Петербург, набережная реки Мойки, 22' },
-    { name: 'Пулковская', address: 'Санкт-Петербург, пл. Победы, 1' },
-    { name: 'Октябрьская', address: 'Санкт-Петербург, Лиговский проспект, 10' },
-    { name: 'Москва', address: 'Санкт-Петербург, пл. Александра Невского, 2' },
-    { name: 'Достоевский', address: 'Санкт-Петербург, Владимирский проспект, 19' },
-    { name: 'Катарина Отель', address: 'Санкт-Петербург, Невский проспект, 100' },
-    { name: 'Белладжио', address: 'Санкт-Петербург, ул. Рубинштейна, 25' },
-    { name: 'Парк Инн Прибалтийская', address: 'Санкт-Петербург, ул. Кораблестроителей, 14' },
-    { name: 'Ибис Центр', address: 'Санкт-Петербург, Лиговский проспект, 28' },
-    { name: 'Новотель Санкт-Петербург Центр', address: 'Санкт-Петербург, ул. Маяковского, 3А' },
-    { name: 'Холидей Инн Невский', address: 'Санкт-Петербург, Невский проспект, 59' },
-    { name: 'Хаятт Ридженси', address: 'Санкт-Петербург, ул. Марата, 82' },
-    { name: 'Форум Отель', address: 'Санкт-Петербург, Итальянская улица, 35' },
-    { name: 'Амбассадор', address: 'Санкт-Петербург, ул. Римского-Корсакова, 5' },
-    { name: 'Европа', address: 'Санкт-Петербург, Михайловская улица, 1' },
-    { name: 'Акватория', address: 'Санкт-Петербург, ул. Одоевского, 10' },
-    { name: 'Россия', address: 'Санкт-Петербург, ул. Миллионная, 15' },
-    { name: 'Прибалтийская', address: 'Санкт-Петербург, ул. Кораблестроителей, 14' },
-    { name: 'Советская', address: 'Санкт-Петербург, Лермонтовский проспект, 43' },
-    { name: 'Выборгская', address: 'Санкт-Петербург, Большой Сампсониевский проспект, 63' },
-    { name: 'Ладога', address: 'Санкт-Петербург, ул. Пархоменко, 3' },
-    { name: 'Звездная', address: 'Санкт-Петербург, Ленинский проспект, 239' },
-    { name: 'Русь', address: 'Санкт-Петербург, ул. Артиллерийская, 1' },
-    { name: 'Нева', address: 'Санкт-Петербург, ул. Чайковского, 17' },
-    { name: 'Адмиралтейская', address: 'Санкт-Петербург, ул. Адмиралтейская, 12' },
-    { name: 'Англетер Бутик', address: 'Санкт-Петербург, Малая Морская, 24' },
-    { name: 'Арт Отель Ассамблея', address: 'Санкт-Петербург, ул. Чайковского, 34' },
-    { name: 'Бизнес-отель Триумф', address: 'Санкт-Петербург, ул. Малая Морская, 13' },
-    { name: 'Комфитель Пулковская', address: 'Санкт-Петербург, пл. Победы, 1' }
-  ];
-
-  var KAZAN_HOTELS_ADDRESSES = [
-    { name: 'Корстон Тауэр Казань', address: 'Казань, ул. Николая Ершова, 1А' },
-    { name: 'Регина', address: 'Казань, ул. Баумана, 47' },
-    { name: 'Гранд Отель Казань', address: 'Казань, ул. Петербургская, 52' },
-    { name: 'Ибис Казань Центр', address: 'Казань, ул. Правосудия, 1' },
-    { name: 'Новотель Казань', address: 'Казань, ул. Петербургская, 52' },
-    { name: 'Ривьера', address: 'Казань, ул. Фатыха Амирхана, 1' },
-    { name: 'Ногай', address: 'Казань, ул. Парижской Коммуны, 8' },
-    { name: 'NEO Kazan Palace', address: 'Казань, ул. Петербургская, 52' },
-    { name: 'Cosmos Kazan Hotel', address: 'Казань, ул. Николая Ершова, 1' },
-    { name: 'Ramada Kazan City Centre', address: 'Казань, ул. Пушкина, 4' },
-    { name: 'Sweet Йорт', address: 'Казань, ул. Баумана, 35' },
-    { name: 'Пилигрим', address: 'Казань, ул. Островского, 63' },
-    { name: 'Отель Биляр Палас', address: 'Казань, ул. Баумана, 78' },
-    { name: 'Венера', address: 'Казань, ул. Баумана, 36' },
-    { name: 'Park hotel', address: 'Казань, ул. Павлюхина, 91' },
-    { name: 'Регина Палас', address: 'Казань, ул. Баумана, 58' },
-    { name: 'Кристалл', address: 'Казань, ул. Островского, 55' },
-    { name: 'Мираж', address: 'Казань, ул. Право-Булачная, 43' },
-    { name: 'Джузеппе', address: 'Казань, ул. Баумана, 44' },
-    { name: 'Сулейман Палас', address: 'Казань, ул. Петербургская, 52' },
-    { name: 'Шаляпин Палас', address: 'Казань, ул. Университетская, 7' },
-    { name: 'Республика', address: 'Казань, ул. Пушкина, 9' },
-    { name: 'Булгар', address: 'Казань, ул. Чернышевского, 15' },
-    { name: 'Татарстан', address: 'Казань, ул. Пушкина, 4' },
-    { name: 'Холидей Инн Казань', address: 'Казань, ул. Николая Ершова, 1' },
-    { name: 'Индиго', address: 'Казань, ул. Баумана, 49' },
-    { name: 'Сафар', address: 'Казань, ул. Баумана, 58' },
-    { name: 'Азимут Отель Казань', address: 'Казань, ул. Право-Булачная, 43' },
-    { name: 'Отель на Баумана', address: 'Казань, ул. Баумана, 58' },
-    { name: 'Биляр', address: 'Казань, ул. Баумана, 27' },
-    { name: 'Ак Барс', address: 'Казань, ул. Право-Булачная, 43' },
-    { name: 'Ногай Палас', address: 'Казань, ул. Парижской Коммуны, 8' },
-    { name: 'Колвин', address: 'Казань, ул. Островского, 55' },
-    { name: 'Спутник', address: 'Казань, ул. Гагарина, 14' },
-    { name: 'Волга', address: 'Казань, ул. Баумана, 9' },
-    { name: 'Казанская', address: 'Казань, ул. Баумана, 64' },
-    { name: 'Центральная', address: 'Казань, ул. Баумана, 50' },
-    { name: 'Белая', address: 'Казань, ул. Баумана, 45' },
-    { name: 'Татиана', address: 'Казань, ул. Баумана, 68' },
-    { name: 'Rushouse Казань', address: 'Казань, ул. Фатыха Амирхана, 1' },
-    { name: 'Capslock', address: 'Казань, ул. Баумана, 15' },
-    { name: 'Амакс Сафар', address: 'Казань, ул. Баумана, 58' },
-    { name: 'Ривьера Отель', address: 'Казань, ул. Фатыха Амирхана, 1' },
-    { name: 'Дуслык', address: 'Казань, ул. Баумана, 72' },
-    { name: 'Идель', address: 'Казань, ул. Баумана, 22' },
-    { name: 'Чулпан', address: 'Казань, ул. Баумана, 38' },
-    { name: 'Туган Авылым', address: 'Казань, ул. Тукая, 120' },
-    { name: 'Ак Барс Отель', address: 'Казань, ул. Право-Булачная, 43' }
-  ];
-
-  var CITY_BOUNDS = {
-    moscow: [[55.49, 37.37], [55.92, 37.97]],
-    spb: [[59.80, 29.90], [60.08, 30.55]],
-    kazan: [[55.72, 48.95], [55.87, 49.25]],
-    russia: [[41, 19], [82, 180]]
-  };
 
   /** Отели по всей РФ (реальные адреса) — для карты «Другие города РФ», точки 5px */
   var RUSSIA_HOTELS_ADDRESSES = [
@@ -989,77 +801,6 @@
     { name: 'Лодейное Поле отель', address: 'Лодейное Поле, ул. Ленина, 15' },
     { name: 'Подпорожье отель', address: 'Подпорожье, ул. Ленина, 12' }
   ];
-
-  function addPlacemarkFromGeocode(map, coords, name, discount, CustomPinLayout, HotelBalloonLayout) {
-    var placemark = new ymaps.Placemark(
-      coords,
-      {
-        hintContent: name,
-        balloonContentHeader: name,
-        balloonContentBody: 'Скидка: −' + discount + '%',
-        discount: discount
-      },
-      {
-        iconLayout: CustomPinLayout,
-        iconShape: { type: 'Rectangle', coordinates: [[-44, -18], [44, 18]] },
-        balloonContentLayout: HotelBalloonLayout,
-        hideIconOnBalloonOpen: false,
-        openBalloonOnClick: false
-      }
-    );
-    map.geoObjects.add(placemark);
-  }
-
-  function geocodeAndAddPlacemarks(map, hotels, bounds, discountMin, discountMax, CustomPinLayout, HotelBalloonLayout) {
-    var promises = hotels.map(function(hotel, i) {
-      var discount = discountMin + (i % (discountMax - discountMin + 1));
-      return ymaps.geocode(hotel.address, { boundedBy: bounds, results: 1, strictBounds: false })
-        .then(function(res) {
-          if (res.geoObjects.getLength() > 0) {
-            var coords = res.geoObjects.get(0).geometry.getCoordinates();
-            return { coords: coords, name: hotel.name, discount: discount };
-          }
-          return null;
-        })
-        .catch(function() { return null; });
-    });
-
-    Promise.all(promises).then(function(results) {
-      var resolved = results.filter(function(r) { return r; });
-      resolved.forEach(function(item) {
-        addPlacemarkFromGeocode(map, item.coords, item.name, item.discount, CustomPinLayout, HotelBalloonLayout);
-      });
-    });
-  }
-
-  /** Геокодирование адресов отелей по РФ и добавление на карту как чёрные точки 5px */
-  function geocodeAndAddDotPlacemarks(map, hotels, bounds, SmallBlackDotLayout) {
-    var dotShape = { type: 'Rectangle', coordinates: [[-2.5, -2.5], [2.5, 2.5]] };
-    var promises = hotels.map(function(hotel) {
-      return ymaps.geocode(hotel.address, { boundedBy: bounds, results: 1, strictBounds: false })
-        .then(function(res) {
-          if (res.geoObjects.getLength() > 0) {
-            var coords = res.geoObjects.get(0).geometry.getCoordinates();
-            return { coords: coords, name: hotel.name };
-          }
-          return null;
-        })
-        .catch(function() { return null; });
-    });
-
-    Promise.all(promises).then(function(results) {
-      var resolved = results.filter(function(r) { return r; });
-      resolved.forEach(function(item) {
-        var placemark = new ymaps.Placemark(item.coords, {}, {
-          iconLayout: SmallBlackDotLayout,
-          iconShape: dotShape,
-          hasBalloon: false,
-          hasHint: false
-        });
-        map.geoObjects.add(placemark);
-      });
-    });
-  }
 
   /** Map city name (from address) → approximate coordinates for Russia-wide dot map */
   var CITY_COORDS = {

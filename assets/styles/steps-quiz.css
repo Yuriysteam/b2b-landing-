@@ -65,7 +65,6 @@ section#steps .container > h2 {
   gap: 16px;
   align-items: flex-start;
   cursor: pointer;
-  transition: all 0.3s ease;
   border: none;
 }
 
@@ -78,7 +77,6 @@ section#steps .container > h2 {
   color: var(--accent);
   flex-shrink: 0;
   line-height: 1;
-  transition: color 0.3s ease;
 }
 
 .step__text {
@@ -142,7 +140,6 @@ section#steps .container > h2 {
   background: var(--bg-light);
   cursor: pointer;
   padding: 0;
-  transition: all 0.3s ease;
 }
 
 .steps-nav__button.active {
@@ -281,7 +278,6 @@ section#steps .container > h2 {
   border: 2px solid transparent;
   border-radius: var(--border-radius-medium-m);
   cursor: pointer;
-  transition: background .15s, border-color .15s;
   font-family: var(--font-body);
 }
 

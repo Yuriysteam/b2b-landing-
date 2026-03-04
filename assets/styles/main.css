@@ -80,14 +80,14 @@
 
 :root {
   /* Цвета фонов */
-  --bg-white: #FFFFFF;
+  --bg-white: #fff;
   --bg-light: #ECEEF5;
   --bg-dark: #2D2E42;
 
   /* Цвета текста */
   --text-primary: #1a1a1a;
   --text-muted: rgba(0, 0, 0, 0.5);
-  --text-on-dark: #FFFFFF;
+  --text-on-dark: #fff;
 
   /* Акцентные цвета */
   --accent: #7F5FFF;
@@ -95,11 +95,11 @@
 
   /* Цвета кнопок */
   --btn-primary-bg: #7F5FFF;
-  --btn-primary-text: #FFFFFF;
+  --btn-primary-text: #fff;
   --btn-secondary-bg: #D9CFFF;
   --btn-secondary-text: #000000;
   --btn-dark-bg: #000000;
-  --btn-dark-text: #FFFFFF;
+  --btn-dark-text: #fff;
 
   /* Дополнительные цвета */
   --border: #e0e0e0;
@@ -110,9 +110,9 @@
   --font-body: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
 
   /* Размеры */
-  --container-max-width: 1264px;
+  --container-max-width: 1280px;
   --section-padding: 60px;
-  --section-padding-mobile: 42px;
+  --section-padding-mobile: 40px;
 
   /* Border radius */
   --border-radius-medium-s: 16px;
@@ -261,7 +261,6 @@ section:not(.hero) .cta-note {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  transition: transform 0.1s ease;
   border: none;
   cursor: pointer;
 }
@@ -400,7 +399,7 @@ section:not(.hero) .cta-note {
   font-size: 16px;
   line-height: 18px;
   letter-spacing: 0.01em;
-  color: #FFFFFF;
+  color: #fff;
   white-space: nowrap;
 }
 

@@ -66,7 +66,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s;
 }
 
 .documents-drawer__close:hover { opacity: 0.7; }
@@ -209,7 +208,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s;
 }
 
 .consultation-drawer__close:hover { opacity: 0.7; }
@@ -239,7 +237,7 @@
   padding: 0 16px;
   border: 1px solid #cdcccf;
   border-radius: var(--border-radius-medium-m, 20px);
-  background: var(--bg-white, #ffffff);
+  background: var(--bg-white, #fff);
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   line-height: 20px;
