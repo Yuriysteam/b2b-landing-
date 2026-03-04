@@ -1078,16 +1078,18 @@
       var HotelBalloonLayout = createBalloonContentLayout();
       var SmallBlackDotLayout = createSmallBlackDotLayout();
 
+      // Use hardcoded coordinates (no geocoding needed)
+      var spbPlacemarks = geoPlacemarksToPlacemarks(SPB_HOTELS_GEO);
+      var kazanPlacemarks = geoPlacemarksToPlacemarks(KAZAN_HOTELS_GEO);
+
       window.savingsMaps = {
-        moscow: createMap('yandex-map-moscow', [55.7558, 37.6173], 11, []),
-        spb: createMap('yandex-map-spb', [59.9343, 30.3351], 12, []),
-        kazan: createMap('yandex-map-kazan', [55.7977, 49.1131], 13, []),
-        russia: createMap('yandex-map-russia', [60, 82], 4, [])
+        moscow: createMap('yandex-map-moscow', [55.7558, 37.6173], 11, MOSCOW_PLACEMARKS_REAL),
+        spb: createMap('yandex-map-spb', [59.9343, 30.3351], 12, spbPlacemarks),
+        kazan: createMap('yandex-map-kazan', [55.7977, 49.1131], 13, kazanPlacemarks),
+        russia: createMap('yandex-map-russia', [60, 82], 4, [], { dotsOnly: true })
       };
 
-      geocodeAndAddPlacemarks(window.savingsMaps.moscow, MOSCOW_HOTELS_ADDRESSES, CITY_BOUNDS.moscow, 10, 50, CustomPinLayout, HotelBalloonLayout);
-      geocodeAndAddPlacemarks(window.savingsMaps.spb, SPB_HOTELS_ADDRESSES, CITY_BOUNDS.spb, 10, 50, CustomPinLayout, HotelBalloonLayout);
-      geocodeAndAddPlacemarks(window.savingsMaps.kazan, KAZAN_HOTELS_ADDRESSES, CITY_BOUNDS.kazan, 10, 50, CustomPinLayout, HotelBalloonLayout);
+      // Russia dots still need geocoding; fall back gracefully if API key invalid
       geocodeAndAddDotPlacemarks(window.savingsMaps.russia, RUSSIA_HOTELS_ADDRESSES, CITY_BOUNDS.russia, SmallBlackDotLayout);
     });
   }

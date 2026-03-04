@@ -201,9 +201,13 @@
     'quiz-step3': 'quiz-transition'
   };
 
+  // Section title (hide when quiz starts)
+  var sectionTitle = stepsSection.querySelector('h2');
+
   // GIVE buttons: data-quiz-next
   stepsSection.querySelectorAll('[data-quiz-next]').forEach(function(btn) {
     btn.addEventListener('click', function() {
+      if (sectionTitle) sectionTitle.style.display = 'none';
       goTo(currentIndex + 1, 'forward');
     });
   });
@@ -234,15 +238,6 @@
       }
     });
   });
-
-  // Restart
-  var restartBtn = stepsSection.querySelector('.restart-quiz');
-  if (restartBtn) {
-    restartBtn.addEventListener('click', function() {
-      answers = [];
-      goTo(0, 'back');
-    });
-  }
 
   // Set initial container height
   var firstScreen = getScreenEl(0);

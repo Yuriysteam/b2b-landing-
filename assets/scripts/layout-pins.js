@@ -593,6 +593,3 @@ function initPinSnippetLinks() {
 (function() {
   initPinSnippetLinks();
 })();
-  </script>
-
-  <!-- Кастомные стили карты (customization.json) -->
