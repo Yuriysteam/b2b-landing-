@@ -1,0 +1,500 @@
+/* ============================================
+   Подключение шрифтов
+   ============================================ */
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../../../assets/fonts/YS Text/YS Text-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../../../assets/fonts/YS Text/YS Text-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../../../assets/fonts/YS Text/YS Text-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../../../assets/fonts/YS Text/YS Text-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../../../assets/fonts/YS Text Cond/YS Text Cond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../../../assets/fonts/YS Text Cond/YS Text Cond-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../../../assets/fonts/YS Text Cond/YS Text Cond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../../../assets/fonts/YS Text Cond/YS Text Cond-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('../../../assets/fonts/YS Display/YS Display-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   Переменные стилей
+   ============================================ */
+
+:root {
+  /* Цвета фонов */
+  --bg-white: #FFFFFF;
+  --bg-light: #ECEEF5;
+  --bg-dark: #2D2E42;
+
+  /* Цвета текста */
+  --text-primary: #1a1a1a;
+  --text-muted: rgba(0, 0, 0, 0.5);
+  --text-on-dark: #FFFFFF;
+
+  /* Акцентные цвета */
+  --accent: #7F5FFF;
+  --accent-hover: #6B4FE6;
+
+  /* Цвета кнопок */
+  --btn-primary-bg: #7F5FFF;
+  --btn-primary-text: #FFFFFF;
+  --btn-secondary-bg: #D9CFFF;
+  --btn-secondary-text: #000000;
+  --btn-dark-bg: #000000;
+  --btn-dark-text: #FFFFFF;
+
+  /* Дополнительные цвета */
+  --border: #e0e0e0;
+  --border-dark: rgba(255, 255, 255, 0.2);
+
+  /* Шрифты */
+  --font-heading: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Размеры */
+  --container-max-width: 1264px;
+  --section-padding: 60px;
+  --section-padding-mobile: 42px;
+
+  /* Border radius */
+  --border-radius-medium-s: 16px;
+  --border-radius-medium-m: 20px;
+}
+
+/* ============================================
+   Базовые стили
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+section {
+  padding: var(--section-padding) 0;
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   Заголовки
+   ============================================ */
+
+h1 {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 100%;
+  text-wrap: balance;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 100%;
+  text-wrap: balance;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 100%;
+  margin-bottom: 16px;
+}
+
+h4 {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 100%;
+  margin-bottom: 16px;
+}
+
+h5 {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 100%;
+  margin-bottom: 12px;
+}
+
+/* ============================================
+   Кнопки
+   ============================================ */
+
+.cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: nowrap;
+}
+
+.cta-group--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.cta-group--center .cta-primary-wrapper {
+  text-align: center;
+}
+
+.cta-primary-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: fit-content;
+}
+
+.cta-note {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 120%;
+  color: #0D0D0D;
+  margin: 0;
+  text-align: center;
+}
+
+section:not(.hero) .cta-note {
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.btn {
+  padding: 20px 28px;
+  border-radius: var(--border-radius-medium-m);
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: transform 0.1s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: #F2F2F2;
+  color: #000000;
+  border: none;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-dark {
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+}
+
+.btn-dark:hover {
+  opacity: 0.9;
+}
+
+/* Размеры кнопок */
+.btn--xs { height: 32px; padding: 0 12px; border-radius: var(--border-radius-medium-s); }
+.btn--s  { height: 40px; padding: 0 16px; border-radius: var(--border-radius-medium-m); }
+.btn--m  { height: 48px; padding: 0 24px; border-radius: var(--border-radius-medium-m); }
+.btn--l  { height: 56px; padding: 0 32px; border-radius: var(--border-radius-medium-m); }
+
+/* ============================================
+   Вспомогательные компоненты
+   ============================================ */
+
+.bg-white { background: var(--bg-white); }
+.bg-light { background: var(--bg-light); }
+.bg-dark  { background: var(--bg-dark); color: var(--text-on-dark); }
+
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark h4 { color: var(--text-on-dark); }
+.bg-dark p  { color: rgba(255, 255, 255, 0.9); }
+
+.trust-badges {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.trust-badge {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.benefit-card {
+  background: var(--bg-white);
+  padding: 32px;
+  border-radius: 24px;
+}
+
+.benefit-card h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.benefit-card p {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  justify-content: flex-start;
+}
+
+.badge {
+  padding: 8px 16px;
+  background: #f2f2f2;
+  border-radius: 20px;
+  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #0d0d0f;
+}
+
+.badge-large {
+  padding: 28px 24px;
+  background: #A28BFF;
+  border-radius: 24px;
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  color: #1F232F;
+  display: inline-block;
+}
+
+.badge-soon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  height: 25px;
+  background: var(--accent);
+  border-radius: 12px;
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.activation-block {
+  background: var(--bg-light);
+  padding: 40px;
+  border-radius: 24px;
+  margin-top: 40px;
+}
+
+.activation-block h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.activation-block li {
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+/* ============================================
+   Глобальная адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  .container {
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  h1 { font-size: 40px; }
+  h2 { font-size: 36px; }
+  h3 { font-size: 24px; }
+  h4 { font-size: 18px; }
+  h5 { font-size: 16px; }
+
+  section {
+    padding: var(--section-padding-mobile) 0;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    padding: 16px 32px;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+  }
+
+  .cta-group {
+    flex-direction: column;
+  }
+
+  .cta-primary-wrapper {
+    width: 100%;
+  }
+
+  .cta-note {
+    font-size: 12px;
+  }
+
+  .badge-large {
+    font-size: 20px;
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .benefit-card {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .activation-block {
+    padding: 32px;
+    border-radius: 20px;
+  }
+
+  section:not(.delay-section):not(.hero) {
+    padding: 100px 0;
+  }
+}
+
+@media (min-width: 841px) {
+  section:not(.delay-section):not(.hero) {
+    padding: 100px 0;
+  }
+}

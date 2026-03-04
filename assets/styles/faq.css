@@ -1,0 +1,81 @@
+/* ============================================
+   FAQ
+   ============================================ */
+
+#faq {
+  background: var(--bg-white);
+}
+
+.faq-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.faq-title {
+  margin-bottom: 0;
+}
+
+.faq {
+  margin-top: 0;
+}
+
+.faq-item {
+  background: var(--bg-white);
+  padding: 12px 0 20px;
+  margin-top: 24px;
+  border-top: 1px solid var(--bg-light);
+}
+
+.faq-item:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.faq-item h4 {
+  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.faq-item p {
+  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   FAQ — адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  .faq-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .faq-item {
+    padding: 20px 0;
+  }
+
+  .faq-item h4 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .faq-item p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}

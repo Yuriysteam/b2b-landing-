@@ -1,0 +1,55 @@
+/* Блок «Поделиться с коллегами» */
+.share-section {
+  padding: 0 0 80px;
+}
+
+.share-card {
+  background: var(--color-surface, #F5F5F5);
+  border-radius: 24px;
+  padding: 8px;
+  text-align: center;
+}
+
+.share-card__title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  padding: 12px;
+  text-align: left;
+}
+
+.share-card__subtitle {
+  font-size: 18px;
+  color: var(--color-text-secondary, #666);
+  margin-bottom: 12px;
+  padding: 0 12px;
+  text-align: left;
+}
+
+.share-card__message {
+  background: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  margin-bottom: 24px;
+  color: var(--color-text, #1A1A1A);
+}
+
+.share-card__copy {
+  min-width: 220px;
+}
+
+@media (max-width: 768px) {
+  .share-card {
+    padding: 8px;
+  }
+  .share-card__title {
+    font-size: 22px;
+  }
+  .share-card__subtitle {
+    font-size: 16px;
+  }
+}

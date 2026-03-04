@@ -1,0 +1,107 @@
+/* ============================================
+   Секция двух выгод (Бизнес-счёт и Отсрочка)
+   ============================================ */
+
+.benefits-dual-section {
+  background: var(--bg-white);
+  padding: 60px 0;
+  margin-bottom: 30px;
+}
+
+.benefits-dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.benefit-dual-card {
+  background: var(--bg-light);
+  border-radius: 40px;
+  padding: 32px 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit-dual-card__label {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.benefit-dual-card__title {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 100%;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.benefit-dual-card__subtitle {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.benefit-dual-card__text {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.benefit-dual-card__image {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.benefit-dual-card__image img {
+  width: 85%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+/* ============================================
+   Benefits Dual — адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  .benefits-dual-section {
+    padding: 42px 0;
+  }
+
+  .benefits-dual-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .benefit-dual-card {
+    padding: 24px 24px 0;
+    border-radius: 20px;
+  }
+
+  .benefit-dual-card__label { font-size: 14px; }
+
+  .benefit-dual-card__title { font-size: 28px; }
+
+  .benefit-dual-card__subtitle,
+  .benefit-dual-card__text { font-size: 18px; }
+
+  .benefit-dual-card__image { min-height: 150px; }
+}

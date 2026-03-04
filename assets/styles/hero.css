@@ -1,0 +1,136 @@
+/* ============================================
+   Hero секция
+   ============================================ */
+
+.hero {
+  position: relative;
+  padding: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.hero__wrapper {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  border-radius: 0 0 40px 40px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Hero v3: без фоновой картинки, контент по центру */
+.hero__background {
+  display: none;
+}
+
+.hero__overlay {
+  display: none;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  padding: 160px 32px 40px;
+  width: 900px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__title {
+  font-size: 86px;
+  line-height: 100%;
+  margin-bottom: 32px;
+  width: 100%;
+  color: #0D0D0D;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__subtitle {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #0D0D0D;
+  margin-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  max-width: 600px;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+}
+
+.hero__cta .btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hero__cta .btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.hero__cta .btn {
+  width: 290px;
+}
+
+.hero__title .accent {
+  color: var(--accent);
+}
+
+.hero__cta .btn-secondary {
+  background: #F2F2F2;
+  color: #0D0D0D;
+  border: none;
+}
+
+.hero__cta .btn-secondary:hover {
+  background: #e8e8e8;
+}
+
+/* ============================================
+   Hero — адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  .hero__wrapper {
+    border-radius: 0;
+  }
+
+  .hero__content {
+    padding: 120px 20px 80px;
+  }
+
+  .hero__title {
+    font-size: 60px;
+    line-height: 100%;
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    line-height: 120%;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
+  }
+}

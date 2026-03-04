@@ -1,0 +1,45 @@
+/* ============================================
+   Footer
+   ============================================ */
+
+footer {
+  margin-top: 60px;
+  padding: 40px 0;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+footer .footer__logo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+footer .footer__text {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 20px;
+}
+
+/* ============================================
+   Footer — адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  footer .container {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  footer .footer__text {
+    text-align: center;
+  }
+}

@@ -1,0 +1,31 @@
+/* ============================================
+   Финальный CTA-блок
+   ============================================ */
+
+.cta-section {
+  background: var(--bg-light);
+}
+
+.cta-section .container {
+  text-align: center;
+}
+
+.cta-section .btn-secondary {
+  background: #F2F2F2;
+  color: #000000;
+}
+
+#openConsultationDrawer2 {
+  background: unset;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.cta-section p {
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-top: 16px;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}

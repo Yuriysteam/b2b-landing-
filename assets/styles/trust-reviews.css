@@ -1,0 +1,157 @@
+/* ============================================
+   Блок доверия с отзывами
+   ============================================ */
+
+.trust-reviews-section {
+  background: var(--bg-white);
+  padding: 60px 0;
+  margin-bottom: 30px;
+}
+
+.trust-reviews__header {
+  text-align: left;
+  max-width: 100%;
+  margin: 0 0 48px;
+}
+
+.trust-reviews__label {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+
+.trust-reviews__title {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 100%;
+  text-wrap: balance;
+  color: var(--text-primary);
+  margin: 0 0 24px;
+}
+
+.trust-reviews__subtitle {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--bg-white);
+  border: 1px solid #E0E0E0;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review-card__content {
+  flex: 1;
+}
+
+.review-card__text {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.review-card__author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.review-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.review-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-card__name {
+  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  color: var(--text-primary);
+}
+
+.review-card__company {
+  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   Trust Reviews — адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  .trust-reviews-section {
+    padding: 42px 0;
+  }
+
+  .trust-reviews__header {
+    margin-bottom: 32px;
+  }
+
+  .trust-reviews__label {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .trust-reviews__title {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .trust-reviews__subtitle { font-size: 18px; }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .review-card {
+    padding: 24px;
+    border-radius: 20px;
+    gap: 20px;
+  }
+
+  .review-card__text { font-size: 18px; }
+
+  .review-card__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .review-card__name  { font-size: 15px; }
+  .review-card__company { font-size: 13px; }
+}

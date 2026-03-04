@@ -1,0 +1,85 @@
+/* ============================================
+   Секция закрывающих документов
+   ============================================ */
+
+.documents-section {
+  background: transparent;
+  padding: 60px 0;
+  margin-bottom: 30px;
+}
+
+.documents-section__label {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+
+.documents-section__title {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 100%;
+  text-wrap: balance;
+  color: var(--text-primary);
+  margin: 0 0 24px;
+}
+
+.documents-section__subtitle {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+  max-width: 50%;
+}
+
+.documents-section__text {
+  width: 100%;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  margin: 0 0 32px;
+  max-width: 50%;
+}
+
+.documents-section__cta {
+  margin-top: 24px;
+}
+
+/* ============================================
+   Documents Section — адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  .documents-section {
+    padding: 42px 0;
+  }
+
+  .documents-section__label {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .documents-section__title {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .documents-section__subtitle,
+  .documents-section__text {
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  .documents-section__text {
+    margin-bottom: 24px;
+  }
+}

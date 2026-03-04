@@ -1,0 +1,347 @@
+/* ============================================
+   Секция шагов и квиза
+   ============================================ */
+
+.steps-section {
+  background: var(--bg-white);
+  position: relative;
+}
+
+.steps-background {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg-light);
+  border-radius: 40px;
+  margin: 0 32px;
+  z-index: 1;
+}
+
+.steps-section .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+section#steps .container > h2 {
+  width: 100%;
+}
+
+.steps-section__intro {
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  margin-top: 16px;
+  margin-bottom: 40px;
+}
+
+/* Обёртка шагов */
+.steps-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 12px;
+  align-items: stretch;
+  margin: 40px 0;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.steps-list::-webkit-scrollbar { display: none; }
+
+.step {
+  background: var(--bg-white);
+  padding: 24px;
+  border-radius: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.step:hover { background: var(--bg-light); }
+.step.active { background: var(--bg-light); }
+
+.step__number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.step__text {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  flex: 1;
+}
+
+.step__subtext {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.steps-screenshot {
+  position: relative;
+  background: var(--bg-light);
+  border-radius: 24px;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.steps-screenshot img {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.steps-screenshot img.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.steps-section__cta {
+  justify-content: center;
+  margin-top: 60px;
+}
+
+/* Навигация-точки (мобилка) */
+.steps-nav {
+  display: none;
+  gap: 12px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.steps-nav__button {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-light);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.steps-nav__button.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+/* ============================================
+   Квиз
+   ============================================ */
+
+.steps-section .screen { display: none; }
+.steps-section .screen.active { display: block; width: 100%; max-width: 100%; }
+
+.steps-section .quiz-intro { margin-bottom: 28px; }
+.steps-section .quiz-intro p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 120%;
+  font-family: var(--font-body);
+}
+
+.steps-section .quiz-question {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+.steps-section .quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.steps-section .quiz-option {
+  display: block;
+  width: 100%;
+  padding: 16px 18px;
+  text-align: center;
+  font: inherit;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-medium-m);
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  font-family: var(--font-body);
+}
+
+.steps-section .quiz-option:hover  { background: #e0dfed; border-color: var(--border); }
+.steps-section .quiz-option:focus  { outline: none; border-color: var(--accent); background: #D9CFFF; }
+
+.steps-section .quiz-nav { margin-top: 24px; }
+.steps-section .quiz-nav button {
+  padding: 12px 20px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: var(--font-body);
+}
+
+.steps-section .quiz-nav button:hover { color: var(--accent); }
+
+.steps-section .result-block {
+  background: var(--bg-light);
+  border-radius: var(--border-radius-medium-m);
+  padding: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.steps-section .result-block h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.35;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+}
+
+.steps-section .result-block .benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.steps-section .result-block .benefit-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+.steps-section .result-block .benefit-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.steps-section .result-block .activation {
+  color: var(--text-muted);
+  font-size: 18px;
+  margin-bottom: 16px;
+  line-height: 1.45;
+  font-family: var(--font-body);
+}
+
+.steps-section .result-block .docs {
+  font-size: 16px;
+  color: var(--text-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-body);
+}
+
+.steps-section .cta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.steps-section .cta-block .btn { width: 100%; }
+
+.steps-section .quiz-segment-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  line-height: 1.45;
+  font-family: var(--font-body);
+}
+
+.steps-section .quiz-segment-note strong { color: var(--text-primary); }
+
+.steps-section .restart-quiz {
+  padding: 12px 20px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ============================================
+   Steps + Quiz — адаптация (≤ 840px)
+   ============================================ */
+
+@media (max-width: 840px) {
+  .steps-background {
+    margin: 0 20px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .steps-wrapper { display: block; }
+
+  .steps-nav { display: flex; }
+
+  .steps-list {
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .steps-screenshot { display: none; }
+
+  .step {
+    padding: 20px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    width: 280px;
+    scroll-snap-align: start;
+    background: var(--bg-light);
+  }
+}
