@@ -99,9 +99,11 @@
         function updateBlackDots() {
           var projection = map.options.get('projection');
           var zoomLevel = map.getZoom();
-          var globalCenter = map.options.get('globalPixelCenter');
           var size = map.container.getSize();
-          if (!projection || !globalCenter || !size) return;
+          if (!projection || !size) return;
+          var centerCoord = map.getCenter();
+          var globalCenter = projection.toGlobalPixels(centerCoord, zoomLevel);
+          if (!globalCenter) return;
           function coordToPixel(coord) {
             var g = projection.toGlobalPixels(coord, zoomLevel);
             return [g[0] - globalCenter[0] + size[0] / 2, g[1] - globalCenter[1] + size[1] / 2];
