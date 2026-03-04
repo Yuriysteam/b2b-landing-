@@ -86,8 +86,8 @@
   <header class="header header__fixed header__show">
     <div class="container">
       <a href="https://travel.yandex.ru/?utm_source=landing&utm_medium=promo&utm_campaign=business_offers" class="header__logo">
-        <img src="../assets/images/logo-white.svg" alt="Яндекс Путешествия" height="28" loading="lazy" class="header__logo-img header__logo-img--white">
-        <img src="../assets/images/logo-black.svg" alt="Яндекс Путешествия" height="28" loading="lazy" class="header__logo-img header__logo-img--black">
+        <img src="assets/images/logo-white.svg" alt="Яндекс Путешествия" height="28" loading="lazy" class="header__logo-img header__logo-img--white">
+        <img src="assets/images/logo-black.svg" alt="Яндекс Путешествия" height="28" loading="lazy" class="header__logo-img header__logo-img--black">
       </a>
       <nav class="header__nav">
         <a href="#savings" class="header__nav-link">Тарифы</a>
@@ -181,7 +181,7 @@
             <h3 class="benefit-dual-card__title">Бизнес-счёт</h3>
             <p class="benefit-dual-card__subtitle">Чет про бизнес-счёт</p>
             <div class="benefit-dual-card__image">
-              <img src="../assets/images/plus.png" alt="Бизнес-счёт">
+              <img src="assets/images/plus.png" alt="Бизнес-счёт">
             </div>
           </div>
 
@@ -191,7 +191,7 @@
             <p class="benefit-dual-card__subtitle">Сохраняйте гибкость бюджета и&nbsp;оплачивайте поездки в&nbsp;удобный для бизнеса период</p>
             <p class="benefit-dual-card__text">Стоимость обслуживания — 0&nbsp;₽. Не&nbsp;берём комиссии за&nbsp;использование средств</p>
             <div class="benefit-dual-card__image">
-              <img src="../assets/images/otsrochka.png" alt="Отсрочка платежей">
+              <img src="assets/images/otsrochka.png" alt="Отсрочка платежей">
             </div>
           </div>
         </div>
@@ -296,48 +296,81 @@
       <div class="steps-background"></div>
       <div class="container">
         <h2>Узнайте свою выгоду по&nbsp;корпоративным тарифам</h2>
-        <div class="screen active" id="step1">
-          <p class="quiz-question">Кто обычно бронирует отели и&nbsp;перелёты для рабочих поездок?</p>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" data-segment="0">Самостоятельно бронирую я&nbsp;или ещё 1–2 человека</button>
-            <button type="button" class="quiz-option" data-segment="1">Координатор, HR или тот, кто отвечает за&nbsp;поездки</button>
-            <button type="button" class="quiz-option" data-segment="2">Отдел по&nbsp;командировкам или корпоративный сервис, по&nbsp;заявкам</button>
-          </div>
-        </div>
+        <div class="quiz-screens">
 
-        <div class="screen" id="step2">
-          <p class="quiz-question">Как часто у&nbsp;вас бывают командировки?</p>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" data-segment="0">Редко — несколько раз в&nbsp;год</button>
-            <button type="button" class="quiz-option" data-segment="1">Регулярно — каждый месяц или чаще</button>
-            <button type="button" class="quiz-option" data-segment="2">Постоянно — много сотрудников в&nbsp;разъездах</button>
+          <!-- Экран 1: Hook (GIVE) -->
+          <div class="screen active" id="quiz-hook">
+            <div class="quiz-give">
+              <p class="quiz-give__text">Ответьте на&nbsp;3&nbsp;коротких вопроса — покажем, сколько ваша компания может экономить на&nbsp;командировках и&nbsp;какие инструменты будут полезны именно вам.</p>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Узнать &rarr;</button>
+            </div>
           </div>
-          <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
-        </div>
 
-        <div class="screen" id="step3">
-          <p class="quiz-question">Как в&nbsp;компании принимают решения по&nbsp;расходам на&nbsp;командировки?</p>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" data-segment="0">Решаю в&nbsp;рамках разумного, без формальных лимитов</button>
-            <button type="button" class="quiz-option" data-segment="1">Согласуем с&nbsp;руководителем, есть ориентиры по&nbsp;бюджету</button>
-            <button type="button" class="quiz-option" data-segment="2">По&nbsp;политике компании: лимиты, несколько уровней согласования, отчётность</button>
+          <!-- Экран 2: Шаг 1/3 (ASK) -->
+          <div class="screen" id="quiz-step1">
+            <p class="quiz-step-counter">Шаг 1 из 3</p>
+            <p class="quiz-question">Что для вас командировки?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-option" data-segment="0">Редкость — несколько поездок в&nbsp;год, бронирую сам</button>
+              <button type="button" class="quiz-option" data-segment="1">Регулярная задача — каждый месяц кто-то едет</button>
+              <button type="button" class="quiz-option" data-segment="2">Поток — десятки поездок, отдельный процесс</button>
+            </div>
+            <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
           </div>
-          <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
-        </div>
 
-        <div class="screen" id="result">
-          <div class="result-block" id="result-content">
-            <h2>Ваши выгоды</h2>
-            <ul class="benefit-list" id="result-benefits"></ul>
-            <p class="activation" id="result-activation"></p>
-            <p class="docs">Закрывающие документы для бухгалтерии по&nbsp;ЭДО с&nbsp;любой удобной для вас периодичностью.</p>
+          <!-- Экран 3: Delight (GIVE) -->
+          <div class="screen" id="quiz-delight">
+            <div class="quiz-give">
+              <p class="quiz-give__text">Уже видим ситуацию. Ещё 2&nbsp;вопроса — и&nbsp;покажем конкретные цифры экономии.</p>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Давайте &rarr;</button>
+            </div>
           </div>
-          <div class="cta-block">
-            <a href="#" class="btn btn-primary" id="cta-show-hotels">Оставьте номер телефона – отправим презенташку</a>
-            <a href="#" class="btn btn-secondary" id="cta-connect">Подключить компанию</a>
+
+          <!-- Экран 4: Шаг 2/3 (ASK) -->
+          <div class="screen" id="quiz-step2">
+            <p class="quiz-step-counter">Шаг 2 из 3</p>
+            <p class="quiz-question">Сколько поездок в&nbsp;месяц?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-option" data-segment="0">1–3 поездки</button>
+              <button type="button" class="quiz-option" data-segment="1">4–15 поездок</button>
+              <button type="button" class="quiz-option" data-segment="2">Больше 15</button>
+            </div>
+            <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
           </div>
-          <div class="quiz-nav" style="margin-top: 24px;"><button type="button" class="restart-quiz">Пройти квиз заново</button></div>
-          <p class="quiz-segment-note" id="result-segment-note"></p>
+
+          <!-- Экран 5: Шаг 3/3 (ASK) -->
+          <div class="screen" id="quiz-step3">
+            <p class="quiz-step-counter">Шаг 3 из 3</p>
+            <p class="quiz-question">Как бронируете сейчас?</p>
+            <div class="quiz-options">
+              <button type="button" class="quiz-option" data-segment="0">Каждый сам — через Booking, Яндекс и&nbsp;т.д.</button>
+              <button type="button" class="quiz-option" data-segment="1">Один человек собирает заявки и&nbsp;бронирует</button>
+              <button type="button" class="quiz-option" data-segment="2">Через корпоративный тревел-сервис или агентство</button>
+            </div>
+            <div class="quiz-nav"><button type="button" class="quiz-prev">Назад</button></div>
+          </div>
+
+          <!-- Экран 6: Transition (GIVE, автопереход) -->
+          <div class="screen" id="quiz-transition">
+            <div class="quiz-give quiz-give--transition">
+              <div class="quiz-loader"><span></span><span></span><span></span></div>
+              <p class="quiz-give__text">Считаем вашу экономию...</p>
+            </div>
+          </div>
+
+          <!-- Экран 7: Result -->
+          <div class="screen" id="quiz-result">
+            <div class="result-block" id="result-content">
+              <div class="result-diagnosis" id="result-diagnosis"></div>
+              <div class="result-insight" id="result-insight"></div>
+              <h3 class="result-benefits-title">Ваши выгоды</h3>
+              <ul class="benefit-list" id="result-benefits"></ul>
+              <div class="result-social-proof" id="result-social-proof"></div>
+            </div>
+            <div class="cta-block" id="result-cta"></div>
+            <div class="quiz-nav" style="margin-top: 24px;"><button type="button" class="restart-quiz">Пройти квиз заново</button></div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -430,7 +463,7 @@
     <div class="container">
       <div class="footer__logo">
         <a href="https://travel.yandex.ru/?utm_source=landing&utm_medium=promo&utm_campaign=business_offers" target="_blank" rel="noopener">
-          <img src="../assets/images/logo-black.svg" alt="Яндекс Путешествия" width="384" height="33" loading="lazy">
+          <img src="assets/images/logo-black.svg" alt="Яндекс Путешествия" width="384" height="33" loading="lazy">
         </a>
       </div>
       <div class="footer__text">
