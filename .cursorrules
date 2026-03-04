@@ -1,0 +1,24 @@
+## Project
+
+B2B landing page for Яндекс Путешествия (Yandex Travel for Business).
+Single-page site: `index.html` + `assets/` folder. No frameworks, no bundler.
+
+## Code style
+
+- HTML: semantic tags, BEM class naming
+- CSS: one file per section in `assets/styles/`, BEM methodology
+- JS: vanilla ES5+ in `assets/scripts/`, no modules
+- All asset paths relative: `assets/…`
+- Keep Russian content, `lang="ru"`, `charset="UTF-8"`
+
+## Git commands
+
+Push all changes:
+```sh
+git add -A && git commit -m "your message" && git push origin main
+```
+
+Push specific files:
+```sh
+git add <files> && git commit -m "your message" && git push origin main
+```
