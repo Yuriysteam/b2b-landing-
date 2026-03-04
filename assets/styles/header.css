@@ -39,7 +39,7 @@
 .header__logo-img {
   display: block;
   height: 28px;
-  width: auto;
+  width: auto; 
 }
 
 .header__logo-img--white { display: none; }

@@ -63,14 +63,8 @@
 }
 
 /* ============================================
-   Секция транспорта
+   Карточка транспорта
    ============================================ */
-
-.transport-section {
-  background: var(--bg-white);
-  padding: 60px 0;
-  margin-bottom: 30px;
-}
 
 .transport-card {
   background: var(--bg-light);
@@ -125,8 +119,7 @@
    ============================================ */
 
 @media (max-width: 840px) {
-  .support-section,
-  .transport-section {
+  .support-section {
     padding: 42px 0;
   }
 

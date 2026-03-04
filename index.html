@@ -114,10 +114,8 @@
     <!-- Hero секция -->
     <section class="hero">
       <div class="hero__wrapper">
-        <div class="hero__background"></div>
-        <div class="hero__overlay"></div>
         <div class="hero__content">
-          <h1 class="hero__title">Помогаем <span class="accent">экономить бюджет</span> в&nbsp;рабочих поездках</h1>
+          <h1 class="hero__title">Помогаем <span class="accent">экономить бюджет</span> на&nbsp;рабочие поездки</h1>
           <p class="hero__subtitle">Бесплатный сервис для рабочих поездок&nbsp;— корпоративные скидки на&nbsp;жильё до&nbsp;40%, закрывающие документы и&nbsp;отсрочка платежей</p>
           <div class="hero__cta">
             <div class="cta-primary-wrapper">
@@ -473,12 +471,12 @@
   </footer>
 
   <!-- Drawer: документы -->
-  <div class="documents-drawer" id="documentsDrawer">
-    <div class="documents-drawer__overlay" onclick="closeDocumentsDrawer()"></div>
-    <div class="documents-drawer__content">
+  <div class="drawer documents-drawer" id="documentsDrawer">
+    <div class="drawer__overlay documents-drawer__overlay" onclick="closeDocumentsDrawer()"></div>
+    <div class="drawer__content documents-drawer__content">
       <div class="documents-drawer__header">
         <h3>Пример документов</h3>
-        <button class="documents-drawer__close" onclick="closeDocumentsDrawer()" aria-label="Закрыть">×</button>
+        <button class="drawer__close documents-drawer__close" onclick="closeDocumentsDrawer()" aria-label="Закрыть">×</button>
       </div>
       <div class="documents-drawer__body">
         <div class="documents-list-simple">
@@ -500,12 +498,12 @@
   </div>
 
   <!-- Drawer: консультация (телефон) -->
-  <div class="consultation-drawer" id="consultationDrawer">
-    <div class="consultation-drawer__overlay" aria-hidden="true"></div>
-    <div class="consultation-drawer__content">
+  <div class="drawer consultation-drawer" id="consultationDrawer">
+    <div class="drawer__overlay consultation-drawer__overlay" aria-hidden="true"></div>
+    <div class="drawer__content consultation-drawer__content">
       <div class="consultation-drawer__header">
         <h3 class="consultation-drawer__title">Получить бесплатную консультацию</h3>
-        <button type="button" class="consultation-drawer__close" aria-label="Закрыть">×</button>
+        <button type="button" class="drawer__close consultation-drawer__close" aria-label="Закрыть">×</button>
       </div>
       <div class="consultation-drawer__body">
         <p class="consultation-drawer__text">Оставьте номер телефона, мы свяжемся с вами и ответим на все вопросы.</p>

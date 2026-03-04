@@ -4,7 +4,7 @@
 }
 
 .share-card {
-  background: var(--color-surface, #F5F5F5);
+  background: var(--bg-light);
   border-radius: 24px;
   padding: 8px;
   text-align: center;
@@ -20,7 +20,7 @@
 
 .share-card__subtitle {
   font-size: 18px;
-  color: var(--color-text-secondary, #666);
+  color: var(--text-muted);
   margin-bottom: 12px;
   padding: 0 12px;
   text-align: left;
@@ -35,14 +35,14 @@
   line-height: 1.5;
   text-align: left;
   margin-bottom: 24px;
-  color: var(--color-text, #1A1A1A);
+  color: var(--text-primary);
 }
 
 .share-card__copy {
   min-width: 220px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .share-card {
     padding: 8px;
   }

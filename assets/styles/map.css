@@ -62,35 +62,6 @@
   display: block;
 }
 
-.map-info-bar {
-  display: none;
-  position: absolute;
-  bottom: 20px; left: 20px; right: 20px;
-  padding: 20px;
-  min-height: 30px;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 20px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.map-info-bar__count {
-  font-family: 'YS Text', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--text-primary, #212121);
-}
-
-.map-info-bar__updated {
-  font-family: 'YS Text', sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  color: #6B6B6B;
-}
-
 /* ============================================
    Карта — анимация загрузки
    ============================================ */
@@ -126,14 +97,6 @@
   width: 10px; height: 10px;
   border-radius: 50%;
   background: var(--accent, #7F5FFF);
-}
-
-.map-loading__label {
-  font-family: 'YS Text', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: #6B6B6B;
-  letter-spacing: 0.02em;
 }
 
 /* ============================================

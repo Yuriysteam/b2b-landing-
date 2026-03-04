@@ -18,15 +18,6 @@
   background: transparent;
 }
 
-/* Hero v3: без фоновой картинки, контент по центру */
-.hero__background {
-  display: none;
-}
-
-.hero__overlay {
-  display: none;
-}
-
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -89,12 +80,6 @@
 
 .hero__title .accent {
   color: var(--accent);
-}
-
-.hero__cta .btn-secondary {
-  background: #F2F2F2;
-  color: #0D0D0D;
-  border: none;
 }
 
 .hero__cta .btn-secondary:hover {

@@ -1,8 +1,8 @@
 /* ============================================
-   Bottom Drawer — документы
+   Bottom Drawer — базовый компонент
    ============================================ */
 
-.documents-drawer {
+.drawer {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   z-index: 1000;
@@ -11,12 +11,12 @@
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.documents-drawer.active {
+.drawer.active {
   opacity: 1;
   visibility: visible;
 }
 
-.documents-drawer__overlay {
+.drawer__overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   width: 100%; height: 100%;
@@ -24,7 +24,7 @@
   z-index: 1;
 }
 
-.documents-drawer__content {
+.drawer__content {
   position: relative;
   background: var(--bg-white);
   border-radius: 32px 32px 0 0;
@@ -36,9 +36,29 @@
   z-index: 2;
 }
 
-.documents-drawer.active .documents-drawer__content {
+.drawer.active .drawer__content {
   transform: translateY(0);
 }
+
+.drawer__close {
+  background: none;
+  border: none;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer__close:hover { opacity: 0.7; }
+
+/* ============================================
+   Drawer — документы (специфичные стили)
+   ============================================ */
 
 .documents-drawer__header {
   display: flex;
@@ -53,22 +73,6 @@
   font-weight: 700;
   margin: 0;
 }
-
-.documents-drawer__close {
-  background: none;
-  border: none;
-  font-size: 32px;
-  line-height: 1;
-  color: var(--text-primary);
-  cursor: pointer;
-  padding: 0;
-  width: 32px; height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.documents-drawer__close:hover { opacity: 0.7; }
 
 .documents-drawer__body {
   padding: 32px;
@@ -138,46 +142,8 @@
 .documents-drawer__footer .btn { width: auto; }
 
 /* ============================================
-   Drawer — консультация (телефон)
+   Drawer — консультация (специфичные стили)
    ============================================ */
-
-.consultation-drawer {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-.consultation-drawer.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.consultation-drawer__overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.consultation-drawer__content {
-  position: relative;
-  background: var(--bg-white);
-  border-radius: 32px 32px 0 0;
-  max-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  transform: translateY(100%);
-  transition: transform 0.2s ease;
-  z-index: 2;
-}
-
-.consultation-drawer.active .consultation-drawer__content {
-  transform: translateY(0);
-}
 
 .consultation-drawer__header {
   display: flex;
@@ -195,22 +161,6 @@
   margin: 0;
   color: var(--text-primary, #212121);
 }
-
-.consultation-drawer__close {
-  background: none;
-  border: none;
-  font-size: 32px;
-  line-height: 1;
-  color: var(--text-primary);
-  cursor: pointer;
-  padding: 0;
-  width: 32px; height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.consultation-drawer__close:hover { opacity: 0.7; }
 
 .consultation-drawer__body {
   padding: 24px 24px 32px;
@@ -261,7 +211,7 @@
 
 /* На десктопе drawer тоже показываем (снизу) */
 @media (min-width: 841px) {
-  .consultation-drawer__content {
+  .consultation-drawer .drawer__content {
     max-width: 480px;
     margin: 0 auto;
     left: 0;
@@ -347,7 +297,7 @@
   .documents-tooltip { display: none; }
   .documents-drawer  { display: block; }
 
-  .documents-drawer__content { max-height: 90vh; }
+  .documents-drawer .drawer__content { max-height: 90vh; }
 
   .documents-grid {
     grid-template-columns: 1fr;

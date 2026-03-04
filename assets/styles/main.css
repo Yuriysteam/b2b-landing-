@@ -488,7 +488,7 @@ section:not(.hero) .cta-note {
   }
 
   section:not(.delay-section):not(.hero) {
-    padding: 100px 0;
+    padding: var(--section-padding-mobile) 0;
   }
 }
 

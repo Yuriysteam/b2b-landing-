@@ -26,10 +26,6 @@
   width: 100%;
 }
 
-section#steps .container > h2 {
-  width: 100%;
-}
-
 .steps-section__intro {
   font-size: 20px;
   line-height: 120%;
@@ -270,7 +266,6 @@ section#steps .container > h2 {
   width: 100%;
   padding: 16px 18px;
   text-align: center;
-  font: inherit;
   font-size: 20px;
   line-height: 120%;
   color: var(--text-primary);
@@ -380,17 +375,6 @@ section#steps .container > h2 {
 }
 
 .steps-section .cta-block .btn { width: 100%; }
-
-.steps-section .restart-quiz {
-  padding: 12px 20px;
-  font: inherit;
-  font-size: 14px;
-  color: var(--text-muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-decoration: underline;
-}
 
 /* ============================================
    Steps + Quiz — адаптация (≤ 840px)
