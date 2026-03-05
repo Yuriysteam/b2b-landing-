@@ -68,7 +68,7 @@
 }
 
 .benefit-dual-card__image {
-  margin-top: auto;
+  margin-top: 32px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -90,28 +90,27 @@
 .corp-tariff-card {
   background: var(--bg-light);
   border-radius: 40px;
-  padding: 32px 32px 0;
+  padding: 40px 32px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   overflow: hidden;
 }
 
-.corp-tariff-card__text {
+.corp-tariff-card__title {
   font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 800;
-  font-size: 40px;
-  line-height: 105%;
+  font-size: 48px;
+  line-height: 100%;
   color: var(--text-primary);
   margin: 0;
-  max-width: 700px;
   text-align: center;
   text-wrap: balance;
 }
 
 .corp-tariff-card__image {
-  margin-top: 8px;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -121,6 +120,17 @@
   height: auto;
   display: block;
   border-radius: 12px 12px 0 0;
+}
+
+.corp-tariff-card__img--mobile { display: none; }
+
+.corp-tariff-card__caption {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: -16px 0 24px;
+  text-align: center;
 }
 
 /* ============================================
@@ -153,10 +163,19 @@
 
   .corp-tariff-card {
     border-radius: 20px;
-    padding: 24px 24px 0;
+    padding: 28px 24px 0;
+    gap: 16px;
   }
 
-  .corp-tariff-card__text {
-    font-size: 28px;
+  .corp-tariff-card__title {
+    font-size: 32px;
+  }
+
+  .corp-tariff-card__img--desktop { display: none; }
+  .corp-tariff-card__img--mobile { display: block; }
+
+  .corp-tariff-card__caption {
+    font-size: 15px;
+    margin: -8px 0 20px;
   }
 }
