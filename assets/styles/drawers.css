@@ -209,13 +209,26 @@
   font-size: 18px;
 }
 
-/* На десктопе drawer тоже показываем (снизу) */
+/* На десктопе — попап по центру */
 @media (min-width: 761px) {
+  .consultation-drawer {
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .consultation-drawer .drawer__content {
     max-width: 480px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
+    border-radius: 32px;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .consultation-drawer.active .drawer__content {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 

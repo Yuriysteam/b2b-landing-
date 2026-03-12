@@ -94,10 +94,6 @@
         });
       }
     }
-    var mapEl = document.getElementById(containerId);
-    if (mapEl && mapEl.previousElementSibling && mapEl.previousElementSibling.classList.contains('map-loading')) {
-      mapEl.previousElementSibling.classList.add('map-loading--hidden');
-    }
     return map;
   }
 
@@ -132,8 +128,7 @@
     { coords: [55.8033, 37.5220], hint: 'Ибис Бюджет Панфиловская', balloonTitle: 'Ибис Бюджет Панфиловская', balloonBody: 'Скидка: −11%', discount: 11 },
     { coords: [55.7527, 37.5870], hint: 'Арбат Хаятт', balloonTitle: 'Арбат Хаятт', balloonBody: 'Скидка: −23%', discount: 23 },
     { coords: [55.7622, 37.6260], hint: 'Савой', balloonTitle: 'Савой', balloonBody: 'Скидка: −20%', discount: 20 },
-    { coords: [55.7573, 37.6160], hint: 'Four Seasons Москва', balloonTitle: 'Four Seasons Москва', balloonBody: 'Скидка: −28%', discount: 28 },
-    { coords: [55.8770, 37.4250], hint: 'Холидей Инн Виноградово', balloonTitle: 'Холидей Инн Виноградово', balloonBody: 'Скидка: −12%', discount: 12 }
+    { coords: [55.7573, 37.6160], hint: 'Four Seasons Москва', balloonTitle: 'Four Seasons Москва', balloonBody: 'Скидка: −28%', discount: 28 }
   ];
 
   // Санкт-Петербург: 30 отелей с реальными координатами

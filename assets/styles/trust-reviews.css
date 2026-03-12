@@ -2,7 +2,9 @@
    Блок доверия с отзывами
    ============================================ */
 
+/* Временно скрыт — убрать display: none для показа */
 .trust-reviews-section {
+  display: none;
   background: var(--bg-white);
   padding: 60px 0;
   margin-bottom: 30px;

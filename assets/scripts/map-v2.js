@@ -58,8 +58,7 @@
         { name: 'Ибис Бюджет Панфиловская', price: 3800, discount: 11, coords: [55.796, 37.508] },
         { name: 'Арбат Хаятт', price: 13000, discount: 23, coords: [55.752, 37.591] },
         { name: 'Савой', price: 17000, discount: 20, coords: [55.758, 37.615] },
-        { name: 'Four Seasons Москва', price: 35000, discount: 28, coords: [55.755, 37.619] },
-        { name: 'Холидей Инн Виноградово', price: 5100, discount: 12, coords: [55.877, 37.425] }
+        { name: 'Four Seasons Москва', price: 35000, discount: 28, coords: [55.755, 37.619] }
       ]
     },
     spb: {

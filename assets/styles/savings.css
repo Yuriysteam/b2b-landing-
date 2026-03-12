@@ -48,14 +48,13 @@
   font-size: 20px;
   margin: 0 auto 12px;
   color: var(--text-primary);
-  max-width: 720px;
+  max-width: 800px;
 }
 
 .savings-section__map-widget {
   width: 100%;
   max-width: 1200px;
   margin: 32px auto 0;
-  height: 560px;
 }
 
 .savings-section__map-widget .map-tabs {
