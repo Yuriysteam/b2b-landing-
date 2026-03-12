@@ -4,7 +4,7 @@
 }
 
 .share-section .container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
 }
@@ -16,14 +16,15 @@
   line-height: 1.2;
   color: var(--text-primary);
   margin: 0 0 8px;
+  text-align: left;
 }
 
 .share-section__subtitle {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.4;
-  color: var(--text-muted);
   margin: 0 0 24px;
+  text-align: left;
 }
 
 .share-card {
