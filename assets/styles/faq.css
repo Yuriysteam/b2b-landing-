@@ -75,7 +75,7 @@
   line-height: 26px;
   font-feature-settings: 'pnum' on, 'lnum' on;
   color: var(--text-primary);
-  padding-bottom: 20px;
+  padding-bottom: 32px;
 }
 
 /* ============================================

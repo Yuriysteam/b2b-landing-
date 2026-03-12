@@ -125,6 +125,10 @@
   display: block;
 }
 
+.corp-tariff-card__text {
+  text-align: center;
+}
+
 .corp-tariff-card__img--desktop { display: block; }
 .corp-tariff-card__img--mobile { display: none; }
 
@@ -172,7 +176,7 @@
     text-align: left;
   }
 
-  .corp-tariff-card__text { font-size: 20px; }
+  .corp-tariff-card__text { font-size: 20px; text-align: left; }
 
   .corp-tariff-card__img--desktop { display: none; }
   .corp-tariff-card__img--mobile { display: block; }
