@@ -9,7 +9,7 @@
 .faq-section {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 40px;
+  gap: 48px;
   align-items: start;
 }
 
@@ -85,7 +85,7 @@
 @media (max-width: 760px) {
   .faq-section {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
   }
 
   .faq-item__question {

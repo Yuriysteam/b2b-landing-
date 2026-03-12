@@ -12,7 +12,7 @@
   top: 0; left: 0; right: 0; bottom: 0;
   background: var(--bg-light);
   border-radius: 40px;
-  margin: 0 32px;
+  margin: 0 40px;
   z-index: 1;
 }
 
@@ -48,9 +48,9 @@
   /* Двухколоночная сетка */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 40px;
   align-items: start;
-  padding: 56px 48px;
+  padding: 48px 40px;
 }
 
 .steps-section .screen.active {
@@ -270,14 +270,14 @@
 
 @media (max-width: 760px) {
   .steps-background {
-    margin: 0 20px;
+    margin: 0 16px;
     border-radius: 24px;
   }
 
   .steps-section .screen {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 36px 24px;
+    padding: 32px 16px;
   }
 
   .quiz-section-title {

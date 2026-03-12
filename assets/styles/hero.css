@@ -25,7 +25,7 @@
   text-align: center;
   position: relative;
   z-index: 3;
-  padding: 140px 0px 40px;
+  padding: 140px 0px 100px;
   width: 900px;
   max-width: 900px;
   margin-left: auto;
@@ -96,20 +96,23 @@
   }
 
   .hero__content {
-    padding: 120px 20px 80px;
+    padding: 120px 16px 80px;
     width: auto;
     max-width: 100%;
   }
 
   .hero__title {
-    font-size: 52px;
-    line-height: 1.1;
+    font-size: 62px;
+    text-align: left;
+    line-height: 1;
+    max-width: 100%;
   }
 
   .hero__subtitle {
-    font-size: 18px;
-    line-height: 120%;
+    font-size: 20px;
+    line-height: 140%;
     width: auto;
+    text-align: left;
     max-width: 100%;
   }
 

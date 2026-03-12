@@ -4,8 +4,8 @@
 
 .documents-section {
   background: transparent;
-  padding: 60px 0;
-  margin-bottom: 30px;
+  padding: 80px 0;
+  margin-bottom: 0;
 }
 
 .documents-section__label {
@@ -16,7 +16,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent);
-  margin: 0 0 16px;
+  margin: 0 0 8px;
 }
 
 .documents-section__title {
@@ -26,7 +26,7 @@
   line-height: 100%;
   text-wrap: balance;
   color: var(--text-primary);
-  margin: 0 0 24px;
+  margin: 0 0 16px;
 }
 
 .documents-section__subtitle {
@@ -60,12 +60,12 @@
 
 @media (max-width: 760px) {
   .documents-section {
-    padding: 42px 0;
+    padding: 48px 0;
   }
 
   .documents-section__label {
     font-size: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .documents-section__title {

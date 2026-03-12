@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: column;
   background: var(--bg-white);
-  padding: 60px 0;
-  margin-bottom: 30px;
+  padding: 80px 0;
+  margin-bottom: 0;
 }
 
 .support-section__cta {
@@ -17,7 +17,7 @@
 .support-card {
   background: var(--bg-light);
   border-radius: 40px;
-  padding: 48px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -69,7 +69,7 @@
 .transport-card {
   background: var(--bg-light);
   border-radius: 40px;
-  padding: 48px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -120,12 +120,12 @@
 
 @media (max-width: 760px) {
   .support-section {
-    padding: 42px 0;
+    padding: 48px 0;
   }
 
   .support-card,
   .transport-card {
-    padding: 32px 24px;
+    padding: 28px 20px;
     border-radius: 24px;
     gap: 16px;
   }

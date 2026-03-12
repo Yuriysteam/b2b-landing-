@@ -110,9 +110,9 @@
   --font-body: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
 
   /* Размеры */
-  --container-max-width: 1280px;
-  --section-padding: 60px;
-  --section-padding-mobile: 40px;
+  --container-max-width: 1232px;
+  --section-padding: 80px;
+  --section-padding-mobile: 48px;
 
   /* Border radius */
   --border-radius-medium-s: 16px;
@@ -154,12 +154,12 @@ p {
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
 }
 
 section {
   padding: var(--section-padding) 0;
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 /* ============================================
@@ -207,7 +207,7 @@ h5 {
   font-weight: 800;
   font-size: 16px;
   line-height: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 /* ============================================
@@ -331,13 +331,13 @@ section:not(.hero) .cta-note {
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 32px;
+  gap: 16px;
+  margin-top: 40px;
 }
 
 .benefit-card {
   background: var(--bg-white);
-  padding: 32px;
+  padding: 28px;
   border-radius: 24px;
 }
 
@@ -427,7 +427,7 @@ section:not(.hero) .cta-note {
 
 @media (max-width: 760px) {
   .container {
-    padding: 0 20px;
+    padding: 0 16px;
     max-width: 100%;
   }
 
@@ -447,7 +447,7 @@ section:not(.hero) .cta-note {
 
   section {
     padding: var(--section-padding-mobile) 0;
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
 
   .btn {
@@ -478,7 +478,7 @@ section:not(.hero) .cta-note {
   }
 
   .benefit-card {
-    padding: 24px;
+    padding: 20px;
     border-radius: 20px;
   }
 
@@ -494,6 +494,6 @@ section:not(.hero) .cta-note {
 
 @media (min-width: 761px) {
   section:not(.delay-section):not(.hero) {
-    padding: 100px 0;
+    padding: 80px 0;
   }
 }

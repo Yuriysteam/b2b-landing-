@@ -6,8 +6,8 @@
 .trust-reviews-section {
   display: none;
   background: var(--bg-white);
-  padding: 60px 0;
-  margin-bottom: 30px;
+  padding: 80px 0;
+  margin-bottom: 0;
 }
 
 .trust-reviews__header {
@@ -24,7 +24,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent);
-  margin: 0 0 16px;
+  margin: 0 0 8px;
 }
 
 .trust-reviews__title {
@@ -34,7 +34,7 @@
   line-height: 100%;
   text-wrap: balance;
   color: var(--text-primary);
-  margin: 0 0 24px;
+  margin: 0 0 16px;
 }
 
 .trust-reviews__subtitle {
@@ -117,7 +117,7 @@
 
 @media (max-width: 760px) {
   .trust-reviews-section {
-    padding: 42px 0;
+    padding: 48px 0;
   }
 
   .trust-reviews__header {
@@ -126,7 +126,7 @@
 
   .trust-reviews__label {
     font-size: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .trust-reviews__title {

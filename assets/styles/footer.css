@@ -3,8 +3,10 @@
    ============================================ */
 
 footer {
-  margin-top: 60px;
-  padding: 40px 0;
+  position: relative;
+  padding: 80px 0;
+  background: #000;
+  z-index: -1;
 }
 
 footer .container {
@@ -25,7 +27,7 @@ footer .footer__text {
   text-align: center;
   font-family: var(--font-body);
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 20px;
 }
 
