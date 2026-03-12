@@ -54,7 +54,7 @@
 .savings-section__map-widget {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 32px auto 0;
   height: 560px;
 }
 
