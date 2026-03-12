@@ -27,7 +27,7 @@
   const hotelsData = {
     moscow: {
       center: [55.753215, 37.622504],
-      zoom: 11,
+      zoom: 12,
       hotels: [
         { name: 'AZIMUT Отель Олимпик Москва', price: 6900, discount: 18, coords: [55.782032, 37.601504] },
         { name: 'Novotel Москва Центр', price: 8500, discount: 22, coords: [55.764902, 37.604878] },
@@ -64,7 +64,7 @@
     },
     spb: {
       center: [59.938784, 30.314997],
-      zoom: 11,
+      zoom: 12,
       hotels: [
         { name: 'AZIMUT Отель Санкт-Петербург', price: 5800, discount: 16, coords: [59.944899, 30.361944] },
         { name: 'Гранд Отель Европа', price: 22000, discount: 30, coords: [59.935477, 30.331783] },
@@ -77,7 +77,7 @@
     },
     kazan: {
       center: [55.788116, 49.122132],
-      zoom: 12,
+      zoom: 13,
       hotels: [
         { name: 'Ривьера', price: 7200, discount: 20, coords: [55.806544, 49.095116] },
         { name: 'Мираж', price: 5800, discount: 15, coords: [55.785316, 49.124632] },
@@ -89,7 +89,7 @@
     },
     russia: {
       center: [55.751574, 60.573856],
-      zoom: 4,
+      zoom: 5,
       hotels: [
         { name: 'AZIMUT Владивосток', price: 6200, discount: 18, coords: [43.115542, 131.885494] },
         { name: 'Гранд Отель Екатеринбург', price: 5400, discount: 14, coords: [56.838011, 60.597474] },
@@ -103,7 +103,7 @@
     },
     world: {
       center: [48.8566, 2.3522],
-      zoom: 3,
+      zoom: 4,
       hotels: [
         { name: 'Marriott Paris', price: 18000, discount: 22, coords: [48.869914, 2.338044] },
         { name: 'Hilton Istanbul', price: 12000, discount: 18, coords: [41.042753, 29.009539] },

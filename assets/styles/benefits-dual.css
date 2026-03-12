@@ -26,6 +26,12 @@
   padding: 32px 32px 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.benefit-dual-card__content {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
@@ -50,15 +56,6 @@
 }
 
 .benefit-dual-card__subtitle {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 120%;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.benefit-dual-card__text {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -98,6 +95,12 @@
   overflow: hidden;
 }
 
+.corp-tariff-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .corp-tariff-card__title {
   font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 800;
@@ -116,20 +119,18 @@
 }
 
 .corp-tariff-card__img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 660px;
   display: block;
-  border-radius: 12px 12px 0 0;
 }
 
+.corp-tariff-card__img--desktop { display: block; }
 .corp-tariff-card__img--mobile { display: none; }
 
 .corp-tariff-card__caption {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
-  color: var(--text-muted);
-  margin: -16px 0 24px;
   text-align: center;
 }
 
@@ -156,8 +157,7 @@
 
   .benefit-dual-card__title { font-size: 28px; }
 
-  .benefit-dual-card__subtitle,
-  .benefit-dual-card__text { font-size: 18px; }
+  .benefit-dual-card__subtitle { font-size: 18px; }
 
   .benefit-dual-card__image { min-height: 150px; }
 
@@ -175,7 +175,6 @@
   .corp-tariff-card__img--mobile { display: block; }
 
   .corp-tariff-card__caption {
-    font-size: 15px;
-    margin: -8px 0 20px;
+    font-size: 20px;
   }
 }
