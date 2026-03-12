@@ -46,20 +46,6 @@
     return document.getElementById(screenOrder[index]);
   }
 
-  function setFixedHeight() {
-    var screens = screensContainer.querySelectorAll('.screen');
-    var maxH = 0;
-    screens.forEach(function(s) {
-      s.classList.add('quiz-screen--measuring');
-      var h = s.offsetHeight;
-      if (h > maxH) maxH = h;
-      s.classList.remove('quiz-screen--measuring');
-    });
-    if (maxH > 0) {
-      screensContainer.style.height = maxH + 'px';
-    }
-  }
-
   function goTo(newIndex, direction) {
     if (newIndex === currentIndex) return;
     if (newIndex < 0 || newIndex >= screenOrder.length) return;
@@ -165,11 +151,4 @@
     });
   });
 
-  setFixedHeight();
-
-  var resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(setFixedHeight, 150);
-  });
 })();

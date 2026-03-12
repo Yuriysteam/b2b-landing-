@@ -3,15 +3,20 @@
    ============================================ */
 
 .support-section {
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-white);
   padding: 80px 0;
   margin-bottom: 0;
 }
 
-.support-section__cta {
-  margin-top: 32px;
+.support-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.support-section__right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .support-card {
@@ -21,7 +26,14 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 100%;
+}
+
+.support-card--large {
+  height: 100%;
+}
+
+.support-section__right .support-card {
+  flex: 1;
 }
 
 .support-card__label {
@@ -38,7 +50,7 @@
 .support-card__title {
   font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 800;
-  font-size: 56px;
+  font-size: 28px;
   line-height: 100%;
   color: var(--text-primary);
   margin: 0;
@@ -63,59 +75,7 @@
 }
 
 /* ============================================
-   Карточка транспорта
-   ============================================ */
-
-.transport-card {
-  background: var(--bg-light);
-  border-radius: 40px;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 100%;
-}
-
-.transport-card__label {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 100%;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-  margin: 0;
-}
-
-.transport-card__title {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
-  font-size: 56px;
-  line-height: 100%;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.transport-card__subtitle {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 120%;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.transport-card__text {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 120%;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-/* ============================================
-   Support + Transport — адаптация (≤ 760px)
+   Support — адаптация (≤ 760px)
    ============================================ */
 
 @media (max-width: 760px) {
@@ -123,33 +83,27 @@
     padding: 48px 0;
   }
 
-  .support-card,
-  .transport-card {
+  .support-section__grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .support-card {
     padding: 28px 20px;
     border-radius: 24px;
     gap: 16px;
   }
 
-  .support-card__label,
-  .transport-card__label {
+  .support-card__label {
     font-size: 14px;
   }
 
-  .support-card__title,
-  .transport-card__title {
-    font-size: 36px;
+  .support-card__title {
+    font-size: 32px;
   }
 
   .support-card__subtitle,
   .support-card__text {
-    font-size: 18px;
-  }
-
-  .transport-card__subtitle {
-    font-size: 18px;
-  }
-
-  .transport-card__text {
     font-size: 18px;
   }
 }

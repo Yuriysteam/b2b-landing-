@@ -245,7 +245,8 @@ section:not(.hero) .cta-note {
 
 .btn {
   padding: 20px 28px;
-  border-radius: var(--border-radius-medium-m);
+  border-radius: 16px;
+  font-family: 'YS Text', sans-serif;
   font-size: 20px;
   font-weight: 500;
   text-decoration: none;
@@ -444,7 +445,7 @@ section:not(.hero) .cta-note {
 
   .btn {
     padding: 16px 32px;
-    border-radius: 20px;
+    border-radius: 16px;
     font-size: 18px;
     width: 100%;
     text-align: center;

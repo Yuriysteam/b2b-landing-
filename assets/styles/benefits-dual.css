@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .benefit-dual-card__content {
@@ -70,14 +71,24 @@
   align-items: flex-end;
   justify-content: center;
   min-height: 200px;
+  margin-left: -28px;
+  margin-right: -28px;
+}
+
+.benefit-dual-card__image picture {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
 }
 
 .benefit-dual-card__image img {
-  width: 85%;
+  width: 80%;
   height: auto;
   max-height: 100%;
   object-fit: contain;
   object-position: bottom;
+  display: block;
 }
 
 /* ============================================
@@ -163,7 +174,11 @@
 
   .benefit-dual-card__subtitle { font-size: 18px; }
 
-  .benefit-dual-card__image { min-height: 150px; }
+  .benefit-dual-card__image {
+    min-height: 150px;
+    margin-left: -24px;
+    margin-right: -24px;
+  }
 
   .corp-tariff-card {
     border-radius: 20px;

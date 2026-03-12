@@ -1,38 +1,40 @@
 /* Блок «Поделиться с коллегами» */
 .share-section {
-  display: none;
   padding: 0 0 60px;
+}
+
+.share-section .container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.share-section__title {
+  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.share-section__subtitle {
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin: 0 0 24px;
 }
 
 .share-card {
   background: var(--bg-light);
-  border-radius: 24px;
-  padding: 8px;
-  text-align: center;
-}
-
-.share-card__title {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
-  padding: 12px;
-  text-align: left;
-}
-
-.share-card__subtitle {
-  font-size: 18px;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-  padding: 0 12px;
+  border-radius: 32px 32px 0 32px;
+  padding: 32px;
   text-align: left;
 }
 
 .share-card__message {
-  background: #fff;
-  border: none;
-  border-radius: 16px;
-  padding: 16px;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
   text-align: left;
   margin-bottom: 24px;
@@ -40,18 +42,26 @@
 }
 
 .share-card__copy {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'YS Text', sans-serif;
   min-width: 220px;
+  margin-top: 24px;
 }
 
 @media (max-width: 760px) {
-  .share-card {
-    padding: 8px;
+  .share-section {
+    padding: 0 0 48px;
   }
-  .share-card__title {
+
+  .share-section__title {
     font-size: 22px;
   }
-  .share-card__subtitle {
+
+  .share-section__subtitle {
     font-size: 16px;
+  }
+
+  .share-card {
+    padding: 24px 20px;
+    border-radius: 24px 24px 0 24px;
   }
 }

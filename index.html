@@ -202,15 +202,17 @@
         <a href="#savings" class="header__nav-link">Тарифы</a>
         <a href="#steps" class="header__nav-link">Как подключить</a>
       </nav>
-      <button class="header__burger" aria-label="Меню">
+      <label for="menu-toggle" class="header__burger" aria-label="Меню">
         <span class="header__burger-icon">=</span>
-      </button>
+      </label>
     </div>
+    <input type="checkbox" id="menu-toggle" class="header__menu-toggle">
     <div class="header__mobile-menu">
+      <label for="menu-toggle" class="header__mobile-overlay" aria-hidden="true"></label>
       <div class="header__mobile-menu-content">
-        <button class="header__mobile-close" aria-label="Закрыть меню">
+        <label for="menu-toggle" class="header__mobile-close" aria-label="Закрыть меню">
           <span class="header__mobile-close-icon">×</span>
-        </button>
+        </label>
         <nav class="header__mobile-nav" aria-label="Мобильная навигация">
           <a href="#savings" class="header__mobile-nav-link">Тарифы</a>
           <a href="#steps" class="header__mobile-nav-link">Как подключить</a>
@@ -352,27 +354,27 @@
     <!-- Секция поддержки -->
     <section class="support-section" aria-label="Поддержка 24/7 и транспорт">
       <div class="container">
-        <div class="support-card">
-          <p class="support-card__label">Поддержка</p>
-          <h3 class="support-card__title">Заботливая поддержка 24/7</h3>
-          <p class="support-card__subtitle">Менеджеры на&nbsp;связи и&nbsp;готовы помочь в&nbsp;чате или&nbsp;по&nbsp;телефону.</p>
-          <p class="support-card__text">Помогаем с&nbsp;бронированиями, изменениями и&nbsp;возвратами в&nbsp;любое время без&nbsp;выходных, чтобы поездки проходили спокойно.</p>
-        </div>
-      </div>
-      <div class="container">
-        <div class="transport-card">
-          <p class="transport-card__label">Билеты</p>
-          <h3 class="transport-card__title">Транспорт</h3>
-          <p class="transport-card__subtitle">Цены напрямую от&nbsp;поставщиков и&nbsp;прозрачный сервисный сбор.</p>
-          <p class="transport-card__text">Получайте кэшбэк баллами Плюс за&nbsp;бронирование ЖД-билетов.</p>
-        </div>
-      </div>
-      <div class="container">
-        <div class="cta-group cta-group--center support-section__cta">
-          <div class="cta-primary-wrapper">
-            <a href="https://travel.yandex.ru/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_support_cta" class="btn btn-primary">Подключить бизнес</a>
+        <div class="support-section__grid">
+          <div class="support-card support-card--large">
+            <h5 class="support-card__label">Поддержка</h5>
+            <h4 class="support-card__title">Поддержка 24/7</h4>
+            <p class="support-card__subtitle">Менеджеры на&nbsp;связи и&nbsp;готовы помочь в&nbsp;чате или&nbsp;по&nbsp;телефону.</p>
+            <p class="support-card__text">Помогаем с&nbsp;бронированиями, изменениями и&nbsp;возвратами в&nbsp;любое время без&nbsp;выходных, чтобы поездки проходили спокойно.</p>
           </div>
-          <a href="#cta" class="btn btn-secondary" id="openConsultationDrawerSupport" data-drawer="consultation">Получить консультацию</a>
+          <div class="support-section__right">
+            <div class="support-card">
+              <h5 class="support-card__label">Скоро</h5>
+              <h4 class="support-card__title">Транспорт</h4>
+              <p class="support-card__subtitle">Цены напрямую от&nbsp;поставщиков и&nbsp;прозрачный сервисный сбор.</p>
+              <p class="support-card__text">Получайте кэшбэк баллами Плюс за&nbsp;бронирование ЖД-билетов.</p>
+            </div>
+            <div class="support-card">
+              <h5 class="support-card__label">Бонусы</h5>
+              <h4 class="support-card__title">Кэшбэк и&nbsp;Плюс</h4>
+              <p class="support-card__subtitle">Баллы Плюса за&nbsp;каждое бронирование.</p>
+              <p class="support-card__text">Сотрудники копят баллы, а&nbsp;компания экономит — выгодно для&nbsp;всех.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -431,7 +433,6 @@
 
     <!-- Секция квиза «Узнайте свою выгоду» -->
     <section id="steps" class="steps-section" aria-label="Узнайте свою выгоду — калькулятор экономии">
-      <div class="steps-background"></div>
       <div class="container">
         <div class="quiz-screens">
 
@@ -442,7 +443,7 @@
             </div>
             <div class="quiz-col quiz-col--right">
               <p class="quiz-give__text">Покажем за&nbsp;1&nbsp;минуту, где у&nbsp;вас в&nbsp;рабочих поездках уходят деньги и&nbsp;время, и&nbsp;что можно улучшить без&nbsp;лишней ручной работы. 3&nbsp;вопроса.</p>
-              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Узнать</button>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Узнать выгоду</button>
             </div>
           </div>
 
@@ -516,7 +517,7 @@
           <div class="screen" id="quiz-result">
             <div class="quiz-col quiz-col--full">
               <div class="result-block">
-                <p class="result-benefits-title">Ваши выгоды</p>
+                <h3 class="result-benefits-title">Ваши выгоды</h3>
                 <div class="benefit-cards" id="result-benefits"></div>
                 <div class="result-cta-row" id="result-cta"></div>
               </div>
@@ -527,6 +528,18 @@
       </div>
     </section>
 
+    <!-- Блок «Поделиться с коллегами» -->
+    <section class="share-section" aria-label="Поделиться с коллегами">
+      <div class="container">
+        <h4 class="share-section__title">Отправьте руководителю или коллеге</h4>
+        <p class="share-section__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p>
+        <div class="share-card">
+          <div class="share-card__message" id="shareMessage">Нашёл сервис Яндекс Путешествия для бизнеса — он решает сразу несколько задач: корпоративные скидки на жильё до 40%, закрывающие документы автоматически, отсрочка платежей и поддержка 24/7. Подключение бесплатное, по ИНН за минуту. Посмотрите: https://travel.yandex.ru</div>
+        </div>
+        <button class="btn btn-primary share-card__copy" id="copyShareBtn" type="button">Скопировать предложение</button>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section id="faq" aria-label="Частые вопросы">
       <div class="container">
@@ -534,63 +547,69 @@
           <h2 class="faq-title">Частые вопросы</h2>
 
           <div class="faq">
-            <details class="faq-item">
-              <summary class="faq-item__question">Это действительно бесплатно?</summary>
-              <p class="faq-item__answer">Да. Подключение организации — 0&nbsp;₽.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Это действительно бесплатно?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Да. Подключение организации — 0&nbsp;₽.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Что нужно, чтобы подключиться?</summary>
-              <p class="faq-item__answer">ИНН организации. Регистрация занимает меньше 1&nbsp;минуты.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Что нужно, чтобы подключиться?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">ИНН организации. Регистрация занимает меньше 1&nbsp;минуты.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Как решается вопрос с&nbsp;документами?</summary>
-              <p class="faq-item__answer">Полный пакет закрывающих документов в&nbsp;нужном формате. Документы приходят в&nbsp;течение 5&nbsp;рабочих дней. ЭДО, настройка правил формирования — без&nbsp;задержек и&nbsp;ручного сбора от&nbsp;сотрудников.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Как решается вопрос с&nbsp;документами?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Полный пакет закрывающих документов в&nbsp;нужном формате. Документы приходят в&nbsp;течение 5&nbsp;рабочих дней. ЭДО, настройка правил формирования — без&nbsp;задержек и&nbsp;ручного сбора от&nbsp;сотрудников.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Сколько времени занимает подключение?</summary>
-              <p class="faq-item__answer">Регистрация организации — меньше минуты. И&nbsp;ещё 4&nbsp;минуты — настройка личного кабинета под&nbsp;ваши процессы.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Сколько времени занимает подключение?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Регистрация организации — меньше минуты. И&nbsp;ещё 4&nbsp;минуты — настройка личного кабинета под&nbsp;ваши процессы.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Кому подойдёт?</summary>
-              <p class="faq-item__answer">Руководителю, тревел‑координатору, сотрудникам и&nbsp;бухгалтерии — у&nbsp;каждого есть свой сценарий и&nbsp;набор выгод.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Кому подойдёт?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Руководителю, тревел‑координатору, сотрудникам и&nbsp;бухгалтерии — у&nbsp;каждого есть свой сценарий и&nbsp;набор выгод.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Кто поможет, если возникнут вопросы?</summary>
-              <p class="faq-item__answer">Поддержка 24/7: менеджеры&nbsp;на&nbsp;связи и&nbsp;готовы помочь.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Кто поможет, если возникнут вопросы?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Поддержка 24/7: менеджеры&nbsp;на&nbsp;связи и&nbsp;готовы помочь.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Можно ли платить картой?</summary>
-              <p class="faq-item__answer">Сотрудники могут платить личной картой&nbsp;при бронировании (в&nbsp;рублях,&nbsp;по&nbsp;всему миру). Пополнить бизнес‑счёт картой нельзя — только переводом.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Можно ли платить картой?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Сотрудники могут платить личной картой&nbsp;при бронировании (в&nbsp;рублях,&nbsp;по&nbsp;всему миру). Пополнить бизнес‑счёт картой нельзя — только переводом.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Можно ли оплачивать авиа и&nbsp;ж/д с&nbsp;бизнес‑счёта?</summary>
-              <p class="faq-item__answer">Пока нет — скоро появится. Сейчас проживание доступно&nbsp;по&nbsp;корпоративным тарифам&nbsp;со&nbsp;скидками до&nbsp;40% + документы и&nbsp;ЭДО. Билеты можно покупать отдельно, а&nbsp;проживание оформлять&nbsp;через&nbsp;сервис.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Можно ли оплачивать авиа и&nbsp;ж/д с&nbsp;бизнес‑счёта?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Пока нет — скоро появится. Сейчас проживание доступно&nbsp;по&nbsp;корпоративным тарифам&nbsp;со&nbsp;скидками до&nbsp;40% + документы и&nbsp;ЭДО. Билеты можно покупать отдельно, а&nbsp;проживание оформлять&nbsp;через&nbsp;сервис.</p>
+              </div>
+            </div>
 
-            <details class="faq-item">
-              <summary class="faq-item__question">Как работает отсрочка платежа?</summary>
-              <p class="faq-item__answer">Пополните бизнес‑счёт и&nbsp;напишите&nbsp;в&nbsp;поддержку — подключим отсрочку платежа.</p>
-            </details>
+            <div class="faq-item">
+              <button class="faq-item__question" type="button" aria-expanded="false">Как работает отсрочка платежа?</button>
+              <div class="faq-item__body">
+                <p class="faq-item__answer">Пополните бизнес‑счёт и&nbsp;напишите&nbsp;в&nbsp;поддержку — подключим отсрочку платежа.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Блок «Поделиться с коллегами» -->
-    <section class="share-section" aria-label="Поделиться с коллегами">
-      <div class="container">
-        <div class="share-card">
-          <h3 class="share-card__title">Отправьте руководителю или коллеге</h3>
-          <p class="share-card__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p>
-          <div class="share-card__message" id="shareMessage">Нашёл сервис Яндекс Путешествия для бизнеса — он решает сразу несколько задач: корпоративные скидки на жильё до 40%, закрывающие документы автоматически, отсрочка платежей и поддержка 24/7. Подключение бесплатное, по ИНН за минуту. Посмотрите: https://travel.yandex.ru</div>
-          <button class="btn btn-secondary share-card__copy" id="copyShareBtn" type="button">Скопировать предложение</button>
         </div>
       </div>
     </section>
@@ -599,7 +618,7 @@
     <section id="cta" class="cta-section" aria-label="Подключить бизнес">
       <div class="container">
         <h2>Узнайте выгоду и&nbsp;подключите бизнес сегодня</h2>
-        <p>Регистрируйте организацию бесплатно по&nbsp;ИНН. Корпоративные цены доступны после&nbsp;создания аккаунта.</p>
+        <p>Регистрируйте организацию бесплатно по&nbsp;ИНН. Корпоративные цены доступны после&nbsp;создания аккаунта</p>
 
         <div class="cta-group cta-group--center">
           <div class="cta-primary-wrapper">
@@ -671,6 +690,7 @@
   </div>
 
   <!-- Скрипты -->
+  <script src="assets/scripts/faq.js"></script>
   <script src="assets/scripts/main.js"></script>
   <script src="assets/scripts/quiz.js"></script>
   <script src="assets/scripts/layout-pins.js"></script>

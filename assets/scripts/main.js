@@ -12,12 +12,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         top: targetPosition,
         behavior: 'smooth'
       });
-      // Закрыть мобильное меню если открыто
-      const mobileMenu = document.querySelector('.header__mobile-menu');
-      if (mobileMenu) {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+      // Сбросить чекбокс мобильного меню если открыт
+      const menuToggle = document.getElementById('menu-toggle');
+      if (menuToggle) menuToggle.checked = false;
     }
   });
 });
@@ -33,33 +30,6 @@ window.addEventListener('scroll', function() {
 });
 
 // Мобильное меню
-const burger = document.querySelector('.header__burger');
-const mobileMenu = document.querySelector('.header__mobile-menu');
-const mobileClose = document.querySelector('.header__mobile-close');
-
-if (burger) {
-  burger.addEventListener('click', function() {
-    mobileMenu.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  });
-}
-
-if (mobileClose) {
-  mobileClose.addEventListener('click', function() {
-    mobileMenu.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-}
-
-if (mobileMenu) {
-  mobileMenu.addEventListener('click', function(e) {
-    if (e.target === mobileMenu) {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-}
-
 // Табы для секции команды
 function showTab(tabId) {
   // Скрыть все табы
