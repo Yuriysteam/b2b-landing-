@@ -33,6 +33,11 @@
   color: #fff;
 }
 
+/* Оверлей для мобильного скролла — скрыт на десктопе */
+.map-touch-overlay {
+  display: none;
+}
+
 /* ============================================
    Карта — контейнер и слои
    ============================================ */
@@ -520,7 +525,19 @@
   .yandex-map {
     height: 100%;
     border-radius: 0;
-    touch-action: none;
+    touch-action: pan-y;
+  }
+
+  .map-touch-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2999;
+    touch-action: pan-y;
+    background: transparent;
   }
 
   .map-content__hotels { display: none; }
