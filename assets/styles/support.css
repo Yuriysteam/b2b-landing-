@@ -47,7 +47,7 @@
 .support-card__subtitle {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 120%;
   color: var(--text-primary);
   margin: 0;
@@ -56,7 +56,7 @@
 .support-card__text {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 120%;
   color: var(--text-primary);
   margin: 0;
@@ -99,7 +99,7 @@
 .transport-card__subtitle {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 120%;
   color: var(--text-primary);
   margin: 0;
@@ -146,7 +146,7 @@
   }
 
   .transport-card__subtitle {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .transport-card__text {

@@ -46,7 +46,6 @@
     return document.getElementById(screenOrder[index]);
   }
 
-  // Фиксируем высоту контейнера по самому высокому экрану — один раз при инициализации
   function setFixedHeight() {
     var screens = screensContainer.querySelectorAll('.screen');
     var maxH = 0;
@@ -166,10 +165,8 @@
     });
   });
 
-  // Устанавливаем фиксированную высоту
   setFixedHeight();
 
-  // Пересчёт при изменении размера окна
   var resizeTimer;
   window.addEventListener('resize', function() {
     clearTimeout(resizeTimer);

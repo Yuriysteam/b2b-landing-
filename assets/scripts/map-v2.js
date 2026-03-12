@@ -379,6 +379,20 @@
     if (map) {
       map.setCenter(data.center, data.zoom, { duration: 500 });
       updateMarkers(city);
+
+      // Лёгкая zoom-анимация контейнера
+      var mapEl = document.querySelector('.map-content__map');
+      if (mapEl) {
+        mapEl.style.transition = 'none';
+        mapEl.style.transform = 'scale(1)';
+        void mapEl.offsetWidth; // reflow
+        mapEl.style.transition = 'transform 1.5s ease-out';
+        mapEl.style.transform = 'scale(1.015)';
+        setTimeout(function () {
+          mapEl.style.transition = 'transform 1s ease-in-out';
+          mapEl.style.transform = 'scale(1)';
+        }, 1500);
+      }
     }
 
     // Обновляем сниппеты
