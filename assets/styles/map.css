@@ -178,6 +178,11 @@
   visibility: hidden !important;
 }
 
+/* Скрыть hint (label) при наведении на пин */
+.yandex-map [class*="hint"] {
+  display: none !important;
+}
+
 /* Кастомный пин для Яндекс Карты */
 .custom-hotel-pin {
   position: relative;
@@ -197,6 +202,7 @@
   background: #fff;
   box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .custom-hotel-pin:hover .custom-hotel-pin__content {

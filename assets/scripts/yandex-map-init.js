@@ -16,7 +16,7 @@
   var MAP_CENTERS = {
     moscow: { center: [55.7558, 37.6173], zoom: 11.5 },
     spb: { center: [59.9343, 30.3351], zoom: 12.5 },
-    kazan: { center: [55.7977, 49.1131], zoom: 13 },
+    kazan: { center: [55.8057, 49.1131], zoom: 13 },
     russia: { center: [60, 82], zoom: 4 }
   };
 
@@ -68,7 +68,6 @@
       var placemark = new ymaps.Placemark(
         pin.c,
         {
-          hintContent: pin.n,
           balloonContentHeader: pin.n,
           balloonContentBody: 'Скидка: −' + pin.d + '%',
           discount: pin.d
@@ -79,6 +78,7 @@
           balloonContentLayout: HotelBalloonLayout,
           hideIconOnBalloonOpen: false,
           openBalloonOnClick: false,
+          hasHint: false,
           zIndex: 100
         }
       );
