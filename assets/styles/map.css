@@ -146,6 +146,11 @@
   overflow: hidden;
 }
 
+/* Стилизация тайлов карты в цветах сайта (фиолетовый/серый) */
+.yandex-map [class*="ground-pane"] {
+  filter: grayscale(1) sepia(0.15) hue-rotate(210deg) brightness(1.04) contrast(0.92);
+}
+
 .yandex-map .ymaps-2-1-79-inner-panes,
 .yandex-map .ymaps-2-1-79-map {
   height: 100%;

@@ -1,7 +1,5 @@
 // Инициализация Яндекс Карт для секции savings: Москва, СПб, Казань, вся Россия
 (function() {
-  const mapStyles = typeof window.MAP_CUSTOMIZATION !== 'undefined' ? window.MAP_CUSTOMIZATION : [];
-
   var mapOptions = {
     controls: [],
     suppressMapOpenBlock: true,
@@ -52,8 +50,6 @@
       zoom: zoom,
       controls: mapOptions.controls
     }, mapOptions);
-
-    map.setType('yandex#map', { customization: mapStyles });
     map.behaviors.disable(behaviors);
 
     var placemarkRefs = [];
