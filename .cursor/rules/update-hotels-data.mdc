@@ -1,0 +1,74 @@
+---
+description: Команда для обновления данных отелей на карте из CSV-файла
+globs: assets/data/hotels.json
+alwaysApply: false
+---
+
+# Обновление данных отелей на карте
+
+Когда пользователь просит обновить данные отелей, выполни:
+
+## Формат входного CSV
+
+Файл CSV с разделителем `;`, колонки:
+```
+cluster_permalink;hotel_name;max_b2b_discount_pcnt;hotel_latitude;hotel_longitude
+```
+Десятичный разделитель координат — запятая (`,`).
+
+## Скрипт генерации
+
+```bash
+python3 -c "
+import csv, json, sys
+
+CSV_PATH = sys.argv[1]
+OUT_PATH = 'assets/data/hotels.json'
+PIN_THRESHOLD = 18  # скидка >= этого значения → пин, иначе точка
+
+with open(CSV_PATH, 'r') as f:
+    reader = csv.reader(f, delimiter=';')
+    next(reader)  # header
+    next(reader)  # types row
+    rows = list(reader)
+
+def get_city(r):
+    lat = float(r[3].replace(',','.'))
+    lon = float(r[4].replace(',','.'))
+    if 55.5 < lat < 56.1 and 37.0 < lon < 38.0: return 'moscow'
+    if 59.7 < lat < 60.2 and 29.5 < lon < 31.0: return 'spb'
+    if 55.7 < lat < 55.9 and 48.9 < lon < 49.3: return 'kazan'
+    return 'other'
+
+data = {}
+for city_key in ['moscow', 'spb', 'kazan']:
+    city_rows = [r for r in rows if get_city(r) == city_key]
+    pins = []
+    pin_coords = set()
+    for r in city_rows:
+        lat = round(float(r[3].replace(',','.')), 6)
+        lon = round(float(r[4].replace(',','.')), 6)
+        discount = int(r[2])
+        if discount >= PIN_THRESHOLD:
+            pins.append({'c': [lat, lon], 'n': r[1].strip(), 'd': discount})
+            pin_coords.add((lat, lon))
+    dots = []
+    for r in city_rows:
+        lat = round(float(r[3].replace(',','.')), 6)
+        lon = round(float(r[4].replace(',','.')), 6)
+        if (lat, lon) not in pin_coords:
+            dots.append([lat, lon])
+    data[city_key] = {'pins': pins, 'dots': dots}
+    print(f'{city_key}: {len(pins)} pins, {len(dots)} dots')
+
+with open(OUT_PATH, 'w') as f:
+    json.dump(data, f, ensure_ascii=False, separators=(',', ':'))
+print('Done:', OUT_PATH)
+" PATH_TO_CSV
+```
+
+## Что менять
+
+- Только `assets/data/hotels.json` — JS и HTML трогать не нужно
+- Порог для пинов: `PIN_THRESHOLD = 18` (можно менять)
+- Города определяются по координатам (bbox), если добавляются новые — расширить `get_city()`

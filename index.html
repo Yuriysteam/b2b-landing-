@@ -47,7 +47,9 @@
       cta.css           — финальный CTA
       footer.css        — подвал
       drawers.css       — выдвижные панели и тултип
+      normalize.css     — сброс стилей (первым)
   -->
+  <link rel="stylesheet" href="assets/styles/normalize.css">
   <link rel="stylesheet" href="assets/styles/main.css">
   <link rel="stylesheet" href="assets/styles/header.css">
   <link rel="stylesheet" href="assets/styles/hero.css">
@@ -502,7 +504,10 @@
         <h4 class="share-section__title">Отправьте руководителю или коллеге</h4>
         <p class="share-section__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p>
         <div class="share-card">
-          <div class="share-card__message" id="shareMessage">Нашёл сервис Яндекс Путешествия для бизнеса — он решает сразу несколько задач: корпоративные скидки на жильё до 40%, закрывающие документы автоматически, отсрочка платежей и поддержка 24/7. Подключение бесплатное, по ИНН за минуту. travel.yandex.ru</div>
+          <div class="share-card__message" id="shareMessage">
+            <p>Нашёл сервис Яндекс Путешествия для бизнеса — он решает сразу несколько задач: корпоративные скидки на жильё до 40%, закрывающие документы автоматически, отсрочка платежей и поддержка 24/7.</p>
+            <p>Подключение бесплатное, по ИНН за минуту. travel.yandex.ru</p>
+          </div>
         </div>
         <button class="btn btn-primary share-card__copy" id="copyShareBtn" type="button">Скопировать предложение</button>
       </div>
@@ -643,7 +648,8 @@
     var msg = document.getElementById('shareMessage');
     if (!btn || !msg) return;
     btn.addEventListener('click', function() {
-      var text = msg.textContent;
+      var paras = msg.querySelectorAll('p');
+      var text = paras.length ? Array.prototype.map.call(paras, function(p) { return p.textContent; }).join('\n\n') : msg.textContent;
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(function() {
           btn.textContent = 'Скопировано!';
