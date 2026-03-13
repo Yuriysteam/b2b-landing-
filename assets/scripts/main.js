@@ -1,6 +1,10 @@
-// Плавный скролл к якорям
+// Плавный скролл к якорям (кнопки с data-drawer не скроллят, а открывают drawer)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
+    if (this.getAttribute('data-drawer') === 'consultation') {
+      e.preventDefault();
+      return;
+    }
     e.preventDefault();
     const targetId = this.getAttribute('href');
     if (targetId === '#') return;
@@ -178,11 +182,19 @@ function closeDocumentsDrawer() {
 }
 
 // Drawer консультации (телефон)
+function getScrollbarWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
+
 function openConsultationDrawer() {
   const drawer = document.getElementById('consultationDrawer');
   if (drawer) {
-    drawer.classList.add('active');
+    var scrollY = window.scrollY || window.pageYOffset;
+    var sb = getScrollbarWidth();
     document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = sb > 0 ? sb + 'px' : '';
+    document.body.setAttribute('data-drawer-scroll-y', scrollY);
+    drawer.classList.add('active');
   }
 }
 
@@ -191,6 +203,10 @@ function closeConsultationDrawer() {
   if (drawer) {
     drawer.classList.remove('active');
     document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+    var scrollY = document.body.getAttribute('data-drawer-scroll-y');
+    if (scrollY !== null && scrollY !== '') window.scrollTo(0, parseInt(scrollY, 10));
+    document.body.removeAttribute('data-drawer-scroll-y');
   }
 }
 

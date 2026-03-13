@@ -51,7 +51,7 @@
 
 .share-card__copy {
   font-family: 'YS Text', sans-serif;
-  min-width: 220px;
+  min-width: 0;
   margin-top: 24px;
 }
 

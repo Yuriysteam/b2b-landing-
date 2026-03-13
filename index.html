@@ -81,12 +81,12 @@
     "isPartOf": {
       "@type": "WebSite",
       "name": "Яндекс Путешествия",
-      "url": "https://travel.yandex.ru"
+      "url": "https://travel.yandex.ru/business"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Яндекс Путешествия",
-      "url": "https://travel.yandex.ru",
+      "url": "https://travel.yandex.ru/business",
       "logo": {
         "@type": "ImageObject",
         "url": "https://travel.yandex.ru/business/assets/images/logo-black.svg"
@@ -99,7 +99,7 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Яндекс Путешествия",
-          "item": "https://travel.yandex.ru"
+          "item": "https://travel.yandex.ru/business"
         },
         {
           "@type": "ListItem",
@@ -164,7 +164,7 @@
 <body>
   <header class="header header__fixed header__show">
     <div class="container">
-      <a href="https://travel.yandex.ru/?utm_source=landing&utm_medium=promo&utm_campaign=business_offers" class="header__logo">
+      <a href="https://travel.yandex.ru/business/?utm_source=landing&utm_medium=promo&utm_campaign=business_offers" class="header__logo">
         <img src="assets/images/logo-white.svg" alt="Яндекс Путешествия — на главную" width="168" height="28" class="header__logo-img header__logo-img--white">
         <img src="assets/images/logo-black.svg" alt="Яндекс Путешествия — на главную" width="168" height="28" class="header__logo-img header__logo-img--black">
       </a>
@@ -200,7 +200,7 @@
           <p class="hero__subtitle">Бесплатный сервис для&nbsp;рабочих поездок&nbsp;– корпоративные скидки на&nbsp;жильё до&nbsp;40%, закрывающие документы и&nbsp;отсрочка платежей</p>
           <div class="hero__cta">
             <div class="cta-primary-wrapper">
-              <a href="https://travel.yandex.ru/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_hero_cta" class="btn btn-primary">Подключить бизнес</a>
+              <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_hero_cta" class="btn btn-primary">Подключить бизнес</a>
             </div>
             <a href="#cta" class="btn btn-secondary" id="openConsultationDrawer" data-drawer="consultation">Получить консультацию</a>
           </div>
@@ -506,10 +506,10 @@
         <div class="share-card">
           <div class="share-card__message" id="shareMessage">
             <p>Нашёл сервис Яндекс Путешествия для бизнеса — он решает сразу несколько задач: корпоративные скидки на жильё до 40%, закрывающие документы автоматически, отсрочка платежей и поддержка 24/7.</p>
-            <p>Подключение бесплатное, по ИНН за минуту. travel.yandex.ru</p>
+            <p>Подключение бесплатное, по ИНН за минуту. travel.yandex.ru/business</p>
           </div>
         </div>
-        <button class="btn btn-primary share-card__copy" id="copyShareBtn" type="button">Скопировать предложение</button>
+        <button class="btn btn-secondary btn--s share-card__copy" id="copyShareBtn" type="button">Скопировать сообщение</button>
       </div>
     </section>
 
@@ -567,7 +567,7 @@
 
         <div class="cta-group cta-group--center">
           <div class="cta-primary-wrapper">
-            <a href="https://travel.yandex.ru/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_footer_cta" class="btn btn-primary">Подключить компанию</a>
+            <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_footer_cta" class="btn btn-primary">Подключить организацию</a>
           </div>
           <a href="#faq" class="btn btn-secondary" id="openConsultationDrawer2" data-drawer="consultation">Получить консультацию</a>
         </div>
@@ -578,7 +578,7 @@
   <footer role="contentinfo">
     <div class="container">
       <div class="footer__logo">
-        <a href="https://travel.yandex.ru/?utm_source=landing&utm_medium=promo&utm_campaign=business_offers" target="_blank" rel="noopener">
+        <a href="https://travel.yandex.ru/business/?utm_source=landing&utm_medium=promo&utm_campaign=business_offers" target="_blank" rel="noopener">
           <img src="assets/images/logo-white.svg" alt="Яндекс Путешествия" width="384" height="33" loading="lazy">
         </a>
       </div>
@@ -621,11 +621,13 @@
     <div class="drawer__overlay consultation-drawer__overlay" aria-hidden="true"></div>
     <div class="drawer__content consultation-drawer__content">
       <div class="consultation-drawer__header">
-        <h3 class="consultation-drawer__title">Получить бесплатную консультацию</h3>
+        <div class="consultation-drawer__header-content">
+          <h3 class="consultation-drawer__title">Получить бесплатную консультацию</h3>
+          <p class="consultation-drawer__text">Оставьте номер телефона, мы свяжемся с&nbsp;вами и&nbsp;ответим на&nbsp;все вопросы</p>
+        </div>
         <button type="button" class="drawer__close consultation-drawer__close" aria-label="Закрыть">×</button>
       </div>
       <div class="consultation-drawer__body">
-        <p class="consultation-drawer__text">Оставьте номер телефона, мы свяжемся с&nbsp;вами и&nbsp;ответим на&nbsp;все вопросы.</p>
         <form class="consultation-drawer__form" id="consultationForm" novalidate>
           <input type="tel" class="consultation-drawer__input" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required>
           <button type="submit" class="btn btn-primary consultation-drawer__submit">Оставить номер</button>
@@ -653,7 +655,7 @@
       if (navigator.clipboard) {
         navigator.clipboard.writeText(text).then(function() {
           btn.textContent = 'Скопировано!';
-          setTimeout(function() { btn.textContent = 'Скопировать предложение'; }, 2000);
+          setTimeout(function() { btn.textContent = 'Скопировать сообщение'; }, 2000);
         });
       } else {
         var ta = document.createElement('textarea');
@@ -663,7 +665,7 @@
         document.execCommand('copy');
         document.body.removeChild(ta);
         btn.textContent = 'Скопировано!';
-        setTimeout(function() { btn.textContent = 'Скопировать предложение'; }, 2000);
+        setTimeout(function() { btn.textContent = 'Скопировать сообщение'; }, 2000);
       }
     });
   })();
