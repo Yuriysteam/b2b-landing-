@@ -66,6 +66,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'YS Display';
+  src: url('../fonts/YS Display/YS Display-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('../fonts/YS Display/YS Display-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ============================================
    Переменные стилей
    ============================================ */
@@ -98,7 +114,7 @@
   --border-dark: rgba(255, 255, 255, 0.2);
 
   /* Шрифты */
-  --font-heading: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
 
   /* Размеры */
@@ -159,8 +175,8 @@ section {
    ============================================ */
 
 h1 {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 72px;
   line-height: 100%;
   text-wrap: balance;
@@ -169,8 +185,8 @@ h1 {
 }
 
 h2 {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 56px;
   line-height: 100%;
   text-wrap: balance;
@@ -179,24 +195,24 @@ h2 {
 }
 
 h3 {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 40px;
   line-height: 100%;
   margin-bottom: 16px;
 }
 
 h4 {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 20px;
   line-height: 100%;
   margin-bottom: 16px;
 }
 
 h5 {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   margin-bottom: 8px;
@@ -244,7 +260,8 @@ section:not(.hero) .cta-note {
 }
 
 .btn {
-  padding: 20px 28px;
+  height: 56px;
+  padding: 0 28px;
   border-radius: 16px;
   font-family: 'YS Text', sans-serif;
   font-size: 20px;
@@ -275,10 +292,6 @@ section:not(.hero) .cta-note {
   background: #F2F2F2;
   color: #000000;
   border: none;
-  height: 64px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .btn-dark {
@@ -371,7 +384,7 @@ section:not(.hero) .cta-note {
   padding: 28px 24px;
   background: #A28BFF;
   border-radius: 24px;
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
@@ -387,8 +400,8 @@ section:not(.hero) .cta-note {
   height: 25px;
   background: var(--accent);
   border-radius: 12px;
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: 0.01em;

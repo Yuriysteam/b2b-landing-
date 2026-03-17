@@ -38,8 +38,8 @@
 }
 
 .benefit-dual-card__label {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
@@ -49,8 +49,8 @@
 }
 
 .benefit-dual-card__title {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 40px;
   line-height: 100%;
   color: var(--text-primary);
@@ -115,8 +115,8 @@
 }
 
 .corp-tariff-card__title {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 48px;
   line-height: 100%;
   color: var(--text-primary);

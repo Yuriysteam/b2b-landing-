@@ -160,6 +160,7 @@
     ]
   }
   </script>
+  <script src="https://yastatic.net/s3/travel/attributions/travelCookies.js"></script>
 </head>
 <body>
   <header class="header header__fixed header__show">
@@ -200,7 +201,7 @@
           <p class="hero__subtitle">Бесплатный сервис для&nbsp;рабочих поездок&nbsp;– корпоративные скидки на&nbsp;жильё до&nbsp;40%, закрывающие документы и&nbsp;отсрочка платежей</p>
           <div class="hero__cta">
             <div class="cta-primary-wrapper">
-              <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_hero_cta" class="btn btn-primary">Подключить бизнес</a>
+              <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_hero_cta" class="btn btn-primary">Подключить организацию</a>
             </div>
             <a href="#cta" class="btn btn-secondary" id="openConsultationDrawer" data-drawer="consultation">Получить консультацию</a>
           </div>
@@ -314,21 +315,27 @@
       <div class="container">
         <div class="support-section__grid">
           <div class="support-card support-card--large">
-            <h5 class="support-card__label">Поддержка</h5>
-            <h4 class="support-card__title">Поддержка 24/7</h4>
+            <div class="support-card__header">
+              <h5 class="support-card__label">Поддержка</h5>
+              <h4 class="support-card__title">Поддержка 24/7</h4>
+            </div>
             <p class="support-card__subtitle">Менеджеры на&nbsp;связи и&nbsp;готовы помочь в&nbsp;чате или&nbsp;по&nbsp;телефону.</p>
             <p class="support-card__text">Помогаем с&nbsp;бронированиями, изменениями и&nbsp;возвратами в&nbsp;любое время без&nbsp;выходных, чтобы поездки проходили спокойно.</p>
           </div>
           <div class="support-section__right">
             <div class="support-card">
-              <h5 class="support-card__label">Скоро</h5>
-              <h4 class="support-card__title">Транспорт</h4>
+              <div class="support-card__header">
+                <h5 class="support-card__label">Скоро</h5>
+                <h4 class="support-card__title">Транспорт</h4>
+              </div>
               <p class="support-card__subtitle">Цены напрямую от&nbsp;поставщиков и&nbsp;прозрачный сервисный сбор.</p>
               <p class="support-card__text">Получайте кэшбэк баллами Плюс за&nbsp;бронирование ЖД-билетов.</p>
             </div>
             <div class="support-card">
-              <h5 class="support-card__label">Бонусы</h5>
-              <h4 class="support-card__title">Кэшбэк и&nbsp;Плюс</h4>
+              <div class="support-card__header">
+                <h5 class="support-card__label">Бонусы</h5>
+                <h4 class="support-card__title">Кэшбэк и&nbsp;Плюс</h4>
+              </div>
               <p class="support-card__subtitle">Баллы Плюса за&nbsp;каждое бронирование.</p>
               <p class="support-card__text">Сотрудники копят баллы, а&nbsp;компания экономит — выгодно для&nbsp;всех.</p>
             </div>
@@ -479,15 +486,15 @@
     <!-- Блок «Поделиться с коллегами» -->
     <section class="share-section" aria-label="Поделиться с коллегами">
       <div class="container">
-        <h4 class="share-section__title">Отправьте руководителю или коллеге</h4>
-        <p class="share-section__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p>
         <div class="share-card">
+          <h4 class="share-card__title">Отправьте руководителю или коллеге</h4>
+          <p class="share-card__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p>
           <div class="share-card__message" id="shareMessage">
             <p>Нашёл сервис Яндекс Путешествия для бизнеса — он решает сразу несколько задач: корпоративные скидки на жильё до 40%, закрывающие документы автоматически, отсрочка платежей и поддержка 24/7.</p>
             <p>Подключение бесплатное, по ИНН за минуту. travel.yandex.ru/business</p>
           </div>
+          <button class="btn btn-secondary btn--s share-card__copy" id="copyShareBtn" type="button">Скопировать сообщение</button>
         </div>
-        <button class="btn btn-secondary btn--s share-card__copy" id="copyShareBtn" type="button">Скопировать сообщение</button>
       </div>
     </section>
 
@@ -538,7 +545,7 @@
     </section>
 
     <!-- Финальный CTA -->
-    <section id="cta" class="cta-section" aria-label="Подключить бизнес">
+    <section id="cta" class="cta-section" aria-label="Подключить организацию">
       <div class="container">
         <h2>Узнайте выгоду и&nbsp;подключите бизнес сегодня</h2>
         <p>Регистрируйте организацию бесплатно по&nbsp;ИНН. Корпоративные цены доступны после&nbsp;создания аккаунта</p>
@@ -552,6 +559,12 @@
       </div>
     </section>
   </main>
+
+  <!-- Плавающий CTA (появляется при скролле ниже hero) -->
+  <div class="hero__cta-fixed" id="fixedCta">
+    <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_hero_cta" class="btn btn-primary">Подключить организацию</a>
+    <a href="#cta" class="btn btn-secondary hero__cta-fixed-secondary" data-drawer="consultation">Получить консультацию</a>
+  </div>
 
   <footer role="contentinfo">
     <div class="container">
@@ -646,6 +659,35 @@
         setTimeout(function() { btn.textContent = 'Скопировать сообщение'; }, 2000);
       }
     });
+  })();
+  </script>
+
+  <script>
+  (function() {
+    var hero = document.querySelector('.hero');
+    var ctaSection = document.querySelector('.cta-section');
+    var fixedCta = document.getElementById('fixedCta');
+    if (!hero || !ctaSection || !fixedCta) return;
+
+    var heroVisible = true;
+    var ctaVisible = false;
+
+    function update() {
+      fixedCta.classList.toggle('hero__cta-fixed--visible', !heroVisible && !ctaVisible);
+    }
+
+    var heroObserver = new IntersectionObserver(function(entries) {
+      heroVisible = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0 });
+
+    var ctaObserver = new IntersectionObserver(function(entries) {
+      ctaVisible = entries[0].isIntersecting;
+      update();
+    }, { threshold: 0 });
+
+    heroObserver.observe(hero);
+    ctaObserver.observe(ctaSection);
   })();
   </script>
 </body>

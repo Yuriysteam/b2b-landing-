@@ -73,7 +73,7 @@
 .documents-drawer__header h3 {
   font-family: var(--font-heading);
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   margin: 0;
   color: var(--text-primary);
 }
@@ -94,7 +94,7 @@
 .documents-column h4 {
   font-family: var(--font-heading);
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 16px;
   color: var(--text-primary);
 }
@@ -165,7 +165,7 @@
 .consultation-drawer__title {
   font-family: var(--font-heading);
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 120%;
   margin-bottom: 4px;
   color: var(--text-primary);

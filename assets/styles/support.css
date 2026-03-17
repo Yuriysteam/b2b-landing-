@@ -39,9 +39,15 @@
   flex: 1;
 }
 
+.support-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .support-card__label {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
@@ -51,8 +57,8 @@
 }
 
 .support-card__title {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 28px;
   line-height: 100%;
   color: var(--text-primary);

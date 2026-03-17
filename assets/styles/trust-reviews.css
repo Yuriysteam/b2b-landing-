@@ -17,8 +17,8 @@
 }
 
 .trust-reviews__label {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
@@ -28,8 +28,8 @@
 }
 
 .trust-reviews__title {
-  font-family: 'YS Text Cond', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 800;
+  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   font-size: 56px;
   line-height: 100%;
   text-wrap: balance;
@@ -97,7 +97,7 @@
 
 .review-card__name {
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   line-height: 120%;
   color: var(--text-primary);
