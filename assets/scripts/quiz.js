@@ -6,7 +6,6 @@
   var screenOrder = [
     'quiz-hook',
     'quiz-step1',
-    'quiz-delight',
     'quiz-step2',
     'quiz-step3',
     'quiz-transition',
@@ -17,28 +16,32 @@
 
   var resultData = [
     {
+      description: 'У вас сценарий «решаю сам»: вы ведёте поездку от поиска вариантов до документов после возвращения',
       benefits: [
         'Экономия бюджета: ~6–12% на поездках. При 5–10 поездках в месяц и среднем чеке 40–80 тыс ₽ это ≈ 12–96 тыс ₽/мес.',
         'Экономия времени: ~4–6 часов/мес.',
         'Документы: закрывающие в одном месте, чеки не нужно собирать вручную.'
       ],
-      cta: { text: 'Посмотреть, как это работает', href: '#', cls: 'btn btn-primary' }
+      note: 'Считаем эффект на ваших вводных: объём, средний чек, частота поездок. Без «средней температуры по рынку».',
+      cta: { text: 'Запустить бесплатно', href: 'https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_quiz_cta', cls: 'btn btn-primary' }
     },
     {
+      description: 'У вас сценарий «координирую команду»: заявки, бронирование и документы сходятся в одной роли',
       benefits: [
         'Экономия бюджета: ~8–15% за счёт единого потока и контроля до бронирования. При 10–50 поездках в месяц это обычно ≈ 50–450 тыс ₽/мес.',
         'Экономия времени: до 8 часов в неделю на координации и отчётности.',
         'Документы: заявки, брони и отчёты в одном контуре, без сборки «по кускам».'
       ],
-      cta: { text: 'Подключить команду', href: '#', cls: 'btn btn-primary' }
+      cta: { text: 'Подключить команду', href: 'https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_quiz_cta', cls: 'btn btn-primary' }
     },
     {
+      description: 'У вас корпоративный сценарий: заявки проходят согласования, лимиты и проверку по тревел-политике',
       benefits: [
         'Экономия бюджета: ~10–18% за счёт автополитик, лимитов и маршрутов согласования. При 50+ поездках в месяц это обычно ≈ 350 тыс–1,4 млн ₽/мес.',
         'Экономия времени: снимается значимая часть ручного контроля и выгрузок.',
-        'Документы и контроль: политика проверяется при бронировании, данные уходят в системы без ручной сверки. А у координатора всегда есть кнопка отмены.'
+        'Документы и контроль: политика проверяется при бронировании, данные уходят в системы без ручной сверки.'
       ],
-      cta: { text: 'Запросить презентацию', href: '#', cls: 'btn btn-primary' }
+      cta: { text: 'Запустить пилот', href: 'https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_quiz_cta', cls: 'btn btn-primary' }
     }
   ];
 
@@ -80,12 +83,27 @@
 
     var cardsEl = document.getElementById('result-benefits');
     cardsEl.innerHTML = '';
+
+    if (r.description) {
+      var desc = document.createElement('p');
+      desc.className = 'result-description';
+      desc.textContent = r.description;
+      cardsEl.appendChild(desc);
+    }
+
     r.benefits.forEach(function(text) {
       var card = document.createElement('div');
       card.className = 'benefit-card';
       card.textContent = text;
       cardsEl.appendChild(card);
     });
+
+    if (r.note) {
+      var note = document.createElement('p');
+      note.className = 'result-note';
+      note.textContent = r.note;
+      cardsEl.appendChild(note);
+    }
 
     var ctaBlock = document.getElementById('result-cta');
     ctaBlock.innerHTML = '';
@@ -112,7 +130,7 @@
 
   // Next screen after answering
   var nextAfterAnswer = {
-    'quiz-step1': 'quiz-delight',
+    'quiz-step1': 'quiz-step2',
     'quiz-step2': 'quiz-step3',
     'quiz-step3': 'quiz-transition'
   };

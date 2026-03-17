@@ -73,7 +73,7 @@
 :root {
   /* Цвета фонов */
   --bg-white: #fff;
-  --bg-light: #ECEEF5;
+  --bg-light: #f7f8f9;;
   --bg-dark: #2D2E42;
 
   /* Цвета текста */
