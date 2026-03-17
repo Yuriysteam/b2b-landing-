@@ -5,15 +5,15 @@
 
 .share-section .container {
   background: url('../images/share-bg.jpg') center / cover no-repeat;
-  border-radius: 40px;
+  border-radius: 48px;
   overflow: hidden;
-  padding: 32px;
+  padding: 24px;
   display: flex;
   justify-content: flex-start;
 }
 
 .share-card {
-  width: 50%;
+  width: 40%;
   max-width: 50%;
   background: #fff;
   border-radius: 32px;
@@ -27,7 +27,7 @@
   font-size: 28px;
   line-height: 1.2;
   color: var(--text-primary);
-  margin: 0 0 8px;
+  margin-bottom: 16px;
 }
 
 .share-card__subtitle {
@@ -40,6 +40,9 @@
 .share-card__message {
   font-size: 22px;
   color: var(--text-primary);
+  background: var(--bg-light);
+  padding: 16px;
+  border-radius: 24px;
 }
 
 .share-card__message p {
@@ -53,8 +56,49 @@
 
 .share-card__copy {
   font-family: 'YS Text', sans-serif;
-  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: #fff;
+  color: var(--text-primary);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.share-card__copy:hover {
+  background: #f7f7f7;
+}
+
+.share-card__copy-icon {
+  flex-shrink: 0;
+}
+
+.share-card__copy-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 24px;
+}
+
+.share-card__copy-status {
+  font-family: 'YS Text', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.share-card__copy-status--visible {
+  opacity: 1;
+}
+
+.share-card__link {
+  text-decoration: underline;
 }
 
 @media (max-width: 760px) {

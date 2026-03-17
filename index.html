@@ -413,7 +413,7 @@
               <h2 class="quiz-section-title">Узнайте свою выгоду по&nbsp;корпоративным тарифам</h2>
               <p class="quiz-give__text">За одну минуту покажем, где в&nbsp;деловых поездках теряются деньги и&nbsp;время и&nbsp;как оптимизировать процесс без&nbsp;лишней ручной работы.
 Всего три вопроса.</p>
-              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Показать</button>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Показать выгоду</button>
             </div>
             <div class="quiz-col quiz-col--right">
               <img src="assets/images/quiz-benefits.png" alt="Выгода корпоративных тарифов" loading="lazy" class="quiz-hook__image">
@@ -505,12 +505,17 @@
       <div class="container">
         <div class="share-card">
           <h4 class="share-card__title">Отправьте руководителю или коллеге, чтобы обсудить подключение сервиса</h4>
-          <p class="share-card__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p>
+          <!-- <p class="share-card__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p> -->
           <div class="share-card__message" id="shareMessage">
-            <p>Нашёл сервис Яндекс Путешествия для бизнеса. Он решает сразу несколько задач: корпоративные скидки на жильё до 40%, автоматические закрывающие документы, отсрочка платежа и поддержка 24/7.</p>
-            <p>Подключение бесплатное — регистрация по ИНН занимает около минуты. travel.yandex.ru/business</p>
+            <p>Нашёл сервис Яндекс Путешествия для бизнеса.</p>
+            <p>Он решает сразу несколько задач: корпоративные скидки на жильё до 40%, автоматические закрывающие документы, отсрочка платежа и поддержка 24/7.</p>
+            <p>Подключение бесплатное — регистрация по ИНН занимает около минуты.</p>
+            <p><span class="share-card__link">travel.yandex.ru/business</span></p>
+            <div class="share-card__copy-row">
+              <button class="share-card__copy" id="copyShareBtn" type="button"><img src="assets/images/CopyNew.svg" alt="" width="24" height="24" class="share-card__copy-icon">Скопировать</button>
+              <span class="share-card__copy-status" id="copyStatus"></span>
+            </div>
           </div>
-          <button class="btn btn-secondary btn--s share-card__copy" id="copyShareBtn" type="button">Скопировать сообщение</button>
         </div>
       </div>
     </section>
@@ -657,15 +662,18 @@
   (function() {
     var btn = document.getElementById('copyShareBtn');
     var msg = document.getElementById('shareMessage');
+    var status = document.getElementById('copyStatus');
     if (!btn || !msg) return;
+    function showCopied() {
+      status.textContent = 'Скопировано';
+      status.classList.add('share-card__copy-status--visible');
+      setTimeout(function() { status.classList.remove('share-card__copy-status--visible'); }, 2000);
+    }
     btn.addEventListener('click', function() {
       var paras = msg.querySelectorAll('p');
       var text = paras.length ? Array.prototype.map.call(paras, function(p) { return p.textContent; }).join('\n\n') : msg.textContent;
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(function() {
-          btn.textContent = 'Скопировано!';
-          setTimeout(function() { btn.textContent = 'Скопировать сообщение'; }, 2000);
-        });
+        navigator.clipboard.writeText(text).then(showCopied);
       } else {
         var ta = document.createElement('textarea');
         ta.value = text;
@@ -673,8 +681,7 @@
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        btn.textContent = 'Скопировано!';
-        setTimeout(function() { btn.textContent = 'Скопировать сообщение'; }, 2000);
+        showCopied();
       }
     });
   })();

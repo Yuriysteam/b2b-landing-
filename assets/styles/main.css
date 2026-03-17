@@ -162,7 +162,7 @@ p {
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 0px;
 }
 
 section {
