@@ -201,7 +201,7 @@
           <p class="hero__subtitle">Бесплатный сервис для&nbsp;рабочих поездок&nbsp;– корпоративные скидки на&nbsp;жильё до&nbsp;40%, закрывающие документы и&nbsp;отсрочка платежей</p>
           <div class="hero__cta">
             <div class="cta-primary-wrapper">
-              <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_hero_cta" class="btn btn-primary">Подключить организацию</a>
+              <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary">Подключить организацию</a>
             </div>
             <a href="#cta" class="btn btn-secondary" id="openConsultationDrawer" data-drawer="consultation">Получить консультацию</a>
           </div>
@@ -299,13 +299,18 @@
 
     <!-- Секция закрывающих документов -->
     <section class="documents-section" aria-labelledby="documents-title">
-      <div class="container">
-        <p class="documents-section__label">Документооборот</p>
-        <h2 id="documents-title" class="documents-section__title">Закрывающие документы</h2>
-        <p class="documents-section__subtitle">Счета, акты, чеки загружаются автоматически в&nbsp;кабинете или по&nbsp;ЭДО.</p>
-        <p class="documents-section__text">Ваучер, акт о&nbsp;проживании, ЭДО, настройка правил. Бухгалтерия получает всё вовремя.</p>
-        <div class="documents-section__cta">
-          <a href="#documentsDrawer" class="btn btn-secondary" data-drawer="documents">Скачать примеры документов</a>
+      <div class="container documents-section__grid">
+        <div class="documents-section__image">
+          <img src="assets/images/Search-results.jpg" alt="Закрывающие документы" />
+        </div>
+        <div class="documents-section__content">
+          <p class="documents-section__label">Документооборот</p>
+          <h2 id="documents-title" class="documents-section__title">Закрывающие документы</h2>
+          <p class="documents-section__subtitle">Счета, акты, чеки загружаются автоматически в&nbsp;кабинете или по&nbsp;ЭДО.</p>
+          <p class="documents-section__text">Ваучер, акт о&nbsp;проживании, ЭДО, настройка правил. Бухгалтерия получает всё вовремя.</p>
+          <div class="documents-section__cta">
+            <a href="#documentsDrawer" class="btn btn-secondary" data-drawer="documents">Скачать примеры документов</a>
+          </div>
         </div>
       </div>
     </section>
@@ -472,8 +477,18 @@
           <div class="screen" id="quiz-result">
             <div class="quiz-col quiz-col--full">
               <div class="result-block">
-                <h3 class="result-benefits-title">Ваши выгоды</h3>
-                <div class="benefit-cards" id="result-benefits"></div>
+                <div class="result-columns">
+                  <div class="result-col" id="result-col-budget">
+                    <h5 class="result-col__title">Экономия бюджета</h5>
+                    <p class="result-col__value" id="result-budget-value"></p>
+                    <p class="result-col__note" id="result-budget-note"></p>
+                  </div>
+                  <div class="result-col" id="result-col-time">
+                    <h5 class="result-col__title">Экономия времени</h5>
+                    <p class="result-col__value" id="result-time-value"></p>
+                    <p class="result-col__note" id="result-time-note"></p>
+                  </div>
+                </div>
                 <div class="result-cta-row" id="result-cta"></div>
               </div>
             </div>
@@ -552,7 +567,7 @@
 
         <div class="cta-group cta-group--center">
           <div class="cta-primary-wrapper">
-            <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_footer_cta" class="btn btn-primary">Подключить организацию</a>
+            <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary">Подключить организацию</a>
           </div>
           <a href="#faq" class="btn btn-secondary" id="openConsultationDrawer2" data-drawer="consultation">Получить консультацию</a>
         </div>
@@ -562,7 +577,7 @@
 
   <!-- Плавающий CTA (появляется при скролле ниже hero) -->
   <div class="hero__cta-fixed" id="fixedCta">
-    <a href="https://travel.yandex.ru/business/management/?utm_source=landing&utm_medium=promo&utm_campaign=business_hero_cta" class="btn btn-primary">Подключить организацию</a>
+    <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary">Подключить организацию</a>
     <a href="#cta" class="btn btn-secondary hero__cta-fixed-secondary" data-drawer="consultation">Получить консультацию</a>
   </div>
 

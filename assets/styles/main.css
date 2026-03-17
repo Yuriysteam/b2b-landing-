@@ -264,7 +264,7 @@ section:not(.hero) .cta-note {
   padding: 0 28px;
   border-radius: 16px;
   font-family: 'YS Text', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   text-decoration: none;
   display: inline-flex;
@@ -493,13 +493,13 @@ section:not(.hero) .cta-note {
     border-radius: 20px;
   }
 
-  section:not(.delay-section):not(.hero) {
+  section:not(.hero) {
     padding: var(--section-padding-mobile) 0;
   }
 }
 
 @media (min-width: 761px) {
-  section:not(.delay-section):not(.hero) {
+  section:not(.hero) {
     padding: 80px 0;
   }
 }
