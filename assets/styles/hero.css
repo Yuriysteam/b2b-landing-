@@ -33,9 +33,10 @@
 }
 
 .hero__title {
-  font-size: 92px;
+  font-size: 88px;
   line-height: 100%;
   margin-bottom: 32px;
+  line-height: 1.1;
   width: 100%;
   color: #0D0D0D;
   margin-left: auto;
@@ -67,7 +68,7 @@
 /* Плавающая копия CTA — появляется при скролле ниже hero */
 .hero__cta-fixed {
   position: fixed;
-  bottom: 24px;
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
   z-index: 100;
@@ -77,7 +78,7 @@
   align-items: center;
   opacity: 0;
   pointer-events: none;
-  transition: transform 0.35s cubic-bezier(.25,.46,.45,.94), opacity 0.35s ease;
+  transition: transform 0.25s cubic-bezier(.25,.46,.45,.94), opacity 0.25s ease;
 }
 
 .hero__cta-fixed--visible {

@@ -499,7 +499,7 @@ section:not(.hero) .cta-note {
 }
 
 @media (min-width: 761px) {
-  section:not(.hero) {
+  section:not(.hero):not(.cta-section) {
     padding: 80px 0;
   }
 }

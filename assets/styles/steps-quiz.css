@@ -136,17 +136,17 @@
   text-align: left;
   font-size: 18px;
   line-height: 130%;
-  color: var(--text-primary);
-  background: transparent;
-  border: 1.5px solid var(--border);
+  color: #000000;
+  background: #F2F2F2;
+  border: none;
   border-radius: var(--border-radius-medium-m);
   cursor: pointer;
   font-family: var(--font-body);
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: background 0.15s ease;
 }
 
-.steps-section .quiz-option:hover  { border-color: var(--accent); background: transparent; }
-.steps-section .quiz-option:focus  { outline: none; border-color: var(--accent); background: transparent; }
+.steps-section .quiz-option:hover  { background: #E5E5E5; }
+.steps-section .quiz-option:focus  { outline: none; background: #E5E5E5; }
 
 .steps-section .quiz-nav { margin-top: 4px; }
 .steps-section .quiz-nav button {

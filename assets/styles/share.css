@@ -1,19 +1,20 @@
 /* Блок «Поделиться с коллегами» */
 .share-section {
-  padding: 0 0 60px;
-  background: url('../images/share-bg.jpg') center / cover no-repeat;
-  border-radius: 40px;
-  overflow: hidden;
+  padding: 0;
 }
 
 .share-section .container {
+  background: url('../images/share-bg.jpg') center / cover no-repeat;
+  border-radius: 40px;
+  overflow: hidden;
+  padding: 32px;
   display: flex;
   justify-content: flex-start;
-  padding: 60px 16px;
 }
 
 .share-card {
-  max-width: 460px;
+  width: 50%;
+  max-width: 50%;
   background: #fff;
   border-radius: 32px;
   padding: 24px;
@@ -57,16 +58,14 @@
 }
 
 @media (max-width: 760px) {
-  .share-section {
-    padding: 0;
-    border-radius: 24px;
-  }
-
   .share-section .container {
-    padding: 40px 16px;
+    border-radius: 24px;
+    padding: 24px 16px;
   }
 
   .share-card {
+    width: 100%;
+    max-width: 100%;
     padding: 24px 20px;
     border-radius: 24px;
   }
