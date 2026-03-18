@@ -25,15 +25,15 @@
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   font-size: 28px;
-  line-height: 1.2;
+  line-height: 112%;
   color: var(--text-primary);
   margin-bottom: 16px;
 }
 
 .share-card__subtitle {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 21px;
+  line-height: 28px;
   margin: 0 0 24px;
 }
 

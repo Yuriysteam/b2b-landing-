@@ -38,14 +38,14 @@
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   font-size: 56px;
-  line-height: 100%;
+  line-height: 112%;
   text-wrap: balance;
   color: var(--text-primary);
   margin-bottom: 16px;
 }
 
 .savings-section__text {
-  font-size: 20px;
+  font-size: 21px;
   margin: 0 auto 8px;
   color: var(--text-primary);
   max-width: 860px;

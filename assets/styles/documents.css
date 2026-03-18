@@ -49,7 +49,7 @@
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   font-size: 56px;
-  line-height: 100%;
+  line-height: 112%;
   text-wrap: balance;
   color: var(--text-primary);
   margin: 0 0 16px;
@@ -58,8 +58,8 @@
 .documents-section__subtitle {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 120%;
+  font-size: 21px;
+  line-height: 28px;
   color: var(--text-primary);
   margin: 0 0 16px;
 }
@@ -67,8 +67,8 @@
 .documents-section__text {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 120%;
+  font-size: 21px;
+  line-height: 28px;
   color: var(--text-primary);
   margin: 0 0 32px;
 }
