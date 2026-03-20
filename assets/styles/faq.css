@@ -36,8 +36,8 @@
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   font-feature-settings: 'pnum' on, 'lnum' on;
   color: var(--text-primary);
   text-align: left;
@@ -77,8 +77,8 @@
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   font-feature-settings: 'pnum' on, 'lnum' on;
   color: var(--text-primary);
   padding-bottom: 0;
@@ -100,12 +100,13 @@
   }
 
   .faq-item__question {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: var(--text-size-mobile);
+    line-height: var(--text-line-height-mobile);
+    padding: 24px 0;
   }
 
   .faq-item__answer {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: var(--text-size-mobile);
+    line-height: var(--text-line-height-mobile);
   }
 }

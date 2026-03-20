@@ -4,7 +4,6 @@
 
 .benefits-dual-section {
   background: var(--bg-white);
-  padding: 80px 0;
   margin-bottom: 0;
 }
 
@@ -22,7 +21,7 @@
 
 .benefit-dual-card {
   background: var(--bg-light);
-  border-radius: 40px;
+  border-radius: var(--radius-card);
   padding: 32px 32px 0;
   display: flex;
   flex-direction: column;
@@ -43,19 +42,19 @@
 }
 
 .benefit-dual-card__title {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 40px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   color: var(--text-primary);
   margin: 0;
 }
 
 .benefit-dual-card__subtitle {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   color: var(--text-primary);
   margin: 0;
 }
@@ -92,7 +91,7 @@
 
 .corp-tariff-card {
   background: var(--bg-light);
-  border-radius: 40px;
+  border-radius: var(--radius-card);
   padding: 48px 28px 0;
   display: flex;
   flex-direction: column;
@@ -109,10 +108,10 @@
 }
 
 .corp-tariff-card__title {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 48px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   color: var(--text-primary);
   margin: 0;
   text-align: center;
@@ -144,7 +143,6 @@
 
 @media (max-width: 760px) {
   .benefits-dual-section {
-    padding: 48px 0;
   }
 
   .benefits-dual-grid {
@@ -154,7 +152,7 @@
 
   .benefit-dual-card {
     padding: 24px 24px 0;
-    border-radius: 20px;
+    border-radius: var(--radius-small);
   }
 
   .corp-tariff-card__img {
@@ -167,7 +165,7 @@
 
   .benefit-dual-card__title { font-size: 28px; }
 
-  .benefit-dual-card__subtitle { font-size: 18px; }
+  .benefit-dual-card__subtitle { font-size: var(--text-size-mobile); }
 
   .benefit-dual-card__image {
     min-height: 150px;
@@ -176,7 +174,7 @@
   }
 
   .corp-tariff-card {
-    border-radius: 20px;
+    border-radius: var(--radius-small);
     padding: 28px 24px 0;
     gap: 0px;
   }
@@ -186,7 +184,7 @@
     text-align: left;
   }
 
-  .corp-tariff-card__text { font-size: 21px; text-align: left; }
+  .corp-tariff-card__text { font-size: var(--text-size-mobile); text-align: left; }
 
   .corp-tariff-card__img--desktop { display: none; }
   .corp-tariff-card__img--mobile { display: block; }

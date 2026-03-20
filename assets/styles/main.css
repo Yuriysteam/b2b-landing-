@@ -89,7 +89,7 @@
 :root {
   /* Цвета фонов */
   --bg-white: #fff;
-  --bg-light: #f7f8f9;;
+  --bg-light: #eaecee;
   --bg-dark: #2D2E42;
 
   /* Цвета текста */
@@ -122,9 +122,27 @@
   --section-padding: 80px;
   --section-padding-mobile: 48px;
 
-  /* Border radius */
+  /* Типографика */
+  --text-size: 21px;
+  --text-size-mobile: 18px;
+  --text-line-height: 28px;
+  --text-line-height-mobile: 24px;
+  --heading-line-height: 112%;
+
+  /* Border-radius */
+  --radius-panel: 48px;
+  --radius-card: 40px;
+  --radius-block: 32px;
+  --radius-element: 24px;
+  --radius-small: 20px;
   --border-radius-medium-s: 16px;
   --border-radius-medium-m: 20px;
+
+  /* Недостающие цвета */
+  --bg-neutral: #F2F2F2;
+  --text-dark: #0D0D0D;
+  --color-error: #FF3B30;
+  --overlay: rgba(0, 0, 0, 0.5);
 }
 
 /* ============================================
@@ -142,19 +160,19 @@ html {
 }
 
 body {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
 }
 
 p {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   color: var(--text-primary);
 }
 
@@ -175,46 +193,46 @@ section {
    ============================================ */
 
 h1 {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 72px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   text-wrap: balance;
   width: 100%;
   margin-bottom: 24px;
 }
 
 h2 {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 48px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   text-wrap: balance;
   width: 100%;
   margin-bottom: 24px;
 }
 
 h3 {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 40px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   margin-bottom: 16px;
 }
 
 h4 {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   margin-bottom: 16px;
 }
 
 h5 {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 500;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   margin-bottom: 8px;
 }
 
@@ -246,10 +264,10 @@ h5 {
 }
 
 .cta-note {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 12px;
   line-height: 120%;
-  color: #0D0D0D;
+  color: var(--text-dark);
   margin: 0;
   text-align: center;
 }
@@ -289,8 +307,8 @@ section:not(.hero) .cta-note {
 }
 
 .btn-secondary {
-  background: #F2F2F2;
-  color: #000000;
+  background: var(--bg-neutral);
+  color: var(--btn-secondary-text);
   border: none;
 }
 
@@ -344,7 +362,7 @@ section:not(.hero) .cta-note {
 .benefit-card {
   background: var(--bg-white);
   padding: 28px;
-  border-radius: 24px;
+  border-radius: var(--radius-element);
 }
 
 .benefit-card h4 {
@@ -354,10 +372,10 @@ section:not(.hero) .cta-note {
 }
 
 .benefit-card p {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   color: var(--text-primary);
 }
 
@@ -371,20 +389,20 @@ section:not(.hero) .cta-note {
 
 .badge {
   padding: 8px 16px;
-  background: #f2f2f2;
-  border-radius: 20px;
+  background: var(--bg-neutral);
+  border-radius: var(--radius-small);
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  color: #0d0d0f;
+  color: var(--text-dark);
 }
 
 .badge-large {
   padding: 28px 24px;
   background: #A28BFF;
-  border-radius: 24px;
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  border-radius: var(--radius-element);
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
@@ -400,7 +418,7 @@ section:not(.hero) .cta-note {
   height: 25px;
   background: var(--accent);
   border-radius: 12px;
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
@@ -412,7 +430,7 @@ section:not(.hero) .cta-note {
 .activation-block {
   background: var(--bg-light);
   padding: 40px;
-  border-radius: 24px;
+  border-radius: var(--radius-element);
   margin-top: 40px;
 }
 
@@ -425,6 +443,18 @@ section:not(.hero) .cta-note {
 .activation-block li {
   padding: 8px 0;
   font-size: 14px;
+}
+
+/* ============================================
+   Утилитарные классы
+   ============================================ */
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  font-weight: 400;
+  color: var(--text-primary);
 }
 
 /* ============================================
@@ -442,13 +472,13 @@ section:not(.hero) .cta-note {
   }
 
   p {
-    font-size: 18px;
+    font-size: var(--text-size-mobile);
   }
 
   h1 { font-size: 40px; }
   h2 { font-size: 36px; }
   h3 { font-size: 24px; }
-  h4 { font-size: 18px; }
+  h4 { font-size: var(--text-size-mobile); }
   h5 { font-size: 16px; }
 
   section {
@@ -478,23 +508,28 @@ section:not(.hero) .cta-note {
   }
 
   .badge-large {
-    font-size: 21px;
+    font-size: var(--text-size);
     padding: 24px 20px;
-    border-radius: 20px;
+    border-radius: var(--radius-small);
   }
 
   .benefit-card {
     padding: 20px;
-    border-radius: 20px;
+    border-radius: var(--radius-small);
   }
 
   .activation-block {
     padding: 32px;
-    border-radius: 20px;
+    border-radius: var(--radius-small);
   }
 
   section:not(.hero) {
     padding: var(--section-padding-mobile) 0;
+  }
+
+  .text-body {
+    font-size: var(--text-size-mobile);
+    line-height: var(--text-line-height-mobile);
   }
 }
 

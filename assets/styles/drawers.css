@@ -22,14 +22,14 @@
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay);
   z-index: 1;
 }
 
 .drawer__content {
   position: relative;
   background: var(--bg-white);
-  border-radius: 32px 32px 0 0;
+  border-radius: var(--radius-block) var(--radius-block) 0 0;
   max-height: 85vh;
   display: flex;
   flex-direction: column;
@@ -196,7 +196,7 @@
   border: 1px solid var(--border);
   border-radius: var(--border-radius-medium-m);
   background: var(--bg-white);
-  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 20px;
   color: var(--text-primary);
@@ -213,10 +213,69 @@
   border-color: var(--text-primary);
 }
 
+.consultation-drawer__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.consultation-drawer__input--error {
+  border-color: var(--color-error);
+}
+
+.consultation-drawer__input--error:focus {
+  border-color: var(--color-error);
+}
+
+.consultation-drawer__error {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-error);
+}
+
 .consultation-drawer__submit {
   width: 100%;
   height: 56px;
   font-size: 21px;
+}
+
+.consultation-drawer__success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 24px 0;
+}
+
+.consultation-drawer__success-icon {
+  margin-bottom: 4px;
+}
+
+.consultation-drawer__success-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 112%;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.consultation-drawer__success-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.consultation-drawer__success-btn {
+  width: 100%;
+  height: 56px;
+  font-size: 21px;
+  margin-top: 12px;
 }
 
 /* На десктопе — попап по центру */
@@ -230,7 +289,7 @@
 
   .consultation-drawer .drawer__content {
     max-width: 480px;
-    border-radius: 32px;
+    border-radius: var(--radius-block);
     transform: scale(0.95);
     opacity: 0;
     transition: transform 0.2s ease, opacity 0.2s ease;

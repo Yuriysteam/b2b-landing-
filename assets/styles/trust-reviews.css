@@ -6,7 +6,6 @@
 .trust-reviews-section {
   display: none;
   background: var(--bg-white);
-  padding: 80px 0;
   margin-bottom: 0;
 }
 
@@ -22,20 +21,20 @@
 }
 
 .trust-reviews__title {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 56px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   text-wrap: balance;
   color: var(--text-primary);
   margin: 0 0 16px;
 }
 
 .trust-reviews__subtitle {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   color: var(--text-primary);
   margin: 0;
 }
@@ -48,8 +47,8 @@
 
 .review-card {
   background: var(--bg-white);
-  border: 1px solid #E0E0E0;
-  border-radius: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-element);
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -61,10 +60,10 @@
 }
 
 .review-card__text {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   color: var(--text-primary);
   margin: 0;
 }
@@ -90,7 +89,7 @@
 }
 
 .review-card__name {
-  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 16px;
   line-height: 120%;
@@ -98,7 +97,7 @@
 }
 
 .review-card__company {
-  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: 14px;
   line-height: 120%;
@@ -111,7 +110,6 @@
 
 @media (max-width: 760px) {
   .trust-reviews-section {
-    padding: 48px 0;
   }
 
   .trust-reviews__header {
@@ -128,7 +126,7 @@
     margin-bottom: 16px;
   }
 
-  .trust-reviews__subtitle { font-size: 18px; }
+  .trust-reviews__subtitle { font-size: var(--text-size-mobile); }
 
   .reviews-grid {
     display: flex;
@@ -155,11 +153,11 @@
     min-width: 0;
     scroll-snap-align: start;
     padding: 24px;
-    border-radius: 20px;
+    border-radius: var(--radius-small);
     gap: 20px;
   }
 
-  .review-card__text { font-size: 18px; }
+  .review-card__text { font-size: var(--text-size-mobile); }
 
   .review-card__avatar {
     width: 40px;

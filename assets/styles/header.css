@@ -58,7 +58,7 @@
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #0D0D0D;
+  color: var(--text-dark);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -69,8 +69,8 @@
 
 .header__nav-link--cta {
   padding: 12px 24px;
-  background: #0D0D0D;
-  color: #fff;
+  background: var(--text-dark);
+  color: var(--btn-dark-text);
   border: 1px solid transparent;
   border-radius: 20px;
   font-weight: 500;
@@ -92,7 +92,7 @@
   display: none;
   cursor: pointer;
   padding: 8px;
-  color: #0D0D0D;
+  color: var(--text-dark);
   font-size: 24px;
   line-height: 1;
   width: 32px;
@@ -123,7 +123,7 @@
 .header__mobile-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay);
   cursor: default;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .header__mobile-nav-link {
-  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 21px;
   font-weight: 400;
   color: var(--text-primary);

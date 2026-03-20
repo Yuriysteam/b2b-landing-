@@ -247,7 +247,7 @@
               </div>
             </div>
             <!-- Мобильная карусель отелей -->
-            <div class="map-carousel" id="mapCarousel"></div>
+            <!-- <div class="map-carousel" id="mapCarousel"></div> -->
           </div>
         </div>
 
@@ -325,8 +325,10 @@
               <h5 class="support-card__label">Поддержка</h5>
               <h4 class="support-card__title">Поддержка 24/7</h4>
             </div>
-            <p class="support-card__subtitle">Менеджеры круглосуточно на&nbsp;связи и&nbsp;готовы помочь в&nbsp;чате или&nbsp;по&nbsp;телефону.</p>
-            <p class="support-card__text">Оперативно решаем вопросы с&nbsp;бронированием, изменениями и&nbsp;возвратами, чтобы рабочие поездки проходили спокойно.</p>
+            <ul class="support-card__list">
+              <li>Менеджеры круглосуточно на&nbsp;связи и&nbsp;готовы помочь в&nbsp;чате или&nbsp;по&nbsp;телефону.</li>
+              <li>Оперативно решаем вопросы с&nbsp;бронированием, изменениями и&nbsp;возвратами, чтобы рабочие поездки проходили спокойно.</li>
+            </ul>
           </div>
           <div class="support-section__right">
             <div class="support-card">
@@ -334,16 +336,20 @@
                 <h5 class="support-card__label">Скоро</h5>
                 <h4 class="support-card__title">Транспорт</h4>
               </div>
-              <p class="support-card__subtitle">Прямые цены от&nbsp;поставщиков и&nbsp;прозрачный сервисный сбор.</p>
-              <p class="support-card__text">При покупке железнодорожных билетов начисляется кешбэк баллами Плюса.</p>
+              <ul class="support-card__list">
+                <li>Прямые цены от&nbsp;поставщиков и&nbsp;прозрачный сервисный сбор.</li>
+                <li>При покупке железнодорожных билетов начисляется кешбэк баллами Плюса.</li>
+              </ul>
             </div>
             <div class="support-card">
               <div class="support-card__header">
                 <h5 class="support-card__label">Бонусы</h5>
                 <h4 class="support-card__title">Кешбэк баллами Плюса</h4>
               </div>
-              <p class="support-card__subtitle">Получайте баллы Плюса за&nbsp;каждое бронирование.</p>
-              <p class="support-card__text">Сотрудники накапливают бонусы, а&nbsp;бизнес снижает расходы — выгодно для&nbsp;всех.</p>
+              <ul class="support-card__list">
+                <li>Получайте баллы Плюса за&nbsp;каждое бронирование.</li>
+                <li>Сотрудники накапливают бонусы, а&nbsp;бизнес снижает расходы — выгодно для&nbsp;всех.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -413,7 +419,7 @@
               <h2 class="quiz-section-title">Узнайте свою выгоду по&nbsp;корпоративным тарифам</h2>
               <p class="quiz-give__text">За одну минуту покажем, где в&nbsp;деловых поездках теряются деньги и&nbsp;время и&nbsp;как оптимизировать процесс без&nbsp;лишней ручной работы.
 Всего три вопроса.</p>
-              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Показать</button>
+              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Показать выгоду</button>
             </div>
             <div class="quiz-col quiz-col--right">
               <img src="assets/images/quiz-benefits.png" alt="Выгода корпоративных тарифов" loading="lazy" class="quiz-hook__image">
@@ -504,8 +510,8 @@
     <section class="share-section" aria-label="Поделиться с коллегами">
       <div class="container">
         <div class="share-card">
-          <h4 class="share-card__title">Отправьте руководителю или коллеге, чтобы обсудить подключение сервиса</h4>
-          <p class="share-card__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p>
+          <h4 class="share-card__title">Отправьте руководителю или коллеге, чтобы обсудить подключение сервиса</h4>
+          <!-- <p class="share-card__subtitle">Скопируйте готовый текст и&nbsp;отправьте ЛПР&nbsp;— пусть оценят выгоду.</p> -->
           <div class="share-card__message" id="shareMessage">
             <p>Нашёл сервис Яндекс Путешествия для&nbsp;бизнеса.</p>
             <p>Он решает сразу несколько задач: даёт корпоративные скидки на&nbsp;жильё до&nbsp;40%, формирует автоматические закрывающие документы, предоставляет отсрочку платежа и&nbsp;поддержку 24/7.</p>
@@ -571,7 +577,7 @@
       <div class="container">
         <h2>Подключите бизнес сегодня</h2>
         <p>Зарегистрируйте компанию бесплатно по&nbsp;ИНН.
-Корпоративные тарифы станут доступны сразу после создания аккаунта.</p>
+Корпоративные тарифы станут доступны сразу после создания аккаунта</p>
 
         <div class="cta-group cta-group--center">
           <div class="cta-primary-wrapper">
@@ -643,9 +649,20 @@
       </div>
       <div class="consultation-drawer__body">
         <form class="consultation-drawer__form" id="consultationForm" novalidate>
-          <input type="tel" class="consultation-drawer__input" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required>
+          <div class="consultation-drawer__field">
+            <input type="tel" class="consultation-drawer__input" id="consultationPhone" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required>
+            <span class="consultation-drawer__error" id="consultationError"></span>
+          </div>
           <button type="submit" class="btn btn-primary consultation-drawer__submit">Оставить номер</button>
         </form>
+        <div class="consultation-drawer__success" id="consultationSuccess">
+          <div class="consultation-drawer__success-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#21A038"/><path d="M20 25.5L22.5 28L28 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="consultation-drawer__success-title">Спасибо!</p>
+          <p class="consultation-drawer__success-text">Мы получили ваш номер и&nbsp;скоро свяжемся с&nbsp;вами</p>
+          <button type="button" class="btn btn-primary consultation-drawer__success-btn" id="consultationSuccessClose">Отлично</button>
+        </div>
       </div>
     </div>
   </div>

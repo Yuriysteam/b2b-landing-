@@ -186,32 +186,60 @@ function getScrollbarWidth() {
   return window.innerWidth - document.documentElement.clientWidth;
 }
 
+function formatPhone(value) {
+  var digits = value.replace(/\D/g, '');
+  if (digits.length > 0 && (digits[0] === '7' || digits[0] === '8')) digits = digits.slice(1);
+  if (digits.length > 10) digits = digits.slice(0, 10);
+  var result = '+7';
+  if (digits.length > 0) result += ' (' + digits.slice(0, 3);
+  if (digits.length >= 3) result += ') ';
+  if (digits.length > 3) result += digits.slice(3, 6);
+  if (digits.length > 6) result += '-' + digits.slice(6, 8);
+  if (digits.length > 8) result += '-' + digits.slice(8, 10);
+  return result;
+}
+
+function isValidPhone(value) {
+  var digits = value.replace(/\D/g, '');
+  return digits.length === 11 && (digits[0] === '7' || digits[0] === '8');
+}
+
 function openConsultationDrawer() {
-  const drawer = document.getElementById('consultationDrawer');
-  if (drawer) {
-    var scrollY = window.scrollY || window.pageYOffset;
-    var sb = getScrollbarWidth();
-    document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = sb > 0 ? sb + 'px' : '';
-    document.body.setAttribute('data-drawer-scroll-y', scrollY);
-    drawer.classList.add('active');
-  }
+  var drawer = document.getElementById('consultationDrawer');
+  if (!drawer) return;
+  var form = document.getElementById('consultationForm');
+  var success = document.getElementById('consultationSuccess');
+  var input = document.getElementById('consultationPhone');
+  var error = document.getElementById('consultationError');
+  // Сброс к форме при открытии
+  var header = drawer.querySelector('.consultation-drawer__header-content');
+  if (header) header.style.display = '';
+  if (form) form.style.display = '';
+  if (success) success.style.display = 'none';
+  if (input) { input.value = ''; input.classList.remove('consultation-drawer__input--error'); }
+  if (error) { error.textContent = ''; error.style.display = 'none'; }
+
+  var scrollY = window.scrollY || window.pageYOffset;
+  var sb = getScrollbarWidth();
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = sb > 0 ? sb + 'px' : '';
+  document.body.setAttribute('data-drawer-scroll-y', scrollY);
+  drawer.classList.add('active');
 }
 
 function closeConsultationDrawer() {
-  const drawer = document.getElementById('consultationDrawer');
-  if (drawer) {
-    drawer.classList.remove('active');
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-    var scrollY = document.body.getAttribute('data-drawer-scroll-y');
-    if (scrollY !== null && scrollY !== '') window.scrollTo(0, parseInt(scrollY, 10));
-    document.body.removeAttribute('data-drawer-scroll-y');
-  }
+  var drawer = document.getElementById('consultationDrawer');
+  if (!drawer) return;
+  drawer.classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+  var scrollY = document.body.getAttribute('data-drawer-scroll-y');
+  if (scrollY !== null && scrollY !== '') window.scrollTo(0, parseInt(scrollY, 10));
+  document.body.removeAttribute('data-drawer-scroll-y');
 }
 
 (function initConsultationDrawer() {
-  const drawer = document.getElementById('consultationDrawer');
+  var drawer = document.getElementById('consultationDrawer');
   if (!drawer) return;
 
   document.querySelectorAll('[data-drawer="consultation"], #openConsultationDrawer, #openConsultationDrawer2').forEach(function(btn) {
@@ -221,20 +249,65 @@ function closeConsultationDrawer() {
     });
   });
 
-  const overlay = drawer.querySelector('.consultation-drawer__overlay');
-  const closeBtn = drawer.querySelector('.consultation-drawer__close');
+  var overlay = drawer.querySelector('.consultation-drawer__overlay');
+  var closeBtn = drawer.querySelector('.consultation-drawer__close');
   if (overlay) overlay.addEventListener('click', closeConsultationDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeConsultationDrawer);
 
-  const form = document.getElementById('consultationForm');
+  // Закрытие по Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('active')) {
+      closeConsultationDrawer();
+    }
+  });
+
+  // Кнопка «Отлично» закрывает попап
+  var successCloseBtn = document.getElementById('consultationSuccessClose');
+  if (successCloseBtn) successCloseBtn.addEventListener('click', closeConsultationDrawer);
+
+  var input = document.getElementById('consultationPhone');
+  var error = document.getElementById('consultationError');
+
+  // Маска ввода
+  if (input) {
+    input.addEventListener('input', function() {
+      var pos = input.selectionStart;
+      var before = input.value.length;
+      input.value = formatPhone(input.value);
+      var after = input.value.length;
+      var newPos = pos + (after - before);
+      input.setSelectionRange(newPos, newPos);
+      // Сброс ошибки при вводе
+      input.classList.remove('consultation-drawer__input--error');
+      if (error) { error.textContent = ''; error.style.display = 'none'; }
+    });
+    input.addEventListener('focus', function() {
+      if (!input.value) input.value = '+7';
+    });
+    input.addEventListener('blur', function() {
+      if (input.value === '+7') input.value = '';
+    });
+  }
+
+  var form = document.getElementById('consultationForm');
+  var success = document.getElementById('consultationSuccess');
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      var input = form.querySelector('input[name="phone"]');
-      if (input && input.value.trim()) {
-        closeConsultationDrawer();
-        input.value = '';
+      if (!input) return;
+      if (!isValidPhone(input.value)) {
+        input.classList.add('consultation-drawer__input--error');
+        if (error) {
+          error.textContent = 'Введите корректный номер телефона';
+          error.style.display = 'block';
+        }
+        return;
       }
+      // Успешная отправка
+      form.style.display = 'none';
+      var header = drawer.querySelector('.consultation-drawer__header-content');
+      if (header) header.style.display = 'none';
+      if (success) success.style.display = 'flex';
     });
   }
 })();

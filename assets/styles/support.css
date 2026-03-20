@@ -3,7 +3,6 @@
    ============================================ */
 
 .support-section {
-  padding: 80px 0;
   margin-bottom: 0;
 }
 
@@ -13,7 +12,7 @@
   gap: 8px;
   padding: 8px;
   background: var(--bg-light);
-  border-radius: 48px;
+  border-radius: var(--radius-panel);
 }
 
 .support-section__right {
@@ -23,8 +22,8 @@
 }
 
 .support-card {
-  background: #fff;
-  border-radius: 40px;
+  background: var(--bg-white);
+  border-radius: var(--radius-card);
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -51,30 +50,63 @@
 }
 
 .support-card__title {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 28px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   color: var(--text-primary);
   margin: 0;
 }
 
 .support-card__subtitle {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
   color: var(--text-primary);
   margin: 0;
 }
 
 .support-card__text {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.support-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.support-card__list li {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  color: var(--text-primary);
+  position: relative;
+  padding-left: 14px;
+}
+
+.support-card__list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  top: 0;
   font-size: 21px;
   line-height: 28px;
   color: var(--text-primary);
-  margin: 0;
+}
+
+.support-card__list li::after {
+  content: '';
 }
 
 /* ============================================
@@ -83,7 +115,6 @@
 
 @media (max-width: 760px) {
   .support-section {
-    padding: 48px 0;
   }
 
   .support-section__grid {
@@ -93,7 +124,7 @@
 
   .support-card {
     padding: 28px 20px;
-    border-radius: 24px;
+    border-radius: var(--radius-element);
     gap: 16px;
   }
 
@@ -106,7 +137,8 @@
   }
 
   .support-card__subtitle,
-  .support-card__text {
-    font-size: 18px;
+  .support-card__text,
+  .support-card__list li {
+    font-size: var(--text-size-mobile);
   }
 }

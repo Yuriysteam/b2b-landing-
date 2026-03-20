@@ -13,7 +13,7 @@
   position: relative;
   max-width: 1500px;
   margin: 0 auto;
-  border-radius: 0 0 40px 40px;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
   overflow: hidden;
   background: transparent;
 }
@@ -37,17 +37,17 @@
   line-height: 100%;
   margin-bottom: 32px;
   width: 100%;
-  color: #0D0D0D;
+  color: var(--text-dark);
   margin-left: auto;
   margin-right: auto;
 }
 
 .hero__subtitle {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 21px;
-  line-height: 28px;
-  color: #0D0D0D;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  color: var(--text-dark);
   margin-bottom: 32px;
   margin-left: auto;
   margin-right: auto;
@@ -123,7 +123,7 @@
   .hero__title {
     font-size: 62px;
     text-align: left;
-    line-height: 112%;
+    line-height: 100%;
     max-width: 100%;
   }
 
