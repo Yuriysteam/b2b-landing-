@@ -46,12 +46,6 @@
 }
 
 .support-card__label {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 100%;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--accent);
   margin: 0;
 }

@@ -14,7 +14,7 @@
 }
 
 .faq-title {
-  margin-bottom: 0;
+  margin-top: 12px;
 }
 
 .faq-item {
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 0;
+  padding: 32px 0;
   border: none;
   background: none;
   font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;

@@ -42,7 +42,6 @@
 .quiz-col--left {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .quiz-col--right {
@@ -66,12 +65,12 @@
 .quiz-section-title {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
-  font-size: 56px;
+  font-size: 48px;
   line-height: 112%;
   color: var(--text-primary);
   margin: 0;
   text-wrap: balance;
-  margin-bottom: 48px;
+  margin-bottom: 16px;
 }
 
 .steps-section .quiz-question {

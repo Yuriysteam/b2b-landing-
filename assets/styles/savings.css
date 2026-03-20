@@ -24,12 +24,6 @@
 }
 
 .savings-section__label {
-  font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 100%;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--accent);
   margin-bottom: 8px;
 }
@@ -37,7 +31,7 @@
 .savings-section__title {
   font-family: 'YS Display', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
-  font-size: 56px;
+  font-size: 48px;
   line-height: 112%;
   text-wrap: balance;
   color: var(--text-primary);
