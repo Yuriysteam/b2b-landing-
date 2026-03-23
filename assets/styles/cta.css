@@ -16,7 +16,7 @@
 }
 
 .cta-section p {
-  font-size: 21px;
+  font-size: var(--text-size);
   color: var(--text-primary);
   margin-top: 16px;
   margin-bottom: 32px;

@@ -202,7 +202,7 @@
    ============================================ */
 
 #quiz-result {
-  background: var(--bg-secondary, #f5f5f5);
+  background: var(--bg-light);
   border-radius: var(--radius-block);
   padding: 48px 40px;
 }

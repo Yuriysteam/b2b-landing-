@@ -70,7 +70,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-.documents-drawer__header h3 {
+.documents-drawer__title {
   font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 700;
@@ -93,7 +93,7 @@
 
 .documents-column h4 {
   font-family: var(--font-heading);
-  font-size: 21px;
+  font-size: var(--text-size);
   font-weight: 700;
   margin-bottom: 16px;
   color: var(--text-primary);
@@ -166,7 +166,7 @@
   font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 700;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   margin-bottom: 4px;
   color: var(--text-primary);
 }
@@ -238,7 +238,7 @@
 .consultation-drawer__submit {
   width: 100%;
   height: 56px;
-  font-size: 21px;
+  font-size: var(--text-size);
 }
 
 .consultation-drawer__success {
@@ -258,7 +258,7 @@
   font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 700;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   color: var(--text-primary);
   margin: 0;
 }
@@ -274,7 +274,7 @@
 .consultation-drawer__success-btn {
   width: 100%;
   height: 56px;
-  font-size: 21px;
+  font-size: var(--text-size);
   margin-top: 12px;
 }
 
@@ -329,7 +329,7 @@
   background: var(--bg-white);
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-md);
   width: 100%;
 }
 

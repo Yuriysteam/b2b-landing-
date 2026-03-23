@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Яндекс Путешествия для бизнеса — корпоративные скидки на жильё до 40%</title>
   <meta name="description" content="Бесплатный сервис для рабочих поездок: корпоративные скидки на жильё до 40%, закрывающие документы и отсрочка платежей. Подключите бизнес и экономьте на рабочих поездках по всей России.">
-  <meta name="keywords" content="корпоративные поездки, командировки, скидки на отели, бизнес-тариф, Яндекс Путешествия, деловая поездка, отсрочка платежа, закрывающие документы">
+  <meta name="keywords" content="корпоративные поездки, командировки, скидки на отели, бизнес-тариф, Яндекс Путешествия, деловая поездка, отсрочка платежа, закрывающие документы, жильё для командировок">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Яндекс">
   <link rel="canonical" href="https://travel.yandex.ru/business/">
@@ -161,6 +161,20 @@
   }
   </script>
   <script src="https://yastatic.net/s3/travel/attributions/travelCookies.js"></script>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108202214', 'ym');
+
+    ym(108202214, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108202214" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
 </head>
 <body>
   <header class="header header__fixed header__show">
@@ -175,7 +189,7 @@
         <a href="#steps" class="header__nav-link">Узнать выгоду</a>
       </nav>
       <label for="menu-toggle" class="header__burger" aria-label="Меню">
-        <span class="header__burger-icon">=</span>
+        <img src="assets/images/Burger.svg" alt="" width="24" height="24" aria-hidden="true">
       </label>
     </div>
     <input type="checkbox" id="menu-toggle" class="header__menu-toggle">
@@ -183,7 +197,7 @@
       <label for="menu-toggle" class="header__mobile-overlay" aria-hidden="true"></label>
       <div class="header__mobile-menu-content">
         <label for="menu-toggle" class="header__mobile-close" aria-label="Закрыть меню">
-          <span class="header__mobile-close-icon">×</span>
+          <img src="assets/images/Close.svg" alt="" width="24" height="24" aria-hidden="true">
         </label>
         <nav class="header__mobile-nav" aria-label="Мобильная навигация">
           <a href="#savings" class="header__mobile-nav-link">Преимущества</a>
@@ -231,8 +245,8 @@
 
           <!-- Карта -->
           <div class="map-content savings-map-content" role="region" aria-label="Карта с отелями">
-            <div class="map-touch-overlay" aria-hidden="true"></div>
             <div class="map-content__map">
+              <div class="map-touch-overlay" aria-hidden="true"></div>
               <div class="map-image-wrapper" data-city="moscow" data-section="savings">
                 <div id="yandex-map-moscow" class="yandex-map"></div>
               </div>
@@ -619,7 +633,7 @@
     <div class="drawer__overlay documents-drawer__overlay" onclick="closeDocumentsDrawer()"></div>
     <div class="drawer__content documents-drawer__content">
       <div class="documents-drawer__header">
-        <h3>Пример документов</h3>
+        <h3 class="documents-drawer__title">Пример документов</h3>
         <button class="drawer__close documents-drawer__close" onclick="closeDocumentsDrawer()" aria-label="Закрыть">×</button>
       </div>
       <div class="documents-drawer__body">

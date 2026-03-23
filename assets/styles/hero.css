@@ -82,7 +82,7 @@
   background: var(--bg-white);
   border-radius: 32px;
   padding: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-float);
 }
 
 .hero__cta-fixed--visible {

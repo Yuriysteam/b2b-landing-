@@ -18,7 +18,7 @@
 }
 
 .faq-item {
-  border-top: 1px solid var(--bg-light);
+  border-top: 1px solid var(--bg-text-muted);
 }
 
 .faq-item:first-child {
@@ -33,7 +33,7 @@
   padding: 32px 0;
   border: none;
   background: none;
-  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-ui);
   font-style: normal;
   font-weight: 500;
   font-size: var(--text-size);
@@ -78,7 +78,7 @@
 
 .faq-item__answer {
   overflow: hidden;
-  font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-ui);
   font-style: normal;
   font-weight: 400;
   font-size: var(--text-size);

@@ -55,7 +55,7 @@
 }
 
 .share-card__copy {
-  font-family: 'YS Text', sans-serif;
+  font-family: var(--font-ui);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -79,7 +79,7 @@
 }
 
 .share-card__copy-status {
-  font-family: 'YS Text', sans-serif;
+  font-family: var(--font-ui);
   font-size: 14px;
   color: var(--text-muted);
   opacity: 0;

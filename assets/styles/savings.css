@@ -31,14 +31,14 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 48px;
-  line-height: 112%;
+  line-height: var(--heading-line-height);
   text-wrap: balance;
   color: var(--text-primary);
   margin-bottom: 16px;
 }
 
 .savings-section__text {
-  font-size: 21px;
+  font-size: var(--text-size);
   margin: 0 auto 8px;
   color: var(--text-primary);
   max-width: 860px;
