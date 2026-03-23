@@ -18,7 +18,7 @@
 }
 
 .faq-item {
-  border-top: 1px solid var(--bg-text-muted);
+  border-top: 1px solid var(--border);
 }
 
 .faq-item:first-child {
