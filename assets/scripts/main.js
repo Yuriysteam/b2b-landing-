@@ -353,6 +353,42 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+// Documents drawer — overlay и кнопка закрытия
+(function() {
+  var overlay = document.querySelector('.documents-drawer__overlay');
+  var closeBtn = document.querySelector('.documents-drawer__close');
+  if (overlay) overlay.addEventListener('click', closeDocumentsDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDocumentsDrawer);
+})();
+
+// Fixed CTA — показываем когда hero и cta-section не видны
+(function() {
+  var hero = document.querySelector('.hero');
+  var ctaSection = document.querySelector('.cta-section');
+  var fixedCta = document.getElementById('fixedCta');
+  if (!hero || !ctaSection || !fixedCta) return;
+
+  var heroVisible = true;
+  var ctaVisible = false;
+
+  function update() {
+    fixedCta.classList.toggle('hero__cta-fixed--visible', !heroVisible && !ctaVisible);
+  }
+
+  var heroObserver = new IntersectionObserver(function(entries) {
+    heroVisible = entries[0].isIntersecting;
+    update();
+  }, { threshold: 0 });
+
+  var ctaObserver = new IntersectionObserver(function(entries) {
+    ctaVisible = entries[0].isIntersecting;
+    update();
+  }, { threshold: 0 });
+
+  heroObserver.observe(hero);
+  ctaObserver.observe(ctaSection);
+})();
+
 // Калькулятор экономии для владельца бизнеса (бюджет → выгода)
 (function () {
   const widgets = document.querySelectorAll('.owner-savings');

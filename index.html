@@ -630,11 +630,11 @@
 
   <!-- Drawer: документы -->
   <div class="drawer documents-drawer" id="documentsDrawer">
-    <div class="drawer__overlay documents-drawer__overlay" onclick="closeDocumentsDrawer()"></div>
+    <div class="drawer__overlay documents-drawer__overlay"></div>
     <div class="drawer__content documents-drawer__content">
       <div class="documents-drawer__header">
         <h3 class="documents-drawer__title">Пример документов</h3>
-        <button class="drawer__close documents-drawer__close" onclick="closeDocumentsDrawer()" aria-label="Закрыть">×</button>
+        <button class="drawer__close documents-drawer__close" aria-label="Закрыть">×</button>
       </div>
       <div class="documents-drawer__body">
         <div class="documents-list-simple">
@@ -694,62 +694,6 @@
   <script src="assets/scripts/yandex-map-init.js"></script>
   <script src="assets/scripts/mobile-hotel-carousel.js"></script>
 
-  <script>
-  (function() {
-    var btn = document.getElementById('copyShareBtn');
-    var msg = document.getElementById('shareMessage');
-    var status = document.getElementById('copyStatus');
-    if (!btn || !msg) return;
-    function showCopied() {
-      status.textContent = 'Скопировано';
-      status.classList.add('share-card__copy-status--visible');
-      setTimeout(function() { status.classList.remove('share-card__copy-status--visible'); }, 2000);
-    }
-    btn.addEventListener('click', function() {
-      var paras = msg.querySelectorAll('p');
-      var text = paras.length ? Array.prototype.map.call(paras, function(p) { return p.textContent; }).join('\n\n') : msg.textContent;
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(showCopied);
-      } else {
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showCopied();
-      }
-    });
-  })();
-  </script>
-
-  <script>
-  (function() {
-    var hero = document.querySelector('.hero');
-    var ctaSection = document.querySelector('.cta-section');
-    var fixedCta = document.getElementById('fixedCta');
-    if (!hero || !ctaSection || !fixedCta) return;
-
-    var heroVisible = true;
-    var ctaVisible = false;
-
-    function update() {
-      fixedCta.classList.toggle('hero__cta-fixed--visible', !heroVisible && !ctaVisible);
-    }
-
-    var heroObserver = new IntersectionObserver(function(entries) {
-      heroVisible = entries[0].isIntersecting;
-      update();
-    }, { threshold: 0 });
-
-    var ctaObserver = new IntersectionObserver(function(entries) {
-      ctaVisible = entries[0].isIntersecting;
-      update();
-    }, { threshold: 0 });
-
-    heroObserver.observe(hero);
-    ctaObserver.observe(ctaSection);
-  })();
-  </script>
+  <script src="assets/scripts/share.js"></script>
 </body>
 </html>
