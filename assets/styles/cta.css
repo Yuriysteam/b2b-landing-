@@ -30,7 +30,7 @@
 }
 
 .cta-section .btn-secondary:hover {
-  background: var(--bg-neutral);
+  background: var(--bg-neutral-hover);
 }
 
 @media (max-width: 760px) {

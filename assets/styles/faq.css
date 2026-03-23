@@ -45,6 +45,10 @@
   user-select: none;
 }
 
+.faq-item__question:hover {
+  opacity: 0.95;
+}
+
 .faq-item__question::after {
   content: '';
   flex-shrink: 0;
@@ -94,6 +98,10 @@
    ============================================ */
 
 @media (max-width: 760px) {
+  .faq-title {
+    margin-bottom: 0;
+  }
+
   .faq-section {
     grid-template-columns: 1fr;
     gap: 24px;

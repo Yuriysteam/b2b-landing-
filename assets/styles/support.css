@@ -124,7 +124,7 @@
 
   .support-card {
     padding: 28px 20px;
-    border-radius: var(--radius-element);
+    border-radius: 40px;
     gap: 16px;
   }
 

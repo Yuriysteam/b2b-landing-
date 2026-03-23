@@ -411,7 +411,7 @@ document.addEventListener('keydown', function(e) {
       }
 
       const savings = Math.round(budget * BASE_DISCOUNT);
-      out.innerHTML = `Потенциальная экономия: <strong>до\u00A0${formatNumberRu(savings)}\u00A0₽/мес</strong>`;
+      out.innerHTML = `Потенциальная экономия: <strong>до\u00A0${formatNumberRu(savings)}\u00A0₽ в\u00A0месяц</strong>`;
     };
 
     // Форматируем ввод при наборе

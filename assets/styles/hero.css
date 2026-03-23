@@ -67,7 +67,7 @@
 /* Плавающая копия CTA — появляется при скролле ниже hero */
 .hero__cta-fixed {
   position: fixed;
-  bottom: 32px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
   z-index: 100;
@@ -79,6 +79,10 @@
   pointer-events: none;
   transition: transform 0.25s cubic-bezier(.25,.46,.45,.94), opacity 0.25s ease, scale 0.25s ease;
   scale: 0.9;
+  background: var(--bg-white);
+  border-radius: 32px;
+  padding: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .hero__cta-fixed--visible {
@@ -102,7 +106,7 @@
 }
 
 .hero__cta .btn-secondary:hover {
-  background: #e8e8e8;
+  background: var(--bg-neutral-hover);
 }
 
 /* ============================================
@@ -125,6 +129,7 @@
     text-align: left;
     line-height: 100%;
     max-width: 100%;
+    margin-top: 0;
   }
 
   .hero__subtitle {
@@ -141,6 +146,10 @@
 
   .hero__cta-fixed {
     width: calc(100% - 48px);
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
   }
 
   .hero__cta-fixed-secondary {

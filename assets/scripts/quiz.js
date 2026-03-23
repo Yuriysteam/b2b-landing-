@@ -16,18 +16,21 @@
 
   var resultData = [
     {
-      budget: { value: '~6–12%', detail: 'на\u00A0поездках за\u00A0счёт корпоративных скидок и\u00A0спецтарифов', note: 'При 5–10 поездках в\u00A0месяц и\u00A0среднем чеке 40–80\u00A0тыс\u00A0₽ это ≈\u00A012–96\u00A0тыс\u00A0₽/мес.' },
-      time: { value: '~4–6 часов/мес.', detail: 'за\u00A0счёт единого поиска, бронирования и\u00A0документов в\u00A0одном месте', note: 'Чеки не\u00A0нужно собирать вручную — закрывающие формируются автоматически.' },
+      budget: { value: '~6–12%', detail: 'на\u00A0поездках за\u00A0счёт корпоративных скидок и\u00A0спецтарифов', note: 'При 5–10 поездках в\u00A0месяц и\u00A0среднем чеке 40–80\u00A0тыс\u00A0₽ это ≈\u00A012–96\u00A0тыс\u00A0₽ в\u00A0месяц.' },
+      time: { value: '~4–6 часов в\u00A0месяц', detail: 'за\u00A0счёт единого поиска, бронирования и\u00A0документов в\u00A0одном месте', note: 'Чеки не\u00A0нужно собирать вручную — закрывающие формируются автоматически.' },
+      docs: { title: 'Документы', note: 'Закрывающие в\u00A0одном месте, чеки не\u00A0нужно собирать вручную.' },
       cta: { text: 'Запустить бесплатно', href: 'https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/', cls: 'btn btn-primary' }
     },
     {
-      budget: { value: '~8–15%', detail: 'за\u00A0счёт единого потока и\u00A0контроля до\u00A0бронирования', note: 'При 10–50 поездках в\u00A0месяц это обычно ≈\u00A050–450\u00A0тыс\u00A0₽/мес.' },
+      budget: { value: '~8–15%', detail: 'за\u00A0счёт единого потока и\u00A0контроля до\u00A0бронирования', note: 'При 10–50 поездках в\u00A0месяц это обычно ≈\u00A050–450\u00A0тыс\u00A0₽ в\u00A0месяц.' },
       time: { value: 'до\u00A08 часов/нед.', detail: 'на\u00A0координации и\u00A0отчётности', note: 'Заявки, брони и\u00A0отчёты в\u00A0одном контуре — без\u00A0сборки «по\u00A0кускам».' },
+      docs: { title: 'Документы', note: 'Заявки, брони и\u00A0отчёты в\u00A0одном контуре, без\u00A0сборки «по\u00A0кускам».' },
       cta: { text: 'Подключить команду', href: 'https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/', cls: 'btn btn-primary' }
     },
     {
-      budget: { value: '~10–18%', detail: 'за\u00A0счёт автополитик, лимитов и\u00A0маршрутов согласования', note: 'При 50+ поездках в\u00A0месяц это обычно ≈\u00A0350\u00A0тыс–1,4\u00A0млн\u00A0₽/мес.' },
+      budget: { value: '~10–18%', detail: 'за\u00A0счёт автополитик, лимитов и\u00A0маршрутов согласования', note: 'При 50+ поездках в\u00A0месяц это обычно ≈\u00A0350\u00A0тыс–1,4\u00A0млн\u00A0₽ в\u00A0месяц.' },
       time: { value: 'значимая часть', detail: 'ручного контроля и\u00A0выгрузок снимается автоматически', note: 'Политика проверяется при\u00A0бронировании, данные уходят в\u00A0системы без\u00A0ручной сверки.' },
+      docs: { title: 'Документы и\u00A0контроль', note: 'Политика проверяется при\u00A0бронировании, данные уходят в\u00A0системы без\u00A0ручной сверки.' },
       cta: { text: 'Запустить пилот', href: 'https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/', cls: 'btn btn-primary' }
     }
   ];
@@ -71,7 +74,8 @@
     document.getElementById('result-budget-value').textContent = r.budget.value + ' ' + r.budget.detail;
     document.getElementById('result-budget-note').textContent = r.budget.note;
     document.getElementById('result-time-value').textContent = r.time.value + ' ' + r.time.detail;
-    document.getElementById('result-time-note').textContent = r.time.note;
+    document.getElementById('result-docs-title').textContent = r.docs.title;
+    document.getElementById('result-docs-note').textContent = r.docs.note;
 
     var ctaBlock = document.getElementById('result-cta');
     ctaBlock.innerHTML = '';
