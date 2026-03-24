@@ -34,15 +34,16 @@
     // Создаём временную форму и отправляем
     var form = document.createElement('form');
     form.method  = 'POST';
-    form.action  = 'https://forms.amocrm.ru/api/v1/form_submit/' + AMO_FORM_ID + '/' + AMO_FORM_HASH;
+    form.action  = 'https://forms.amocrm.ru/queue/add';
     form.target  = frameName;
     form.style.display = 'none';
 
+    // Поля берутся из реальной формы AmoCRM (form_1687950_daaa0...html)
     var fields = {
-      form_id:  AMO_FORM_ID,
-      hash:     AMO_FORM_HASH,
-      phone:    phone,
-      referer:  window.location.href,
+      'form_id':                  AMO_FORM_ID,
+      'hash':                     AMO_FORM_HASH,
+      'fields[1147529_1][634523]': phone,
+      'user_origin':              window.location.href,
     };
 
     Object.keys(fields).forEach(function (key) {
