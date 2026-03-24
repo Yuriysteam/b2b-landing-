@@ -56,6 +56,7 @@
 
     document.body.appendChild(form);
     form.submit();
+    console.log('[AmoCRM] Лид отправлен:', { form_id: AMO_FORM_ID, phone: phone, url: window.location.href });
 
     // Удаляем форму после отправки
     setTimeout(function () {

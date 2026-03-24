@@ -160,14 +160,22 @@
 
 .consultation-drawer__header-content {
   display: block;
+  flex: 1;
+}
+
+.consultation-drawer__close {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
 }
 
 .consultation-drawer__title {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   line-height: var(--heading-line-height);
-  margin-bottom: 4px;
+  margin-bottom: 12px;
   color: var(--text-primary);
 }
 
@@ -178,7 +186,7 @@
 }
 
 .consultation-drawer__body {
-  padding: 24px 24px 32px;
+  padding: 0 24px 24px;
   overflow-y: auto;
 }
 
@@ -237,21 +245,28 @@
 
 .consultation-drawer__submit {
   width: 100%;
-  height: 56px;
-  font-size: var(--text-size);
+  font-size: 16px;
+  height: 48px;
 }
+
 
 .consultation-drawer__success {
   display: none;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
-  padding: 24px 0;
+  gap: 24px;
+  padding: 0;
 }
 
 .consultation-drawer__success-icon {
   margin-bottom: 4px;
+}
+
+.consultation-drawer__success-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .consultation-drawer__success-title {
@@ -273,14 +288,14 @@
 
 .consultation-drawer__success-btn {
   width: 100%;
-  height: 56px;
-  font-size: var(--text-size);
+  font-size: 16px;
+  height: 48px;
   margin-top: 12px;
 }
 
 /* На десктопе — попап по центру */
 @media (min-width: 761px) {
-  .consultation-drawer.active {
+  .consultation-drawer {
     top: 0;
     display: flex;
     align-items: center;
@@ -376,6 +391,10 @@
 
 /* Мобилка: тултип скрыт, drawer показан */
 @media (max-width: 760px) {
+  .consultation-drawer__body {
+    padding-top: 12px;
+  }
+
   .documents-tooltip { display: none; }
   .documents-drawer  { display: block; }
 

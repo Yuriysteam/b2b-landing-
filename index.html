@@ -324,7 +324,7 @@
           <h5 class="documents-section__label">Документооборот</h5>
           <h2 id="documents-title" class="documents-section__title">Закрывающие документы</h2>
           <p class="documents-section__subtitle">Счета, акты и&nbsp;чеки формируются автоматически и&nbsp;доступны в&nbsp;личном кабинете или через ЭДО.</p>
-          <p class="documents-section__text">Ваучеры и&nbsp;акты о&nbsp;проживания приходят вовремя, поэтому бухгалтерии проще вести учёт.</p>
+          <p class="documents-section__text">Ваучеры и&nbsp;акты о&nbsp;проживании приходят вовремя, поэтому бухгалтерии проще вести учёт.</p>
           <div class="documents-section__cta">
             <a href="#documentsDrawer" class="btn btn-secondary" data-drawer="documents">Скачать примеры документов</a>
           </div>
@@ -652,7 +652,7 @@
           </div>
         </div>
         <div class="documents-drawer__footer">
-          <a href="https://travel.yandex.ru/business/docs/examples" class="btn btn-secondary">Скачать пример документов</a>
+          <a href="https://disk.yandex.ru/d/J5D94si2C4-ppw" class="btn btn-secondary" target="_blank" rel="noopener">Скачать примеры документов</a>
         </div>
       </div>
     </div>
@@ -665,9 +665,9 @@
       <div class="consultation-drawer__header">
         <div class="consultation-drawer__header-content">
           <h3 class="consultation-drawer__title">Получить бесплатную консультацию</h3>
-          <p class="consultation-drawer__text">Оставьте номер телефона, мы свяжемся с&nbsp;вами и&nbsp;ответим на&nbsp;все вопросы</p>
+          <p class="consultation-drawer__text">Оставьте номер телефона, мы свяжемся с&nbsp;вами и&nbsp;ответим на&nbsp;вопросы</p>
         </div>
-        <button type="button" class="drawer__close consultation-drawer__close" aria-label="Закрыть">×</button>
+        <button type="button" class="drawer__close consultation-drawer__close" aria-label="Закрыть"><img src="assets/images/Close.svg" alt="" width="24" height="24" aria-hidden="true"></button>
       </div>
       <div class="consultation-drawer__body">
         <form class="consultation-drawer__form" id="consultationForm" novalidate>
@@ -679,10 +679,12 @@
         </form>
         <div class="consultation-drawer__success" id="consultationSuccess">
           <div class="consultation-drawer__success-icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#21A038"/><path d="M20 25.5L22.5 28L28 20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <img src="assets/images/Check.png" alt="" width="130" height="130" aria-hidden="true">
           </div>
-          <p class="consultation-drawer__success-title">Спасибо!</p>
-          <p class="consultation-drawer__success-text">Мы получили ваш номер и&nbsp;скоро свяжемся с&nbsp;вами</p>
+          <div class="consultation-drawer__success-texts">
+            <p class="consultation-drawer__success-title">Спасибо!</p>
+            <p class="consultation-drawer__success-text">Мы получили ваш номер и&nbsp;скоро свяжемся с&nbsp;вами</p>
+          </div>
           <button type="button" class="btn btn-secondary consultation-drawer__success-btn" id="consultationSuccessClose">Отлично</button>
         </div>
       </div>
