@@ -308,6 +308,11 @@ function closeConsultationDrawer() {
       var header = drawer.querySelector('.consultation-drawer__header-content');
       if (header) header.style.display = 'none';
       if (success) success.style.display = 'flex';
+
+      // Отправка лида в AmoCRM
+      if (typeof window.sendLeadToAmoCRM === 'function') {
+        window.sendLeadToAmoCRM(input.value);
+      }
     });
   }
 })();
@@ -492,6 +497,18 @@ document.addEventListener('keydown', function(e) {
   const year = String(new Date().getFullYear());
   document.querySelectorAll('.js-current-year').forEach((el) => {
     el.textContent = year;
+  });
+})();
+
+// Яндекс.Метрика — цель landing_goal_achieved на клик по кнопкам «Подключить»
+(function () {
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('a[href*="passport.yandex.ru/auth/reg/org"]');
+    if (!btn) return;
+    if (typeof ym === 'function') {
+      ym(108202214, 'reachGoal', 'landing_goal_achieved');
+      ym(50912507,  'reachGoal', 'landing_goal_achieved');
+    }
   });
 })();
 
