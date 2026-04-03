@@ -82,6 +82,7 @@
     var a = document.createElement('a');
     a.href = r.cta.href;
     a.className = r.cta.cls;
+    a.id = 'connectOrgQuiz';
     a.textContent = r.cta.text;
     ctaBlock.appendChild(a);
   }

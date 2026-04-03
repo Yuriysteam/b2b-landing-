@@ -512,3 +512,5 @@ document.addEventListener('keydown', function(e) {
   });
 })();
 
+// Детальная аналитика — см. assets/scripts/analytics.js
+

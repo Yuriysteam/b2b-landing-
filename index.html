@@ -184,11 +184,11 @@
         <img src="assets/images/logo-black.svg" alt="Яндекс Путешествия — на главную" width="168" height="28" class="header__logo-img header__logo-img--black">
       </a>
       <nav class="header__nav" aria-label="Основная навигация">
-        <a href="#savings" class="header__nav-link">Преимущества</a>
-        <a href="#about" class="header__nav-link">О сервисе</a>
-        <a href="#steps" class="header__nav-link">Узнать выгоду</a>
+        <a href="#savings" class="header__nav-link" id="menuAdvantages">Преимущества</a>
+        <a href="#about" class="header__nav-link" id="menuAbout">О сервисе</a>
+        <a href="#steps" class="header__nav-link" id="menuQuiz">Узнать выгоду</a>
       </nav>
-      <label for="menu-toggle" class="header__burger" aria-label="Меню">
+      <label for="menu-toggle" class="header__burger" id="burgerMenu" aria-label="Меню">
         <span class="header__burger-icon">=</span>
       </label>
     </div>
@@ -200,9 +200,9 @@
           <span class="header__mobile-close-icon">×</span>
         </label>
         <nav class="header__mobile-nav" aria-label="Мобильная навигация">
-          <a href="#savings" class="header__mobile-nav-link">Преимущества</a>
-          <a href="#about" class="header__mobile-nav-link">О сервисе</a>
-          <a href="#steps" class="header__mobile-nav-link">Узнать выгоду</a>
+          <a href="#savings" class="header__mobile-nav-link" id="mobileMenuAdvantages">Преимущества</a>
+          <a href="#about" class="header__mobile-nav-link" id="mobileMenuAbout">О сервисе</a>
+          <a href="#steps" class="header__mobile-nav-link" id="mobileMenuQuiz">Узнать выгоду</a>
         </nav>
       </div>
     </div>
@@ -217,7 +217,7 @@
           <p class="hero__subtitle">Бесплатный сервис для&nbsp;рабочих поездок&nbsp;– корпоративные скидки на&nbsp;жильё до&nbsp;40%, закрывающие документы и&nbsp;отсрочка платежей</p>
           <div class="hero__cta">
             <div class="cta-primary-wrapper">
-              <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary">Подключить организацию</a>
+              <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary" id="connectOrgHead">Подключить организацию</a>
             </div>
             <a href="#cta" class="btn btn-secondary" id="openConsultationDrawer" data-drawer="consultation">Получить консультацию</a>
           </div>
@@ -433,7 +433,7 @@
               <h2 class="quiz-section-title">Узнайте свою выгоду по&nbsp;корпоративным тарифам</h2>
               <p class="quiz-give__text">За одну минуту покажем, где в&nbsp;деловых поездках теряются деньги и&nbsp;время и&nbsp;как оптимизировать процесс без&nbsp;лишней ручной работы.
 Всего три вопроса.</p>
-              <button type="button" class="btn btn-primary quiz-give__btn" data-quiz-next>Показать выгоду</button>
+              <button type="button" class="btn btn-primary quiz-give__btn" id="quizStartBtn" data-quiz-next>Показать выгоду</button>
             </div>
             <div class="quiz-col quiz-col--right">
               <img src="assets/images/quiz-benefits.png" alt="Выгода корпоративных тарифов" loading="lazy" class="quiz-hook__image">
@@ -448,9 +448,9 @@
             </div>
             <div class="quiz-col quiz-col--right">
               <div class="quiz-options">
-                <button type="button" class="quiz-option" data-segment="0">Сам ищу варианты, бронирую и&nbsp;собираю документы</button>
-                <button type="button" class="quiz-option" data-segment="1">Координирую поездки команды: заявки, бронирование, документы</button>
-                <button type="button" class="quiz-option" data-segment="2">Есть выстроенный процесс: согласования, лимиты и&nbsp;тревел-политика</button>
+                <button type="button" class="quiz-option" id="quizQ1A1" data-segment="0">Сам ищу варианты, бронирую и&nbsp;собираю документы</button>
+                <button type="button" class="quiz-option" id="quizQ1A2" data-segment="1">Координирую поездки команды: заявки, бронирование, документы</button>
+                <button type="button" class="quiz-option" id="quizQ1A3" data-segment="2">Есть выстроенный процесс: согласования, лимиты и&nbsp;тревел-политика</button>
               </div>
             </div>
           </div>
@@ -463,9 +463,9 @@
             </div>
             <div class="quiz-col quiz-col--right">
               <div class="quiz-options">
-                <button type="button" class="quiz-option" data-segment="0">До&nbsp;10</button>
-                <button type="button" class="quiz-option" data-segment="1">10–50</button>
-                <button type="button" class="quiz-option" data-segment="2">50+</button>
+                <button type="button" class="quiz-option" id="quizQ2A1" data-segment="0">До&nbsp;10</button>
+                <button type="button" class="quiz-option" id="quizQ2A2" data-segment="1">10–50</button>
+                <button type="button" class="quiz-option" id="quizQ2A3" data-segment="2">50+</button>
               </div>
             </div>
           </div>
@@ -478,9 +478,9 @@
             </div>
             <div class="quiz-col quiz-col--right">
               <div class="quiz-options">
-                <button type="button" class="quiz-option" data-segment="0">В&nbsp;ближайшие 1–2&nbsp;недели</button>
-                <button type="button" class="quiz-option" data-segment="1">В&nbsp;течение месяца</button>
-                <button type="button" class="quiz-option" data-segment="2">Пока изучаю, как это работает</button>
+                <button type="button" class="quiz-option" id="quizQ3A1" data-segment="0">В&nbsp;ближайшие 1–2&nbsp;недели</button>
+                <button type="button" class="quiz-option" id="quizQ3A2" data-segment="1">В&nbsp;течение месяца</button>
+                <button type="button" class="quiz-option" id="quizQ3A3" data-segment="2">Пока изучаю, как это работает</button>
               </div>
             </div>
           </div>
@@ -601,7 +601,7 @@
 
         <div class="cta-group cta-group--center">
           <div class="cta-primary-wrapper">
-            <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary">Подключить организацию</a>
+            <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary" id="connectOrgBottom">Подключить организацию</a>
           </div>
           <a href="#faq" class="btn btn-secondary" id="openConsultationDrawer2" data-drawer="consultation">Получить консультацию</a>
         </div>
@@ -611,8 +611,8 @@
 
   <!-- Плавающий CTA (появляется при скролле ниже hero) -->
   <div class="hero__cta-fixed" id="fixedCta">
-    <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary">Подключить организацию</a>
-    <a href="#cta" class="btn btn-secondary hero__cta-fixed-secondary" data-drawer="consultation">Получить консультацию</a>
+    <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary" id="connectOrgScroll">Подключить организацию</a>
+    <a href="#cta" class="btn btn-secondary hero__cta-fixed-secondary" id="openConsultationScroll" data-drawer="consultation">Получить консультацию</a>
   </div>
 
   <footer role="contentinfo">
@@ -673,7 +673,7 @@
             <input type="tel" class="consultation-drawer__input" id="consultationPhone" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required>
             <span class="consultation-drawer__error" id="consultationError"></span>
           </div>
-          <button type="submit" class="btn btn-primary consultation-drawer__submit">Оставить номер</button>
+          <button type="submit" class="btn btn-primary consultation-drawer__submit" id="submitPhoneBtn">Оставить номер</button>
         </form>
         <div class="consultation-drawer__success" id="consultationSuccess">
           <div class="consultation-drawer__success-icon">
@@ -697,6 +697,7 @@
   <script src="assets/scripts/layout-pins.js"></script>
   <script src="assets/scripts/yandex-map-init.js"></script>
   <script src="assets/scripts/mobile-hotel-carousel.js"></script>
+  <script src="assets/scripts/analytics.js"></script>
 
   <script>
   (function() {
