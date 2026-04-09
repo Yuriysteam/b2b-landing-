@@ -7,8 +7,15 @@
 # IDE / Editor
 .idea/
 .vscode/
+.cursor/
+.cursorrules
 *.swp
 *.swo
+
+# Dev scripts
+serve-no-cache.py
+scripts/
+.ruff_cache/
 
 # Claude Code
 .claude/
