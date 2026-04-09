@@ -80,7 +80,9 @@
     var ctaBlock = document.getElementById('result-cta');
     ctaBlock.innerHTML = '';
     var a = document.createElement('a');
-    a.href = r.cta.href;
+    a.href = typeof window.appendUtmsToHref === 'function'
+      ? window.appendUtmsToHref(r.cta.href)
+      : r.cta.href;
     a.className = r.cta.cls;
     a.id = 'connectOrgQuiz';
     a.textContent = r.cta.text;
