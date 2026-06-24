@@ -55,6 +55,7 @@
   font-weight: 400;
   font-size: var(--text-size);
   line-height: var(--text-line-height);
+  letter-spacing: 0;
   color: var(--text-primary);
   margin: 0;
 }

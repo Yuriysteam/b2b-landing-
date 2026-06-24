@@ -14,11 +14,13 @@
 
 # Dev scripts
 serve-no-cache.py
-scripts/
+scripts/*
+!scripts/publish-b2b-landing.py
 .ruff_cache/
 
 # Claude Code
 .claude/
+.opencode/
 
 # Env
 .env

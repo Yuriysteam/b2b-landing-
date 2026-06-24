@@ -16,12 +16,15 @@
   var MAP_CENTERS = {
     moscow: { center: [55.7558, 37.6173], zoom: 11.5 },
     spb: { center: [59.9343, 30.3351], zoom: 12.5 },
-    kazan: { center: [55.8057, 49.1131], zoom: 13 },
+    kazan: { center: [55.7900, 49.1131], zoom: 13 },
     russia: { center: [60, 82], zoom: 4 }
   };
 
   var hotelsData = null;
   var loadedCities = {};
+  var EDGE_PIN_PADDING = 40;
+  // Data refresh rule for Moscow: keep discount mix near 20%: 31.4%, 15%: 30.5%, 10%: 38.1% of pins.
+  // With the current 955 Moscow objects this is 33 / 32 / 40 pins, or 3.5% / 3.4% / 4.2% of all objects.
 
   function createPinLayout() {
     return ymaps.templateLayoutFactory.createClass(
@@ -34,9 +37,10 @@
     );
   }
 
-  function createSmallBlackDotLayout() {
+  function createSmallBlackDotLayout(isLight) {
+    var color = isLight ? '#909090' : '#000';
     return ymaps.templateLayoutFactory.createClass(
-      '<div style="width:5px;height:5px;border-radius:50%;background:#000;"></div>'
+      '<div style="width:5px;height:5px;border-radius:50%;background:' + color + ';"></div>'
     );
   }
 
@@ -79,7 +83,7 @@
           hideIconOnBalloonOpen: false,
           openBalloonOnClick: false,
           hasHint: false,
-          zIndex: 100
+          zIndex: pin.d === 20 ? 130 : 100
         }
       );
       map.geoObjects.add(placemark);
@@ -89,8 +93,8 @@
     return refs;
   }
 
-  function addDots(map, dots) {
-    var SmallDotLayout = createSmallBlackDotLayout();
+  function addDots(map, dots, isLight) {
+    var SmallDotLayout = createSmallBlackDotLayout(isLight);
     var dotShape = { type: 'Rectangle', coordinates: [[-2.5, -2.5], [2.5, 2.5]] };
 
     dots.forEach(function(coords) {
@@ -103,6 +107,62 @@
       });
       map.geoObjects.add(placemark);
     });
+  }
+
+  function isNearMapEdge(map, coords) {
+    var size = map.container && map.container.getSize ? map.container.getSize() : null;
+    if (!size || !size[0] || !size[1]) return false;
+
+    var projection = map.options.get('projection');
+    if (!projection || !projection.toGlobalPixels) return false;
+
+    var zoom = map.getZoom();
+    var centerPixels = projection.toGlobalPixels(map.getCenter(), zoom);
+    var pointPixels = projection.toGlobalPixels(coords, zoom);
+    var x = size[0] / 2 + pointPixels[0] - centerPixels[0];
+    var y = size[1] / 2 + pointPixels[1] - centerPixels[1];
+
+    return x < EDGE_PIN_PADDING ||
+      y < EDGE_PIN_PADDING ||
+      x > size[0] - EDGE_PIN_PADDING ||
+      y > size[1] - EDGE_PIN_PADDING;
+  }
+
+  function splitEdgePins(map, cityData) {
+    var result = { pins: [], dots: cityData.dots.slice() };
+
+    cityData.pins.forEach(function(pin) {
+      if (isNearMapEdge(map, pin.c)) {
+        result.dots.push(pin.c);
+      } else {
+        result.pins.push(pin);
+      }
+    });
+
+    return result;
+  }
+
+  function renderCityData(cityKey) {
+    var map = window.savingsMaps && window.savingsMaps[cityKey];
+    if (!map || !hotelsData || !hotelsData[cityKey]) return;
+
+    map.geoObjects.removeAll();
+    var cityData = splitEdgePins(map, hotelsData[cityKey]);
+    var placemarkRefs = addPins(map, cityData.pins);
+    addDots(map, cityData.dots, cityKey === 'moscow' || cityKey === 'kazan' || cityKey === 'spb');
+
+    if (!window.savingsHotels) window.savingsHotels = {};
+    if (!window.savingsPlacemarkRefs) window.savingsPlacemarkRefs = {};
+    window.savingsHotels[cityKey] = cityData.pins.map(function(p) {
+      return {
+        coords: p.c,
+        hint: p.n,
+        balloonTitle: p.n,
+        balloonBody: 'Скидка: −' + p.d + '%',
+        discount: p.d
+      };
+    });
+    window.savingsPlacemarkRefs[cityKey] = placemarkRefs;
   }
 
   function loadCityData(cityKey) {
@@ -126,23 +186,7 @@
 
     if (!hotelsData || !hotelsData[cityKey]) return;
 
-    var cityData = hotelsData[cityKey];
-    var placemarkRefs = addPins(map, cityData.pins);
-    addDots(map, cityData.dots);
-
-    if (!window.savingsHotels) window.savingsHotels = {};
-    if (!window.savingsPlacemarkRefs) window.savingsPlacemarkRefs = {};
-
-    window.savingsHotels[cityKey] = cityData.pins.map(function(p) {
-      return {
-        coords: p.c,
-        hint: p.n,
-        balloonTitle: p.n,
-        balloonBody: 'Скидка: −' + p.d + '%',
-        discount: p.d
-      };
-    });
-    window.savingsPlacemarkRefs[cityKey] = placemarkRefs;
+    renderCityData(cityKey);
   }
 
   var RUSSIA_DOTS = [
@@ -187,7 +231,7 @@
 
     ymaps.ready(function() {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'assets/data/hotels.json', true);
+      xhr.open('GET', 'assets/data/hotels.json?v=' + Date.now(), true);
       xhr.onload = function() {
         if (xhr.status === 200) {
           hotelsData = JSON.parse(xhr.responseText);
