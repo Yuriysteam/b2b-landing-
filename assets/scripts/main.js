@@ -182,13 +182,71 @@ function closeDocumentsDrawer() {
 }
 
 // Drawer консультации (телефон)
+window.addEventListener('error', function(e) {
+  console.error('[B2B landing error]', e.message, e.filename, e.lineno, e.colno, e.error);
+});
+
+window.addEventListener('unhandledrejection', function(e) {
+  console.error('[B2B landing unhandled rejection]', e.reason);
+});
+
 function getScrollbarWidth() {
   return window.innerWidth - document.documentElement.clientWidth;
 }
 
+var drawerFocusOrigins = {};
+
+function getDrawerFocusableElements(drawer) {
+  return Array.prototype.filter.call(
+    drawer.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+    function(el) { return el.offsetParent !== null; }
+  );
+}
+
+function focusDrawer(drawer, trigger) {
+  drawerFocusOrigins[drawer.id] = trigger || document.activeElement;
+  window.requestAnimationFrame(function() {
+    var focusable = getDrawerFocusableElements(drawer);
+    if (focusable.length) focusable[0].focus();
+  });
+}
+
+function restoreDrawerFocus(drawer) {
+  var trigger = drawerFocusOrigins[drawer.id];
+  delete drawerFocusOrigins[drawer.id];
+  if (trigger && document.contains(trigger)) trigger.focus();
+}
+
+function trapDrawerFocus(event, drawer) {
+  if (event.key !== 'Tab') return;
+  var focusable = getDrawerFocusableElements(drawer);
+  if (!focusable.length) {
+    event.preventDefault();
+    return;
+  }
+  var first = focusable[0];
+  var last = focusable[focusable.length - 1];
+  if (!drawer.contains(document.activeElement)) {
+    event.preventDefault();
+    first.focus();
+  } else if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
 function formatPhone(value) {
-  var digits = value.replace(/\D/g, '');
-  if (digits.length > 0 && (digits[0] === '7' || digits[0] === '8')) digits = digits.slice(1);
+  var raw = String(value || '');
+  var digits = raw.replace(/\D/g, '');
+  if (!digits) return raw.indexOf('+') !== -1 ? '+' : '';
+
+  if (digits[0] === '7' || digits[0] === '8') {
+    digits = digits.slice(1);
+  }
+  if (!digits) return '+7';
   if (digits.length > 10) digits = digits.slice(0, 10);
   var result = '+7';
   if (digits.length > 0) result += ' (' + digits.slice(0, 3);
@@ -204,17 +262,89 @@ function isValidPhone(value) {
   return digits.length === 11 && (digits[0] === '7' || digits[0] === '8');
 }
 
-function openConsultationDrawer() {
+function getNormalizedPhone(value) {
+  var digits = value.replace(/\D/g, '');
+  if (digits.length === 11 && (digits[0] === '7' || digits[0] === '8')) digits = digits.slice(1);
+  return '+7' + digits;
+}
+
+function pastePhone(event, input, error, errorClass) {
+  var clipboard = event.clipboardData || window.clipboardData;
+  if (!clipboard) return;
+  var pastedValue = clipboard.getData('text');
+  if (!/\d/.test(pastedValue)) return;
+
+  event.preventDefault();
+  input.value = formatPhone(pastedValue);
+  input.classList.remove(errorClass);
+  if (error) {
+    error.textContent = '';
+    error.style.display = 'none';
+  }
+}
+
+var consultationDrawerDefaultContent = {
+  title: 'Получить бесплатную консультацию',
+  text: 'Оставьте номер телефона, мы свяжемся с\u00A0вами и\u00A0ответим на\u00A0вопросы',
+  button: 'Оставить номер'
+};
+
+var connectOrgDrawerContent = {
+  title: 'Сделайте рабочие поездки выгоднее',
+  text: 'Поможем подключить корпоративные тарифы, настроить оплату и\u00A0документы, чтобы рабочие поездки были без\u00A0лишних расходов',
+  button: 'Подключить организацию'
+};
+
+var consultationDrawerMode = 'consultation';
+var pendingConnectOrgHref = '';
+
+function setConsultationDrawerContent(content) {
+  var drawer = document.getElementById('consultationDrawer');
+  if (!drawer) return;
+  var title = drawer.querySelector('.consultation-drawer__title');
+  var text = drawer.querySelector('.consultation-drawer__text');
+  var submit = document.getElementById('submitPhoneBtn');
+  if (title) title.textContent = content.title;
+  if (text) text.textContent = content.text;
+  if (submit) {
+    submit.textContent = content.button;
+    submit.disabled = false;
+  }
+}
+
+function getConnectOrgButtonPosition(el) {
+  if (el.closest('.hero__cta') || el.closest('.hero')) return 'head';
+  if (el.closest('.cta-section')) return 'bottom';
+  if (el.closest('#fixedCta') || el.closest('.hero__cta-fixed')) return 'scroll';
+  return 'scroll';
+}
+
+function openConsultationDrawer(options) {
+  options = options || {};
+  consultationDrawerMode = options.mode || 'consultation';
+  window._consultationMode = consultationDrawerMode;
+  pendingConnectOrgHref = options.href || '';
+
   var drawer = document.getElementById('consultationDrawer');
   if (!drawer) return;
   var form = document.getElementById('consultationForm');
   var success = document.getElementById('consultationSuccess');
   var input = document.getElementById('consultationPhone');
   var error = document.getElementById('consultationError');
+  var top = drawer.querySelector('.consultation-drawer__top');
+  var benefits = drawer.querySelector('.consultation-drawer__benefits');
+  setConsultationDrawerContent(consultationDrawerMode === 'connectOrg'
+    ? connectOrgDrawerContent
+    : consultationDrawerDefaultContent);
   // Сброс к форме при открытии
   var header = drawer.querySelector('.consultation-drawer__header-content');
+  if (top) top.style.display = '';
   if (header) header.style.display = '';
-  if (form) form.style.display = '';
+  if (benefits) benefits.style.display = '';
+  if (form) {
+    form.style.display = '';
+    form.removeAttribute('data-submitting');
+  }
   if (success) success.style.display = 'none';
   if (input) { input.value = ''; input.classList.remove('consultation-drawer__input--error'); }
   if (error) { error.textContent = ''; error.style.display = 'none'; }
@@ -222,9 +352,52 @@ function openConsultationDrawer() {
   var scrollY = window.scrollY || window.pageYOffset;
   var sb = getScrollbarWidth();
   document.body.style.overflow = 'hidden';
-  document.body.style.paddingRight = sb > 0 ? sb + 'px' : '';
+  document.body.style.paddingRight = window.innerWidth > 760 && sb > 0 ? sb + 'px' : '';
   document.body.setAttribute('data-drawer-scroll-y', scrollY);
   drawer.classList.add('active');
+  focusDrawer(drawer, options.trigger);
+}
+
+function openConnectOrgDrawer(href, position, trigger) {
+  window._consultationOpenedFrom = position || 'head';
+  window._consultationMode = 'connectOrg';
+  pendingConnectOrgHref = href || '';
+  var drawer = document.getElementById('connectOrgDrawer');
+  if (!drawer) return;
+  var form = document.getElementById('connectOrgForm');
+  var input = document.getElementById('connectOrgPhone');
+  var error = document.getElementById('connectOrgError');
+  var submit = document.getElementById('connectOrgSubmitBtn');
+  if (form) {
+    form.style.display = '';
+    form.removeAttribute('data-submitting');
+  }
+  if (input) { input.value = ''; input.classList.remove('connect-org-drawer__input--error'); }
+  if (error) { error.textContent = ''; error.style.display = 'none'; }
+  if (submit) { submit.disabled = false; submit.textContent = 'Подключить организацию'; }
+
+  var scrollY = window.scrollY || window.pageYOffset;
+  var sb = getScrollbarWidth();
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = window.innerWidth > 760 && sb > 0 ? sb + 'px' : '';
+  document.body.setAttribute('data-drawer-scroll-y', scrollY);
+  drawer.classList.add('active');
+  focusDrawer(drawer, trigger);
+  document.dispatchEvent(new CustomEvent('b2b:connectPhoneDrawerShow', {
+    detail: { position: window._consultationOpenedFrom }
+  }));
+}
+
+function closeConnectOrgDrawer() {
+  var drawer = document.getElementById('connectOrgDrawer');
+  if (!drawer) return;
+  drawer.classList.remove('active');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+  var scrollY = document.body.getAttribute('data-drawer-scroll-y');
+  if (scrollY !== null && scrollY !== '') window.scrollTo(0, parseInt(scrollY, 10));
+  document.body.removeAttribute('data-drawer-scroll-y');
+  restoreDrawerFocus(drawer);
 }
 
 function closeConsultationDrawer() {
@@ -236,6 +409,7 @@ function closeConsultationDrawer() {
   var scrollY = document.body.getAttribute('data-drawer-scroll-y');
   if (scrollY !== null && scrollY !== '') window.scrollTo(0, parseInt(scrollY, 10));
   document.body.removeAttribute('data-drawer-scroll-y');
+  restoreDrawerFocus(drawer);
 }
 
 (function initConsultationDrawer() {
@@ -245,7 +419,15 @@ function closeConsultationDrawer() {
   document.querySelectorAll('[data-drawer="consultation"], #openConsultationDrawer, #openConsultationDrawer2').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      openConsultationDrawer();
+      openConsultationDrawer({ trigger: btn });
+    });
+  });
+
+  document.querySelectorAll('a[href*="passport.yandex.ru/auth/reg/org"]').forEach(function(btn) {
+    if (btn.closest('#quiz-result') || btn.closest('#result-cta')) return;
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openConnectOrgDrawer(btn.href, getConnectOrgButtonPosition(btn), btn);
     });
   });
 
@@ -258,7 +440,9 @@ function closeConsultationDrawer() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && drawer.classList.contains('active')) {
       closeConsultationDrawer();
+      return;
     }
+    if (drawer.classList.contains('active')) trapDrawerFocus(e, drawer);
   });
 
   // Кнопка «Отлично» закрывает попап
@@ -270,22 +454,44 @@ function closeConsultationDrawer() {
 
   // Маска ввода
   if (input) {
-    input.addEventListener('input', function() {
+    input.addEventListener('paste', function(e) {
+      pastePhone(e, input, error, 'consultation-drawer__input--error');
+    });
+
+    input.addEventListener('beforeinput', function(e) {
+      if (e.inputType !== 'deleteContentBackward' && e.inputType !== 'deleteContentForward') return;
+      if (input.selectionStart !== input.selectionEnd) return;
+
+      var value = input.value;
       var pos = input.selectionStart;
-      var before = input.value.length;
-      input.value = formatPhone(input.value);
-      var after = input.value.length;
-      var newPos = pos + (after - before);
-      input.setSelectionRange(newPos, newPos);
-      // Сброс ошибки при вводе
-      input.classList.remove('consultation-drawer__input--error');
-      if (error) { error.textContent = ''; error.style.display = 'none'; }
+      var digits = value.replace(/\D/g, '');
+
+      // Удаляем цифру кода города, а не служебные символы маски: скобку и пробел.
+      if (e.inputType === 'deleteContentBackward' && pos === value.length && /^\+7\s\(\d{3}\)\s?$/.test(value)) {
+        e.preventDefault();
+        input.value = formatPhone(digits.slice(0, -1));
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    });
+
+    input.addEventListener('input', function() {
+      try {
+        var rawValue = input.value;
+        var formatted = formatPhone(rawValue);
+        input.value = formatted;
+
+        // Не двигаем курсор вручную: на tel-полях это часто ломает удаление маски.
+        input.classList.remove('consultation-drawer__input--error');
+        if (error) { error.textContent = ''; error.style.display = 'none'; }
+      } catch (err) {
+        console.error('[phone mask error]', err);
+      }
     });
     input.addEventListener('focus', function() {
       if (!input.value) input.value = '+7';
     });
     input.addEventListener('blur', function() {
-      if (input.value === '+7') input.value = '';
+      if (input.value === '+' || input.value === '+7') input.value = '';
     });
   }
 
@@ -295,6 +501,10 @@ function closeConsultationDrawer() {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       if (!input) return;
+      if (form.getAttribute('data-submitting') === 'true') {
+        e.stopImmediatePropagation();
+        return;
+      }
       if (!isValidPhone(input.value)) {
         input.classList.add('consultation-drawer__input--error');
         if (error) {
@@ -303,15 +513,126 @@ function closeConsultationDrawer() {
         }
         return;
       }
+      form.setAttribute('data-submitting', 'true');
       // Успешная отправка
       form.style.display = 'none';
+      var top = drawer.querySelector('.consultation-drawer__top');
       var header = drawer.querySelector('.consultation-drawer__header-content');
+      var benefits = drawer.querySelector('.consultation-drawer__benefits');
+      if (top) top.style.display = 'none';
       if (header) header.style.display = 'none';
+      if (benefits) benefits.style.display = 'none';
       if (success) success.style.display = 'flex';
 
       // Отправка лида в AmoCRM
       if (typeof window.sendLeadToAmoCRM === 'function') {
-        window.sendLeadToAmoCRM(input.value);
+        window.sendLeadToAmoCRM(getNormalizedPhone(input.value));
+      }
+    });
+  }
+})();
+
+(function initConnectOrgDrawer() {
+  var drawer = document.getElementById('connectOrgDrawer');
+  if (!drawer) return;
+
+  var overlay = drawer.querySelector('.connect-org-drawer__overlay');
+  var closeBtn = drawer.querySelector('.connect-org-drawer__close');
+  if (overlay) overlay.addEventListener('click', closeConnectOrgDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeConnectOrgDrawer);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && drawer.classList.contains('active')) {
+      closeConnectOrgDrawer();
+      return;
+    }
+    if (drawer.classList.contains('active')) trapDrawerFocus(e, drawer);
+  });
+
+  var input = document.getElementById('connectOrgPhone');
+  var error = document.getElementById('connectOrgError');
+  var form = document.getElementById('connectOrgForm');
+
+  if (input) {
+    input.addEventListener('paste', function(e) {
+      pastePhone(e, input, error, 'connect-org-drawer__input--error');
+    });
+
+    input.addEventListener('beforeinput', function(e) {
+      if (e.inputType !== 'deleteContentBackward' && e.inputType !== 'deleteContentForward') return;
+      if (input.selectionStart !== input.selectionEnd) return;
+      var value = input.value;
+      var digits = value.replace(/\D/g, '');
+      if (e.inputType === 'deleteContentBackward' && input.selectionStart === value.length && /^\+7\s\(\d{3}\)\s?$/.test(value)) {
+        e.preventDefault();
+        input.value = formatPhone(digits.slice(0, -1));
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    });
+
+    input.addEventListener('input', function() {
+      input.value = formatPhone(input.value);
+      input.classList.remove('connect-org-drawer__input--error');
+      if (error) { error.textContent = ''; error.style.display = 'none'; }
+    });
+    input.addEventListener('focus', function() {
+      if (!input.value) input.value = '+7';
+    });
+    input.addEventListener('blur', function() {
+      if (input.value === '+' || input.value === '+7') input.value = '';
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!input) return;
+      if (form.getAttribute('data-submitting') === 'true') {
+        e.stopImmediatePropagation();
+        return;
+      }
+      if (!isValidPhone(input.value)) {
+        input.classList.add('connect-org-drawer__input--error');
+        if (error) {
+          error.textContent = input.value.trim()
+            ? 'Введите корректный номер телефона'
+            : 'Укажите номер телефона, чтобы зарегистрировать организацию';
+          error.style.display = 'block';
+        }
+        return;
+      }
+
+      var submit = document.getElementById('connectOrgSubmitBtn');
+      form.setAttribute('data-submitting', 'true');
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = 'Переходим…';
+      }
+
+      if (typeof window.sendConnectOrgLeadToAmoCRM === 'function') {
+        window.sendConnectOrgLeadToAmoCRM(getNormalizedPhone(input.value));
+      }
+
+      var redirected = false;
+      var redirectAllowedAt = Date.now() + 1500;
+      function redirectToConnectOrg() {
+        if (redirected) return;
+        var redirectDelay = redirectAllowedAt - Date.now();
+        if (redirectDelay > 0) {
+          setTimeout(redirectToConnectOrg, redirectDelay);
+          return;
+        }
+        redirected = true;
+        window.location.href = pendingConnectOrgHref;
+      }
+
+      if (typeof window.trackB2BLandingGoal === 'function') {
+        window.trackB2BLandingGoal('b2b_landing_connect_organization_after_phone_redirect', {
+          position: window._consultationOpenedFrom || 'head'
+        }, redirectToConnectOrg);
+        setTimeout(redirectToConnectOrg, 800);
+      } else {
+        setTimeout(redirectToConnectOrg, 600);
       }
     });
   }
@@ -513,4 +834,3 @@ document.addEventListener('keydown', function(e) {
 })();
 
 // Детальная аналитика — см. assets/scripts/analytics.js
-

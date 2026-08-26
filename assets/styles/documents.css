@@ -77,6 +77,8 @@
 
 @media (max-width: 760px) {
   .documents-section {
+    margin: 0;
+    padding: 0 0 24px;
   }
 
   .documents-section__grid {
@@ -91,6 +93,7 @@
   .documents-section__content {
     flex: none;
     max-width: 100%;
+    padding-right: 0;
   }
 
   .documents-section__label {

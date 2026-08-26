@@ -17,6 +17,13 @@
   margin-top: 12px;
 }
 
+@media (min-width: 761px) {
+  .faq-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
 .faq-item {
   border-top: 1px solid var(--border);
 }

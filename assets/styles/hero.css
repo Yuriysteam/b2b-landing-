@@ -156,3 +156,9 @@
     display: none;
   }
 }
+
+@media (min-width: 761px) {
+  #connectOrgScroll {
+    min-width: 360px;
+  }
+}

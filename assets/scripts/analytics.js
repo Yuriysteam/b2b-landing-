@@ -2,16 +2,33 @@
 (function () {
   var COUNTERS = [108202214, 50912507];
 
-  function track(goal, params) {
-    if (typeof ym !== 'function') return;
+  function track(goal, params, callback) {
+    if (typeof ym !== 'function') {
+      if (typeof callback === 'function') callback();
+      return;
+    }
+
+    var pending = COUNTERS.length;
+    var doneCalled = false;
+
+    function done() {
+      pending -= 1;
+      if (pending <= 0 && !doneCalled) {
+        doneCalled = true;
+        if (typeof callback === 'function') callback();
+      }
+    }
+
     COUNTERS.forEach(function (id) {
       if (params) {
-        ym(id, 'reachGoal', goal, params);
+        ym(id, 'reachGoal', goal, params, done);
       } else {
-        ym(id, 'reachGoal', goal);
+        ym(id, 'reachGoal', goal, done);
       }
     });
   }
+
+  window.trackB2BLandingGoal = track;
 
   // --- Определение позиции кнопки ---
   function getButtonPosition(el) {
@@ -52,16 +69,39 @@
     consultationForm.addEventListener('submit', function () {
       var phoneInput = document.getElementById('consultationPhone');
       if (!phoneInput) return;
-      // Отправляем только если номер валиден (11 цифр)
+      // Отправляем только если номер валиден: 10 цифр в поле или полный номер с 7/8.
       var digits = phoneInput.value.replace(/\D/g, '');
-      if (digits.length !== 11) return;
+      if (!(digits.length === 11 && (digits[0] === '7' || digits[0] === '8'))) return;
 
       // Определяем позицию по кнопке, которая открыла drawer
       track('b2b_landing_submit_phone_number_button_click', {
-        position: window._consultationOpenedFrom || 'head'
+        position: window._consultationOpenedFrom || 'head',
+        flow: window._consultationMode || 'consultation'
       });
     });
   }
+
+  var connectOrgForm = document.getElementById('connectOrgForm');
+  if (connectOrgForm) {
+    connectOrgForm.addEventListener('submit', function () {
+      var phoneInput = document.getElementById('connectOrgPhone');
+      if (!phoneInput) return;
+      var digits = phoneInput.value.replace(/\D/g, '');
+      if (!(digits.length === 11 && (digits[0] === '7' || digits[0] === '8'))) return;
+
+      track('b2b_landing_submit_phone_number_button_click', {
+        position: window._consultationOpenedFrom || 'head',
+        flow: 'connectOrg'
+      });
+    });
+  }
+
+  // --- Показ формы телефона перед созданием организации ---
+  document.addEventListener('b2b:connectPhoneDrawerShow', function (e) {
+    track('b2b_landing_connect_phone_form_show', {
+      position: e.detail && e.detail.position ? e.detail.position : 'head'
+    });
+  });
 
   // Сохраняем позицию кнопки, которая открыла drawer консультации
   document.querySelectorAll(
@@ -69,6 +109,36 @@
   ).forEach(function (btn) {
     btn.addEventListener('click', function () {
       window._consultationOpenedFrom = getButtonPosition(btn);
+    });
+  });
+
+  // --- Клик по кнопке города над картой ---
+  document.querySelectorAll('.map-tab[data-section="savings"]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      track('b2b_landing_city_button_click', {
+        city: btn.textContent.trim()
+      });
+    });
+  });
+
+  // --- Первый показ карты во вьюпорте ---
+  var cityMap = document.querySelector('.savings-section__map-widget');
+  if (cityMap) {
+    var cityMapShown = false;
+    var cityMapObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !cityMapShown) {
+        cityMapShown = true;
+        track('b2b_landing_city_map_show');
+        cityMapObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+    cityMapObserver.observe(cityMap);
+  }
+
+  // --- «Скачать примеры документов» ---
+  document.querySelectorAll('[data-analytics="sample-documents-download"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      track('b2b_landing_sample_documents_download_click');
     });
   });
 
@@ -159,6 +229,15 @@
       if (name) {
         track('b2b_landing_menu_button_click', { button_name: name });
       }
+    });
+  });
+
+  // --- «Войти в кабинет» ---
+  document.querySelectorAll('#openBusinessWorkspace, #mobileOpenBusinessWorkspace').forEach(function (link) {
+    link.addEventListener('click', function () {
+      track('b2b_landing_enter_b2b_account_click', {
+        position: link.id === 'mobileOpenBusinessWorkspace' ? 'mobile_menu' : 'header'
+      });
     });
   });
 

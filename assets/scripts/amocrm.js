@@ -12,6 +12,9 @@
 
   var AMO_FORM_ID   = '1687954';
   var AMO_FORM_HASH = '4868e5e00c42e9a3e4c15d58398140ff';
+  var lastSubmittedPhone = '';
+  var lastSubmittedAt = 0;
+  var DUPLICATE_WINDOW_MS = 10000;
 
   // Используем hidden iframe + form — нет CORS-ограничений,
   // страница не перезагружается, ответ уходит в скрытый фрейм.
@@ -20,6 +23,13 @@
       console.warn('[AmoCRM] Заполните AMO_FORM_ID и AMO_FORM_HASH в assets/scripts/amocrm.js');
       return;
     }
+
+    var now = Date.now();
+    if (phone === lastSubmittedPhone && now - lastSubmittedAt < DUPLICATE_WINDOW_MS) {
+      return false;
+    }
+    lastSubmittedPhone = phone;
+    lastSubmittedAt = now;
 
     // Создаём скрытый iframe-приёмник (один раз)
     var frameName = 'amo_hidden_frame';
@@ -61,6 +71,7 @@
     setTimeout(function () {
       if (form.parentNode) form.parentNode.removeChild(form);
     }, 500);
+    return true;
   }
 
   window.sendLeadToAmoCRM = sendLeadToAmoCRM;

@@ -6,6 +6,13 @@
   margin-bottom: 0;
 }
 
+@media (min-width: 761px) {
+  .support-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 .support-section__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

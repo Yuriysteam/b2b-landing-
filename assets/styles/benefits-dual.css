@@ -7,6 +7,18 @@
   margin-bottom: 0;
 }
 
+@media (min-width: 761px) {
+  .benefits-dual-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .benefits-dual-grid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 .benefits-dual-layout {
   display: grid;
   grid-template-columns: 1fr;
