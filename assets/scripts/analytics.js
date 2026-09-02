@@ -45,7 +45,7 @@
 
   // --- «Подключить организацию» ---
   document.addEventListener('click', function (e) {
-    var btn = e.target.closest('a[href*="passport.yandex.ru/auth/reg/org"]');
+    var btn = e.target.closest('[data-connect-cta]');
     if (!btn) return;
     track('b2b_landing_connect_organization_button_click', {
       position: getButtonPosition(btn)
@@ -81,27 +81,58 @@
     });
   }
 
-  var connectOrgForm = document.getElementById('connectOrgForm');
-  if (connectOrgForm) {
-    connectOrgForm.addEventListener('submit', function () {
-      var phoneInput = document.getElementById('connectOrgPhone');
-      if (!phoneInput) return;
-      var digits = phoneInput.value.replace(/\D/g, '');
-      if (!(digits.length === 11 && (digits[0] === '7' || digits[0] === '8'))) return;
+  // --- Показ встроенной формы подключения ---
+  var connectOrgSection = document.getElementById('cta');
+  if (connectOrgSection) {
+    var connectOrgFormShown = false;
+    var connectOrgFormObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !connectOrgFormShown) {
+        connectOrgFormShown = true;
+        track('b2b_landing_connect_application_form_show');
+        connectOrgFormObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+    connectOrgFormObserver.observe(connectOrgSection);
+  }
 
-      track('b2b_landing_submit_phone_number_button_click', {
-        position: window._consultationOpenedFrom || 'head',
-        flow: 'connectOrg'
+  // --- Валидная заявка и показ подтверждения ---
+  var connectOrgSuccessGoalSent = false;
+  document.addEventListener('b2b:connectApplicationSubmitted', function(e) {
+    var detail = e.detail || {};
+    var params = {
+      position: detail.position || 'direct',
+      has_messenger: Boolean(detail.hasMessenger)
+    };
+    if (!connectOrgSuccessGoalSent) {
+      connectOrgSuccessGoalSent = true;
+      if (typeof ym === 'function') {
+        ym(108202214, 'reachGoal', 'connect_org_success');
+      }
+    }
+    // Сохраняем старую цель, чтобы не оборвать существующий ряд в Метрике.
+    track('b2b_landing_submit_phone_number_button_click', {
+      position: params.position,
+      flow: 'connectOrg'
+    });
+    track('b2b_landing_connect_application_submit', params);
+    track('b2b_landing_connect_application_confirmation_show', params);
+  });
+
+  document.addEventListener('b2b:connectApplicationValidationError', function(e) {
+    var fields = e.detail && Array.isArray(e.detail.fields) ? e.detail.fields : [];
+    track('b2b_landing_connect_application_validation_error', {
+      fields: fields.join(',')
+    });
+  });
+
+  var selfSetupButton = document.getElementById('connectOrgSelfSetup');
+  if (selfSetupButton) {
+    selfSetupButton.addEventListener('click', function() {
+      track('b2b_landing_connect_application_self_setup_click', {
+        position: window._connectApplicationOpenedFrom || 'direct'
       });
     });
   }
-
-  // --- Показ формы телефона перед созданием организации ---
-  document.addEventListener('b2b:connectPhoneDrawerShow', function (e) {
-    track('b2b_landing_connect_phone_form_show', {
-      position: e.detail && e.detail.position ? e.detail.position : 'head'
-    });
-  });
 
   // Сохраняем позицию кнопки, которая открыла drawer консультации
   document.querySelectorAll(

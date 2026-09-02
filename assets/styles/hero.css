@@ -85,6 +85,11 @@
   box-shadow: var(--shadow-float);
 }
 
+.hero__cta-fixed .btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
 .hero__cta-fixed--visible {
   transform: translateX(-50%) translateY(0);
   opacity: 1;

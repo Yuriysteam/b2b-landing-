@@ -116,7 +116,13 @@
   }
 
   .share-card__copy {
+    flex: 1 1 100%;
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .share-card__copy-row {
+    width: 100%;
   }
 }

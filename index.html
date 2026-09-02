@@ -51,20 +51,20 @@
   -->
   <link rel="stylesheet" href="assets/styles/normalize.css">
   <link rel="stylesheet" href="assets/styles/main.css">
-  <link rel="stylesheet" href="assets/styles/header.css">
-  <link rel="stylesheet" href="assets/styles/hero.css">
+  <link rel="stylesheet" href="assets/styles/header.css?v=20260902-1">
+  <link rel="stylesheet" href="assets/styles/hero.css?v=20260902-1">
   <link rel="stylesheet" href="assets/styles/map.css">
   <link rel="stylesheet" href="assets/styles/savings.css">
   <link rel="stylesheet" href="assets/styles/benefits-dual.css">
-  <link rel="stylesheet" href="assets/styles/documents.css">
+  <link rel="stylesheet" href="assets/styles/documents.css?v=20260902-1">
   <link rel="stylesheet" href="assets/styles/support.css">
   <link rel="stylesheet" href="assets/styles/trust-reviews.css">
-  <link rel="stylesheet" href="assets/styles/steps-quiz.css">
+  <link rel="stylesheet" href="assets/styles/steps-quiz.css?v=20260902-1">
   <link rel="stylesheet" href="assets/styles/faq.css">
-  <link rel="stylesheet" href="assets/styles/cta.css">
+  <link rel="stylesheet" href="assets/styles/cta.css?v=20260902-12">
   <link rel="stylesheet" href="assets/styles/footer.css">
   <link rel="stylesheet" href="assets/styles/drawers.css">
-  <link rel="stylesheet" href="assets/styles/share.css">
+  <link rel="stylesheet" href="assets/styles/share.css?v=20260902-1">
 
   <!-- Yandex Maps API -->
   <script src="https://api-maps.yandex.ru/2.1/?apikey=ee841c90-5da8-424a-ab9a-397a31f4f806&lang=ru_RU" type="text/javascript"></script>
@@ -186,8 +186,7 @@
       <nav class="header__nav" aria-label="Основная навигация">
         <a href="#savings" class="header__nav-link" id="menuAdvantages">Преимущества</a>
         <a href="#about" class="header__nav-link" id="menuAbout">О сервисе</a>
-        <a href="#steps" class="header__nav-link" id="menuQuiz">Узнать выгоду</a>
-        <a href="https://travel.yandex.ru/business/workspace/trips/" class="header__nav-link header__nav-link--cta" id="openBusinessWorkspace">Войти в кабинет</a>
+        <a href="https://travel.yandex.ru/business/workspace/trips/" class="header__nav-link header__nav-link--cta" id="openBusinessWorkspace">Личный кабинет</a>
       </nav>
       <label for="menu-toggle" class="header__burger" id="burgerMenu" aria-label="Меню">
         <span class="header__burger-icon">=</span>
@@ -203,8 +202,7 @@
         <nav class="header__mobile-nav" aria-label="Мобильная навигация">
           <a href="#savings" class="header__mobile-nav-link" id="mobileMenuAdvantages">Преимущества</a>
           <a href="#about" class="header__mobile-nav-link" id="mobileMenuAbout">О сервисе</a>
-          <a href="#steps" class="header__mobile-nav-link" id="mobileMenuQuiz">Узнать выгоду</a>
-          <a href="https://travel.yandex.ru/business/workspace/trips/" class="header__mobile-nav-link header__mobile-nav-link--cta" id="mobileOpenBusinessWorkspace">Войти в кабинет</a>
+          <a href="https://travel.yandex.ru/business/workspace/trips/" class="header__mobile-nav-link header__mobile-nav-link--cta" id="mobileOpenBusinessWorkspace">Личный кабинет</a>
         </nav>
       </div>
     </div>
@@ -219,7 +217,7 @@
           <p class="hero__subtitle">Сервис для&nbsp;рабочих поездок&nbsp;– корпоративные скидки на&nbsp;жильё до&nbsp;40%, закрывающие документы и&nbsp;отсрочка платежей</p>
           <div class="hero__cta">
             <div class="cta-primary-wrapper">
-              <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary" id="connectOrgHead">Подключить организацию</a>
+              <a href="#cta" class="btn btn-primary" id="connectOrgHead" data-connect-cta>Подключить организацию</a>
             </div>
             <a href="#cta" class="btn btn-secondary" id="openConsultationDrawer" data-drawer="consultation">Получить консультацию</a>
           </div>
@@ -594,18 +592,42 @@
       </div>
     </section>
 
-    <!-- Финальный CTA -->
+    <!-- Финальный CTA с формой заявки -->
     <section id="cta" class="cta-section" aria-label="Подключить организацию">
-      <div class="container">
-        <h2>Подключите бизнес сегодня</h2>
-        <p>Зарегистрируйте компанию бесплатно по&nbsp;ИНН.
-Корпоративные тарифы станут доступны сразу после создания аккаунта</p>
-
-        <div class="cta-group cta-group--center">
-          <div class="cta-primary-wrapper">
-            <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary" id="connectOrgBottom">Подключить организацию</a>
+      <div class="container cta-section__container">
+        <div class="cta-section__content" id="connectOrgLeadContent">
+          <div class="cta-section__intro">
+            <h2>Начните экономить на&nbsp;рабочих поездках</h2>
+            <p class="cta-section__description">Оставьте заявку — бесплатно подключим компанию по&nbsp;ИНН, настроим оплату и&nbsp;документы. Свяжемся в&nbsp;течение трёх часов, тарифы будут доступны сразу после подключения.</p>
           </div>
-          <a href="#faq" class="btn btn-secondary" id="openConsultationDrawer2" data-drawer="consultation">Получить консультацию</a>
+
+          <form class="cta-form" id="connectOrgForm" novalidate>
+            <div class="cta-form__field">
+              <input class="cta-form__input" id="connectOrgName" name="name" type="text" autocomplete="name" placeholder="Имя" aria-label="Имя" aria-describedby="connectOrgNameError" required>
+              <span class="cta-form__error" id="connectOrgNameError" aria-live="polite"></span>
+            </div>
+
+            <div class="cta-form__field">
+              <input class="cta-form__input" id="connectOrgPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Номер телефона" aria-label="Телефон" aria-describedby="connectOrgPhoneError" aria-required="true" required>
+              <span class="cta-form__error" id="connectOrgPhoneError" aria-live="polite"></span>
+            </div>
+
+            <div class="cta-form__field">
+              <input class="cta-form__input" id="connectOrgMessenger" name="messenger" type="text" autocomplete="off" placeholder="Телеграм или Max, если есть" aria-label="Телеграм или Max, необязательно" aria-describedby="connectOrgMessengerError">
+              <span class="cta-form__error" id="connectOrgMessengerError" aria-live="polite"></span>
+            </div>
+
+            <button class="btn btn-primary cta-form__submit" type="submit" id="connectOrgSubmitBtn">Отправить заявку</button>
+            <p class="cta-form__legal">Нажимая кнопку, вы соглашаетесь на&nbsp;обработку персональных данных</p>
+          </form>
+        </div>
+
+        <div class="cta-success" id="connectOrgSuccess" tabindex="-1" role="status" aria-live="polite" hidden>
+          <img class="cta-success__icon" src="assets/images/Check.png" alt="" width="96" height="96" aria-hidden="true">
+          <h3>Спасибо – получили вашу заявку</h3>
+          <p>Мы свяжемся с&nbsp;вами в&nbsp;течение трёх часов — расскажем, как всё подключить.</p>
+          <p>Либо настройте самостоятельно за&nbsp;5&nbsp;минут прямо сейчас — нужен только ИНН.</p>
+          <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary cta-success__button" id="connectOrgSelfSetup">Настроить самостоятельно</a>
         </div>
       </div>
     </section>
@@ -613,7 +635,7 @@
 
   <!-- Плавающий CTA (появляется при скролле ниже hero) -->
   <div class="hero__cta-fixed" id="fixedCta">
-    <a href="https://passport.yandex.ru/auth/reg/org?origin=travel_unmanaged&retpath=https://travel.yandex.ru/business/workspace/" class="btn btn-primary" id="connectOrgScroll">Подключить организацию</a>
+    <a href="#cta" class="btn btn-primary" id="connectOrgScroll" data-connect-cta>Подключить организацию</a>
     <a href="#cta" class="btn btn-secondary hero__cta-fixed-secondary" id="openConsultationScroll" data-drawer="consultation">Получить консультацию</a>
   </div>
 
@@ -691,57 +713,17 @@
     </div>
   </div>
 
-  <!-- Modal: телефон перед созданием организации -->
-  <div class="drawer connect-org-drawer" id="connectOrgDrawer" role="dialog" aria-modal="true" aria-labelledby="connectOrgDrawerTitle" aria-describedby="connectOrgDrawerDescription">
-    <div class="drawer__overlay connect-org-drawer__overlay" aria-hidden="true"></div>
-    <div class="drawer__content connect-org-drawer__content">
-      <div class="connect-org-drawer__main">
-        <div class="connect-org-drawer__top">
-          <div class="connect-org-drawer__header">
-            <div class="connect-org-drawer__header-content">
-              <h3 class="connect-org-drawer__title" id="connectOrgDrawerTitle">Сделайте рабочие поездки выгоднее</h3>
-              <p class="connect-org-drawer__text" id="connectOrgDrawerDescription">Поможем подключить корпоративные тарифы, настроить оплату и&nbsp;документы, чтобы рабочие поездки были без&nbsp;лишних расходов</p>
-            </div>
-          </div>
-          <div class="connect-org-drawer__benefits" aria-hidden="true">
-            <div class="connect-org-drawer__benefit">
-              <span class="connect-org-drawer__benefit-icon" aria-hidden="true"><img src="assets/images/connect-org-modal-discount-icon.png" alt="" width="36" height="36" loading="lazy"></span>
-              <span class="connect-org-drawer__benefit-content"><strong>Скидки на&nbsp;жильё до&nbsp;40%</strong><span>Ищите отели и&nbsp;квартиры с&nbsp;пометкой «Корпоративный»</span></span>
-            </div>
-            <div class="connect-org-drawer__benefit">
-              <span class="connect-org-drawer__benefit-icon" aria-hidden="true"><img src="assets/images/connect-org-modal-account-icon.png" alt="" width="36" height="36" loading="lazy"></span>
-              <span class="connect-org-drawer__benefit-content"><strong>Оплата с&nbsp;бизнес-счёта</strong><span>Пополняйте баланс и&nbsp;оплачивайте рабочие поездки как юридическое лицо</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="connect-org-drawer__body">
-          <form class="connect-org-drawer__form" id="connectOrgForm" novalidate>
-            <div class="connect-org-drawer__field">
-              <input type="tel" class="connect-org-drawer__input" id="connectOrgPhone" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required>
-              <span class="connect-org-drawer__error" id="connectOrgError"></span>
-            </div>
-            <button type="submit" class="btn connect-org-drawer__submit" id="connectOrgSubmitBtn">Подключить организацию</button>
-          </form>
-        </div>
-      </div>
-      <div class="connect-org-drawer__illustration" aria-hidden="true">
-        <img src="assets/images/connect-org-modal-illustration.png" alt="" width="624" height="592" loading="lazy">
-      </div>
-      <button type="button" class="drawer__close connect-org-drawer__close" aria-label="Закрыть"><img src="assets/images/Close.svg" alt="" width="24" height="24" aria-hidden="true"></button>
-    </div>
-  </div>
-
   <!-- Скрипты -->
   <script src="assets/scripts/amocrm.js"></script>
-  <script src="assets/scripts/amocrm-connect-org.js"></script>
+  <script src="assets/scripts/amocrm-connect-org.js?v=20260902-3"></script>
   <script src="assets/scripts/utm.js"></script>
   <script src="assets/scripts/faq.js"></script>
-  <script src="assets/scripts/main.js"></script>
-  <script src="assets/scripts/quiz.js"></script>
+  <script src="assets/scripts/main.js?v=20260902-5"></script>
+  <script src="assets/scripts/quiz.js?v=20260902-1"></script>
   <script src="assets/scripts/layout-pins.js"></script>
   <script src="assets/scripts/yandex-map-init.js"></script>
   <script src="assets/scripts/mobile-hotel-carousel.js"></script>
-  <script src="assets/scripts/analytics.js?v=20260825-1"></script>
+  <script src="assets/scripts/analytics.js?v=20260902-2"></script>
 
   <script>
   (function() {
