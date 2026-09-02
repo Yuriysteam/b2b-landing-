@@ -144,14 +144,6 @@
   opacity: 0.72;
 }
 
-.cta-form__legal {
-  margin: -8px 0 0;
-  color: var(--text-muted);
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-}
-
 .cta-success {
   display: flex;
   flex-direction: column;
