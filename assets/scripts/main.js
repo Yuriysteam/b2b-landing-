@@ -1,27 +1,37 @@
-// Плавный скролл к якорям (кнопки с data-drawer не скроллят, а открывают drawer)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    if (this.getAttribute('data-drawer') === 'consultation') {
-      e.preventDefault();
-      return;
-    }
+// Плавный скролл к якорям, включая CTA, которые появляются динамически в квизе.
+document.addEventListener('click', function(e) {
+  var anchor = e.target.closest('a[href^="#"]');
+  if (!anchor) return;
+  if (anchor.getAttribute('data-drawer') === 'consultation') {
     e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    const target = document.querySelector(targetId);
-    if (target) {
-      const headerHeight = document.querySelector('.header').offsetHeight;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-      // Сбросить чекбокс мобильного меню если открыт
-      const menuToggle = document.getElementById('menu-toggle');
-      if (menuToggle) menuToggle.checked = false;
-    }
-  });
+    return;
+  }
+
+  var targetId = anchor.getAttribute('href');
+  if (!targetId || targetId === '#') return;
+  var target = document.querySelector(targetId);
+  if (!target) return;
+
+  e.preventDefault();
+  if (anchor.hasAttribute('data-connect-cta')) {
+    window._connectApplicationOpenedFrom = getConnectCtaPosition(anchor);
+  }
+
+  var header = document.querySelector('.header');
+  var headerHeight = header ? header.offsetHeight : 0;
+  var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+
+  var menuToggle = document.getElementById('menu-toggle');
+  if (menuToggle) menuToggle.checked = false;
 });
+
+function getConnectCtaPosition(el) {
+  if (el.closest('#quiz-result') || el.closest('#result-cta')) return 'quiz';
+  if (el.closest('.hero__cta') || el.closest('.hero')) return 'head';
+  if (el.closest('#fixedCta') || el.closest('.hero__cta-fixed')) return 'scroll';
+  return 'direct';
+}
 
 // Прозрачность header при скролле
 window.addEventListener('scroll', function() {
@@ -289,14 +299,7 @@ var consultationDrawerDefaultContent = {
   button: 'Оставить номер'
 };
 
-var connectOrgDrawerContent = {
-  title: 'Сделайте рабочие поездки выгоднее',
-  text: 'Поможем подключить корпоративные тарифы, настроить оплату и\u00A0документы, чтобы рабочие поездки были без\u00A0лишних расходов',
-  button: 'Подключить организацию'
-};
-
 var consultationDrawerMode = 'consultation';
-var pendingConnectOrgHref = '';
 
 function setConsultationDrawerContent(content) {
   var drawer = document.getElementById('consultationDrawer');
@@ -312,18 +315,10 @@ function setConsultationDrawerContent(content) {
   }
 }
 
-function getConnectOrgButtonPosition(el) {
-  if (el.closest('.hero__cta') || el.closest('.hero')) return 'head';
-  if (el.closest('.cta-section')) return 'bottom';
-  if (el.closest('#fixedCta') || el.closest('.hero__cta-fixed')) return 'scroll';
-  return 'scroll';
-}
-
 function openConsultationDrawer(options) {
   options = options || {};
   consultationDrawerMode = options.mode || 'consultation';
   window._consultationMode = consultationDrawerMode;
-  pendingConnectOrgHref = options.href || '';
 
   var drawer = document.getElementById('consultationDrawer');
   if (!drawer) return;
@@ -333,9 +328,7 @@ function openConsultationDrawer(options) {
   var error = document.getElementById('consultationError');
   var top = drawer.querySelector('.consultation-drawer__top');
   var benefits = drawer.querySelector('.consultation-drawer__benefits');
-  setConsultationDrawerContent(consultationDrawerMode === 'connectOrg'
-    ? connectOrgDrawerContent
-    : consultationDrawerDefaultContent);
+  setConsultationDrawerContent(consultationDrawerDefaultContent);
   // Сброс к форме при открытии
   var header = drawer.querySelector('.consultation-drawer__header-content');
   if (top) top.style.display = '';
@@ -358,48 +351,6 @@ function openConsultationDrawer(options) {
   focusDrawer(drawer, options.trigger);
 }
 
-function openConnectOrgDrawer(href, position, trigger) {
-  window._consultationOpenedFrom = position || 'head';
-  window._consultationMode = 'connectOrg';
-  pendingConnectOrgHref = href || '';
-  var drawer = document.getElementById('connectOrgDrawer');
-  if (!drawer) return;
-  var form = document.getElementById('connectOrgForm');
-  var input = document.getElementById('connectOrgPhone');
-  var error = document.getElementById('connectOrgError');
-  var submit = document.getElementById('connectOrgSubmitBtn');
-  if (form) {
-    form.style.display = '';
-    form.removeAttribute('data-submitting');
-  }
-  if (input) { input.value = ''; input.classList.remove('connect-org-drawer__input--error'); }
-  if (error) { error.textContent = ''; error.style.display = 'none'; }
-  if (submit) { submit.disabled = false; submit.textContent = 'Подключить организацию'; }
-
-  var scrollY = window.scrollY || window.pageYOffset;
-  var sb = getScrollbarWidth();
-  document.body.style.overflow = 'hidden';
-  document.body.style.paddingRight = window.innerWidth > 760 && sb > 0 ? sb + 'px' : '';
-  document.body.setAttribute('data-drawer-scroll-y', scrollY);
-  drawer.classList.add('active');
-  focusDrawer(drawer, trigger);
-  document.dispatchEvent(new CustomEvent('b2b:connectPhoneDrawerShow', {
-    detail: { position: window._consultationOpenedFrom }
-  }));
-}
-
-function closeConnectOrgDrawer() {
-  var drawer = document.getElementById('connectOrgDrawer');
-  if (!drawer) return;
-  drawer.classList.remove('active');
-  document.body.style.overflow = '';
-  document.body.style.paddingRight = '';
-  var scrollY = document.body.getAttribute('data-drawer-scroll-y');
-  if (scrollY !== null && scrollY !== '') window.scrollTo(0, parseInt(scrollY, 10));
-  document.body.removeAttribute('data-drawer-scroll-y');
-  restoreDrawerFocus(drawer);
-}
-
 function closeConsultationDrawer() {
   var drawer = document.getElementById('consultationDrawer');
   if (!drawer) return;
@@ -420,14 +371,6 @@ function closeConsultationDrawer() {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       openConsultationDrawer({ trigger: btn });
-    });
-  });
-
-  document.querySelectorAll('a[href*="passport.yandex.ru/auth/reg/org"]').forEach(function(btn) {
-    if (btn.closest('#quiz-result') || btn.closest('#result-cta')) return;
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      openConnectOrgDrawer(btn.href, getConnectOrgButtonPosition(btn), btn);
     });
   });
 
@@ -532,110 +475,182 @@ function closeConsultationDrawer() {
   }
 })();
 
-(function initConnectOrgDrawer() {
-  var drawer = document.getElementById('connectOrgDrawer');
-  if (!drawer) return;
+(function initConnectOrgApplication() {
+  var form = document.getElementById('connectOrgForm');
+  if (!form) return;
 
-  var overlay = drawer.querySelector('.connect-org-drawer__overlay');
-  var closeBtn = drawer.querySelector('.connect-org-drawer__close');
-  if (overlay) overlay.addEventListener('click', closeConnectOrgDrawer);
-  if (closeBtn) closeBtn.addEventListener('click', closeConnectOrgDrawer);
+  var content = document.getElementById('connectOrgLeadContent');
+  var success = document.getElementById('connectOrgSuccess');
+  var submit = document.getElementById('connectOrgSubmitBtn');
+  var nameInput = document.getElementById('connectOrgName');
+  var phoneInput = document.getElementById('connectOrgPhone');
+  var messengerInput = document.getElementById('connectOrgMessenger');
+  var errors = {
+    name: document.getElementById('connectOrgNameError'),
+    phone: document.getElementById('connectOrgPhoneError'),
+    messenger: document.getElementById('connectOrgMessengerError')
+  };
 
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && drawer.classList.contains('active')) {
-      closeConnectOrgDrawer();
+  function showSuccessState() {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function revealSuccess() {
+      if (content) {
+        content.hidden = true;
+        content.classList.remove('cta-section__content--leaving');
+      }
+      if (success) {
+        success.hidden = false;
+        if (!reduceMotion) success.classList.add('cta-success--entering');
+        success.focus();
+      }
+    }
+
+    if (!content || reduceMotion) {
+      revealSuccess();
       return;
     }
-    if (drawer.classList.contains('active')) trapDrawerFocus(e, drawer);
+
+    content.classList.add('cta-section__content--leaving');
+    setTimeout(revealSuccess, 150);
+  }
+
+  function clearError(input, error) {
+    if (input) {
+      input.classList.remove('cta-form__input--error');
+      input.removeAttribute('aria-invalid');
+    }
+    if (error) {
+      error.textContent = '';
+      error.style.display = 'none';
+    }
+  }
+
+  function showError(input, error, message) {
+    if (input) {
+      input.classList.add('cta-form__input--error');
+      input.setAttribute('aria-invalid', 'true');
+    }
+    if (error) {
+      error.textContent = message;
+      error.style.display = 'block';
+    }
+  }
+
+  [nameInput, messengerInput].forEach(function(input) {
+    if (!input) return;
+    input.addEventListener('input', function() {
+      clearError(input, input === nameInput ? errors.name : errors.messenger);
+    });
   });
 
-  var input = document.getElementById('connectOrgPhone');
-  var error = document.getElementById('connectOrgError');
-  var form = document.getElementById('connectOrgForm');
-
-  if (input) {
-    input.addEventListener('paste', function(e) {
-      pastePhone(e, input, error, 'connect-org-drawer__input--error');
+  if (phoneInput) {
+    phoneInput.addEventListener('paste', function(e) {
+      pastePhone(e, phoneInput, errors.phone, 'cta-form__input--error');
     });
-
-    input.addEventListener('beforeinput', function(e) {
+    phoneInput.addEventListener('beforeinput', function(e) {
       if (e.inputType !== 'deleteContentBackward' && e.inputType !== 'deleteContentForward') return;
-      if (input.selectionStart !== input.selectionEnd) return;
-      var value = input.value;
+      if (phoneInput.selectionStart !== phoneInput.selectionEnd) return;
+      var value = phoneInput.value;
       var digits = value.replace(/\D/g, '');
-      if (e.inputType === 'deleteContentBackward' && input.selectionStart === value.length && /^\+7\s\(\d{3}\)\s?$/.test(value)) {
+      if (e.inputType === 'deleteContentBackward' && phoneInput.selectionStart === value.length && /^\+7\s\(\d{3}\)\s?$/.test(value)) {
         e.preventDefault();
-        input.value = formatPhone(digits.slice(0, -1));
-        input.setSelectionRange(input.value.length, input.value.length);
+        phoneInput.value = formatPhone(digits.slice(0, -1));
+        phoneInput.setSelectionRange(phoneInput.value.length, phoneInput.value.length);
       }
     });
-
-    input.addEventListener('input', function() {
-      input.value = formatPhone(input.value);
-      input.classList.remove('connect-org-drawer__input--error');
-      if (error) { error.textContent = ''; error.style.display = 'none'; }
+    phoneInput.addEventListener('input', function() {
+      phoneInput.value = formatPhone(phoneInput.value);
+      clearError(phoneInput, errors.phone);
     });
-    input.addEventListener('focus', function() {
-      if (!input.value) input.value = '+7';
+    phoneInput.addEventListener('focus', function() {
+      if (!phoneInput.value) phoneInput.value = '+7';
     });
-    input.addEventListener('blur', function() {
-      if (input.value === '+' || input.value === '+7') input.value = '';
+    phoneInput.addEventListener('blur', function() {
+      if (phoneInput.value === '+' || phoneInput.value === '+7') phoneInput.value = '';
     });
   }
 
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (!input) return;
-      if (form.getAttribute('data-submitting') === 'true') {
-        e.stopImmediatePropagation();
-        return;
-      }
-      if (!isValidPhone(input.value)) {
-        input.classList.add('connect-org-drawer__input--error');
-        if (error) {
-          error.textContent = input.value.trim()
-            ? 'Введите корректный номер телефона'
-            : 'Укажите номер телефона, чтобы зарегистрировать организацию';
-          error.style.display = 'block';
-        }
-        return;
-      }
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (form.getAttribute('data-submitting') === 'true') return;
 
-      var submit = document.getElementById('connectOrgSubmitBtn');
-      form.setAttribute('data-submitting', 'true');
+    var invalidFields = [];
+    var name = nameInput ? nameInput.value.trim() : '';
+    var phone = phoneInput ? phoneInput.value.trim() : '';
+    var messenger = messengerInput ? messengerInput.value.trim() : '';
+
+    clearError(nameInput, errors.name);
+    clearError(phoneInput, errors.phone);
+    clearError(messengerInput, errors.messenger);
+
+    if (!name) {
+      invalidFields.push('name');
+      showError(nameInput, errors.name, 'Укажите имя');
+    }
+    if (!isValidPhone(phone)) {
+      invalidFields.push('phone');
+      showError(phoneInput, errors.phone, phone ? 'Введите корректный номер телефона' : 'Укажите номер телефона');
+    }
+    if (messenger && messenger.replace(/\s/g, '').length < 2) {
+      invalidFields.push('messenger');
+      showError(messengerInput, errors.messenger, 'Проверьте контакт в мессенджере');
+    }
+
+    if (invalidFields.length) {
+      document.dispatchEvent(new CustomEvent('b2b:connectApplicationValidationError', {
+        detail: { fields: invalidFields }
+      }));
+      var firstInvalid = form.querySelector('[aria-invalid="true"]');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    if (typeof window.sendConnectOrgLeadToAmoCRM !== 'function') {
+      showError(phoneInput, errors.phone, 'Не удалось отправить заявку. Обновите страницу и попробуйте ещё раз');
+      return;
+    }
+
+    form.setAttribute('data-submitting', 'true');
+    if (submit) {
+      submit.disabled = true;
+      submit.textContent = 'Отправляем…';
+    }
+
+    var submission = window.sendConnectOrgLeadToAmoCRM({
+      name: name,
+      phone: getNormalizedPhone(phone),
+      messenger: messenger
+    });
+
+    if (submission === false) {
+      form.removeAttribute('data-submitting');
       if (submit) {
-        submit.disabled = true;
-        submit.textContent = 'Переходим…';
+        submit.disabled = false;
+        submit.textContent = 'Отправить заявку';
       }
+      showError(phoneInput, errors.phone, 'Заявка уже отправляется. Подождите несколько секунд');
+      return;
+    }
 
-      if (typeof window.sendConnectOrgLeadToAmoCRM === 'function') {
-        window.sendConnectOrgLeadToAmoCRM(getNormalizedPhone(input.value));
-      }
-
-      var redirected = false;
-      var redirectAllowedAt = Date.now() + 1500;
-      function redirectToConnectOrg() {
-        if (redirected) return;
-        var redirectDelay = redirectAllowedAt - Date.now();
-        if (redirectDelay > 0) {
-          setTimeout(redirectToConnectOrg, redirectDelay);
-          return;
+    Promise.resolve(submission).then(function() {
+      document.dispatchEvent(new CustomEvent('b2b:connectApplicationSubmitted', {
+        detail: {
+          position: window._connectApplicationOpenedFrom || 'direct',
+          hasMessenger: Boolean(messenger)
         }
-        redirected = true;
-        window.location.href = pendingConnectOrgHref;
-      }
+      }));
 
-      if (typeof window.trackB2BLandingGoal === 'function') {
-        window.trackB2BLandingGoal('b2b_landing_connect_organization_after_phone_redirect', {
-          position: window._consultationOpenedFrom || 'head'
-        }, redirectToConnectOrg);
-        setTimeout(redirectToConnectOrg, 800);
-      } else {
-        setTimeout(redirectToConnectOrg, 600);
+      showSuccessState();
+    }).catch(function() {
+      form.removeAttribute('data-submitting');
+      if (submit) {
+        submit.disabled = false;
+        submit.textContent = 'Отправить заявку';
       }
+      showError(phoneInput, errors.phone, 'Не удалось отправить заявку. Попробуйте ещё раз');
     });
-  }
+  });
 })();
 
 // Закрытие тултипа при клике вне его
