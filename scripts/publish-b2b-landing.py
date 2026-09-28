@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -30,6 +32,7 @@ EXCLUDED_DIRS = {
     ".venv",
     "venv",
     "env",
+    "tests",
 }
 EXCLUDED_FILES = {
     ".DS_Store",
@@ -71,6 +74,12 @@ def should_skip_file(relative_path: Path) -> bool:
 
 
 def build_archive() -> dict[str, object]:
+    subprocess.run(
+        [sys.executable, str(PROJECT_ROOT / "scripts" / "test-form.py")],
+        cwd=PROJECT_ROOT,
+        check=True,
+    )
+
     date_stamp = datetime.now().strftime("%Y-%m-%d")
     archive_name = f"{ARCHIVE_PREFIX}-{date_stamp}.zip"
     archive_path = PROJECT_ROOT / archive_name

@@ -16,6 +16,7 @@
 serve-no-cache.py
 scripts/*
 !scripts/publish-b2b-landing.py
+!scripts/test-form.py
 .ruff_cache/
 
 # Claude Code
