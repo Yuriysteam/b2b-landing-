@@ -48,7 +48,7 @@
     form.target  = frameName;
     form.style.display = 'none';
 
-    // Поля берутся из реальной формы AmoCRM (form_1687950_daaa0...html)
+    // Поля берутся из реальной формы AmoCRM 1687954.
     var fields = {
       'form_id':                  AMO_FORM_ID,
       'hash':                     AMO_FORM_HASH,

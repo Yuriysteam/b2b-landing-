@@ -49,8 +49,8 @@ def main() -> int:
     check("b2b_landing_connect_organization_after_phone_redirect" in main_js, "после отправки сохраняется переход к регистрации")
 
     check("function sendConnectOrgLeadToAmoCRM(phone)" in amo_js, "в AmoCRM передаётся телефон")
-    check("AMO_FORM_ID = '1687950'" in amo_js, "используется форма AmoCRM 1687950")
-    check("AMO_FORM_HASH = 'daaa09477a69d2a3cd26b2f92d1f449f'" in amo_js, "используется актуальный hash формы")
+    check("AMO_FORM_ID = '1687954'" in amo_js, "используется форма AmoCRM 1687954")
+    check("AMO_FORM_HASH = '4868e5e00c42e9a3e4c15d58398140ff'" in amo_js, "используется актуальный hash формы")
     check("fields[1147529_1][634523]" in amo_js, "используется поле телефона AmoCRM")
     check("fields[name_1]" not in amo_js and "fields[1365239_2]" not in amo_js, "лишние поля в AmoCRM не отправляются")
     check("DUPLICATE_WINDOW_MS = 10000" in amo_js, "повторная отправка защищена")
